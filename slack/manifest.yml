@@ -1,0 +1,56 @@
+display_information:
+  name: Company Brain
+  description: Ask the company brain anything - answers with citations from Slack, docs, email and tickets.
+  background_color: "#1f2937"
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: Brain
+    always_online: true
+  slash_commands:
+    - command: /brain
+      description: Ask the Company Brain a question
+      usage_hint: "[your question]"
+      should_escape: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - channels:history
+      - channels:join
+      - channels:read
+      - chat:write
+      - commands
+      - files:read
+      - groups:history
+      - groups:read
+      - im:history
+      - im:read
+      - im:write
+      - reactions:read
+      - team:read
+      - users:read
+      - users:read.email
+    user:
+      - channels:history
+      - channels:read
+      - groups:history
+      - groups:read
+      - users:read
+      - users:read.email
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_home_opened
+      - app_mention
+      - message.channels
+      - message.groups
+      - message.im
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false

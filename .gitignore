@@ -1,0 +1,104 @@
+# --- Secrets: never commit ---
+# Local key files kept at the repo root
+HydraDBkey.txt
+OpenRouterKey.txt
+SlackTokens.txt
+/*[Kk]ey*.txt
+/*[Tt]oken*.txt
+/secrets/
+secrets/
+*.pem
+
+# Environment files (examples are committed, real ones are not)
+.env
+.env.*
+**/.env
+**/.env.*
+*.env
+!.env.example
+!**/.env.example
+!**/.env.test.example
+apps/api/dev.env
+apps/api/preview.env
+apps/web/preview.env
+
+# --- Dependencies ---
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+
+# --- Build output ---
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+.turbo/
+.nest/
+apps/web/next-env.d.ts
+/apps/web/certificates
+
+# --- Testing ---
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+.nyc/
+
+# --- Local runtime data ---
+uploads/
+**/uploads/
+**/test-uploads/
+.tmp/
+.cache/
+*.cache
+*.tmp
+*.temp
+*.bak
+
+# --- Logs ---
+logs/
+*.log
+
+# --- OS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# --- Editors ---
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+/.claude/worktrees
+
+# --- Misc ---
+*.sqlite
+*.sqlite3
+*.db
+docker-compose.override.yml
+.vercel
+.vercel.json
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.parcel-cache
+.vite/
+storybook-static/
+**/public/sw.js
+**/public/workbox-*.js
+**/public/worker-*.js
+**/public/sw.js.map
+**/public/workbox-*.js.map
+**/public/worker-*.js.map
