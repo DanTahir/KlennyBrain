@@ -22,7 +22,10 @@ oauth_config:
       - channels:history
       - channels:join
       - channels:read
+      - channels:manage
       - chat:write
+      - chat:write.customize
+      - chat:write.public
       - commands
       - files:read
       - groups:history

@@ -1,11 +1,12 @@
 {
-  "name": "app-starter",
-  "version": "0.0.0",
+  "name": "klennybrain",
+  "version": "0.1.0",
   "private": true,
-  "description": "A multi-tenant SaaS starter: NestJS, Next.js, and Prisma in a Turborepo",
+  "description": "KlennyBrain: a Company Brain built on HydraDB and digohq/app-starter (NestJS, Next.js, Prisma)",
   "scripts": {
     "prepare": "husky",
-    "bootstrap": "./scripts/bootstrap.sh",
+    "bootstrap": "bash ./scripts/bootstrap.sh",
+    "env:init": "node scripts/init-env.mjs",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "start:api": "pnpm --filter @app-starter/api run start:prod",
@@ -33,6 +34,13 @@
     "pnpm": ">=8.0.0"
   },
   "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/engines",
+      "bcrypt",
+      "prisma",
+      "sharp",
+      "unrs-resolver"
+    ],
     "overrides": {
       "@types/react": "^19.0.0",
       "@types/react-dom": "^19.0.0"

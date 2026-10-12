@@ -40,6 +40,9 @@ copy_env apps/api/.env.example      apps/api/.env
 copy_env apps/api/.env.test.example apps/api/.env.test
 copy_env apps/web/.env.example      apps/web/.env.local
 
+info "Filling secrets from local key files / environment (values are never printed)"
+node scripts/init-env.mjs
+
 info "Installing dependencies"
 pnpm install
 

@@ -136,6 +136,64 @@ class EnvironmentVariables {
   @IsString()
   @IsOptional()
   R2_PUBLIC_URL?: string;
+
+  // --- Company Brain integrations (all optional; features degrade gracefully) ---
+
+  @IsString()
+  @IsOptional()
+  HYDRA_DB_API_KEY?: string;
+
+  @IsString()
+  @IsOptional()
+  HYDRA_DB_DATABASE_PREFIX?: string;
+
+  @IsString()
+  @IsOptional()
+  OPENROUTER_API_KEY?: string;
+
+  @IsString()
+  @IsOptional()
+  LLM_ANSWER_MODEL?: string;
+
+  @IsString()
+  @IsOptional()
+  LLM_ANSWER_FALLBACK_MODEL?: string;
+
+  @IsString()
+  @IsOptional()
+  LLM_FAST_MODEL?: string;
+
+  @IsString()
+  @IsOptional()
+  LLM_FAST_FALLBACK_MODEL?: string;
+
+  @IsString()
+  @IsOptional()
+  SLACK_BOT_TOKEN?: string;
+
+  @IsString()
+  @IsOptional()
+  SLACK_APP_TOKEN?: string;
+
+  @IsString()
+  @IsOptional()
+  SLACK_SIGNING_SECRET?: string;
+
+  @IsString()
+  @IsOptional()
+  SLACK_USER_TOKEN?: string;
+
+  @IsString()
+  @IsOptional()
+  SLACK_DEFAULT_ORG_SLUG?: string;
+
+  @IsString()
+  @IsOptional()
+  GITHUB_TOKEN?: string;
+
+  @IsString()
+  @IsOptional()
+  GITHUB_ACTIONS_REPO?: string;
 }
 
 /**
