@@ -233,6 +233,24 @@ export interface UpdateInsightRequest {
   status: InsightStatus;
 }
 
+/** Latest background insight-analysis run for an organization. */
+export interface InsightAnalysisDto {
+  status: 'IDLE' | 'RUNNING' | 'SUCCEEDED' | 'FAILED';
+  startedAt: string | null;
+  finishedAt: string | null;
+  /** Human-readable progress, e.g. "Checked 7/21 docs for contradictions". */
+  message: string | null;
+  error: string | null;
+  /** Open insights by type. */
+  counts: Partial<Record<InsightType, number>>;
+}
+
+/** `POST insights/:id/fix`: the agent's proposed (not yet executed) remediation actions. */
+export interface FixInsightResponse {
+  insight: InsightDto;
+  actions: AgentActionDto[];
+}
+
 export interface AgentActionDto {
   id: string;
   type: AgentActionType;

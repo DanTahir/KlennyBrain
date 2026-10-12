@@ -8,7 +8,10 @@ import type {
   ConversationDto,
   CreateSourceRequest,
   FeedbackRequest,
+  FixInsightResponse,
+  InsightAnalysisDto,
   InsightDto,
+  InsightStatus,
   InsightType,
   PersonaDto,
   SourceDto,
@@ -23,6 +26,18 @@ function base(organizationId: string): string {
 
 function id(value: string): string {
   return encodeURIComponent(value);
+}
+
+/** Build a `?a=b&c=d` query string, omitting undefined/empty values. */
+function query(params: Record<string, string | undefined>): string {
+  const search = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== '') {
+      search.set(key, value);
+    }
+  }
+  const qs = search.toString();
+  return qs ? `?${qs}` : '';
 }
 
 export const brainApi = {
@@ -98,15 +113,27 @@ export const brainApi = {
     );
   },
 
-  /** List insights, optionally filtered by type. */
-  listInsights(organizationId: string, type?: InsightType): Promise<InsightDto[]> {
-    const query = type ? `?type=${encodeURIComponent(type)}` : '';
-    return apiClient.get<InsightDto[]>(`${base(organizationId)}/insights${query}`);
+  /** List insights, optionally filtered by type / status, optionally viewed as another person. */
+  listInsights(
+    organizationId: string,
+    params?: { type?: InsightType; status?: InsightStatus; viewAs?: string },
+  ): Promise<InsightDto[]> {
+    const qs = query({
+      type: params?.type,
+      status: params?.status,
+      viewAs: params?.viewAs,
+    });
+    return apiClient.get<InsightDto[]>(`${base(organizationId)}/insights${qs}`);
   },
 
-  /** Queue a fresh insight analysis run. */
-  analyzeInsights(organizationId: string): Promise<{ queued: boolean }> {
-    return apiClient.post<{ queued: boolean }>(`${base(organizationId)}/insights/analyze`, {});
+  /** Fetch the latest background insight-analysis run. */
+  getInsightAnalysis(organizationId: string): Promise<InsightAnalysisDto> {
+    return apiClient.get<InsightAnalysisDto>(`${base(organizationId)}/insights/analysis`);
+  },
+
+  /** Start a fresh insight analysis run. */
+  analyzeInsights(organizationId: string): Promise<InsightAnalysisDto> {
+    return apiClient.post<InsightAnalysisDto>(`${base(organizationId)}/insights/analyze`, {});
   },
 
   /** Update an insight's status (resolve / dismiss / reopen). */
@@ -118,18 +145,21 @@ export const brainApi = {
     return apiClient.patch<InsightDto>(`${base(organizationId)}/insights/${id(insightId)}`, body);
   },
 
-  /** Ask the agent to propose actions that fix an insight. */
-  fixInsight(organizationId: string, insightId: string): Promise<AgentActionDto[]> {
-    return apiClient.post<AgentActionDto[]>(
+  /** Ask the agent to propose (not execute) actions that fix an insight. Slow: LLM-backed. */
+  fixInsight(organizationId: string, insightId: string): Promise<FixInsightResponse> {
+    return apiClient.post<FixInsightResponse>(
       `${base(organizationId)}/insights/${id(insightId)}/fix`,
       {},
     );
   },
 
   /** List agent actions, optionally filtered by status. */
-  listActions(organizationId: string, status?: AgentActionStatus): Promise<AgentActionDto[]> {
-    const query = status ? `?status=${encodeURIComponent(status)}` : '';
-    return apiClient.get<AgentActionDto[]>(`${base(organizationId)}/actions${query}`);
+  listActions(
+    organizationId: string,
+    params?: { status?: AgentActionStatus },
+  ): Promise<AgentActionDto[]> {
+    const qs = query({ status: params?.status });
+    return apiClient.get<AgentActionDto[]>(`${base(organizationId)}/actions${qs}`);
   },
 
   /** Approve and execute a proposed agent action. */

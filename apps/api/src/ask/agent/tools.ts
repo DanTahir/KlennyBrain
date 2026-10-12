@@ -7,6 +7,7 @@ import { HydraSearchHit, HydraSearchResult } from '../../hydra/hydra.types';
 import { BrainIdentity } from '../../acl/acl.service';
 import { ACTION_PEOPLE_INCLUDE, toAgentActionDto } from '../../agent-actions/agent-action.mapper';
 import { CitationInput, CitationRegistry, cleanSnippet } from '../citations';
+import { filterVisibleInsights } from '../../insights/insight-visibility';
 
 const SOURCE_SYSTEMS = ['slack', 'email', 'doc', 'meeting', 'ticket', 'issue'];
 const INSIGHT_TYPES = ['CONTRADICTION', 'STALE_DOC', 'DECISION', 'ACTION_ITEM'];
@@ -413,15 +414,19 @@ export class AgentToolbox {
   }
 
   private async listInsights(type?: string): Promise<ToolResult> {
-    const insights = await this.prisma.insight.findMany({
+    const candidates = await this.prisma.insight.findMany({
       where: {
         organizationId: this.ctx.organizationId,
         status: 'OPEN',
         ...(type && INSIGHT_TYPES.includes(type) ? { type: type as PrismaInsightType } : {}),
       },
-      orderBy: [{ severity: 'desc' }, { createdAt: 'desc' }],
-      take: 10,
+      orderBy: [{ severity: 'desc' }, { dueAt: { sort: 'asc', nulls: 'last' } }, { createdAt: 'desc' }],
+      take: 40,
     });
+    // Insights inherit their evidence's ACL, so the asker only sees ones built from sources they can read.
+    const insights = (
+      await filterVisibleInsights(this.prisma, this.ctx.organizationId, this.ctx.identity.acl, candidates)
+    ).slice(0, 12);
     if (!insights.length) return { ok: true, content: 'No open insights.', summary: '0 insights' };
     const lines = insights.map((insight) => {
       const evidence = Array.isArray(insight.evidence) ? (insight.evidence as unknown as Citation[]) : [];

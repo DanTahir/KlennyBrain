@@ -194,6 +194,10 @@ class EnvironmentVariables {
   @IsString()
   @IsOptional()
   GITHUB_ACTIONS_REPO?: string;
+
+  @IsString()
+  @IsOptional()
+  SLACK_ACTIONS_CHANNEL?: string;
 }
 
 /**

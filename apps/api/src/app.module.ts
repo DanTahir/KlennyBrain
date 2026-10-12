@@ -19,6 +19,8 @@ import { AdminImpersonationModule } from './admin-impersonation/admin-impersonat
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { BrainModule } from './brain/brain.module';
 import { AskModule } from './ask/ask.module';
+import { AgentActionsModule } from './agent-actions/agent-actions.module';
+import { InsightsModule } from './insights/insights.module';
 
 @Module({
   imports: [
@@ -54,6 +56,8 @@ import { AskModule } from './ask/ask.module';
     AdminDashboardModule,
     BrainModule,
     AskModule,
+    AgentActionsModule,
+    InsightsModule,
   ],
   controllers: [AppController],
   providers: [
