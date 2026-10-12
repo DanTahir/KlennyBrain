@@ -1,18 +1,22 @@
 /**
- * Development seed.
+ * Development seed for KlennyBrain.
  *
- * Creates one demo organization with an owner, a member, and two projects.
+ * Creates the fictional "Northwind Robotics" organization from the demo story
+ * bible (`data/demo/company.json`): four login personas, a DirectoryPerson row
+ * for every employee (used for ACL groups and "view as"), and the BrainSpace
+ * that maps the org to its HydraDB database. Knowledge itself is ingested at
+ * runtime via the "Load demo company" button (POST /brain/demo).
  *
- * Idempotent — safe to run repeatedly. Records upsert on their natural keys,
- * so re-running updates rather than duplicates.
+ * Idempotent: records upsert on their natural keys.
  *
  *   pnpm --filter @app-starter/api prisma:seed
  */
-import { PrismaClient, OrgRole, ProjectVisibility } from '@prisma/client';
+import { PrismaClient, OrgRole } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import * as bcrypt from 'bcrypt';
 import * as dotenv from 'dotenv';
+import * as fs from 'fs';
 import * as path from 'path';
 
 // Run directly via ts-node, so nothing else has loaded the env yet. Mirrors
@@ -29,14 +33,12 @@ if (!process.env.DATABASE_URL) {
   throw new Error('DATABASE_URL is not set. Copy apps/api/.env.example to apps/api/.env first.');
 }
 
-// The demo owner is a global admin with a password published in this file and
-// in the README. Creating it against a production database hands anyone who
-// has read the repository full control of the app, so refuse by default.
-// `SEED_ALLOW_PRODUCTION=true` is the deliberate opt-out.
+// The demo accounts use a password published in this file and in the README,
+// and the CEO persona is a global admin. Refuse to seed production by default.
 if (process.env.NODE_ENV === 'production' && process.env.SEED_ALLOW_PRODUCTION !== 'true') {
   throw new Error(
-    'Refusing to seed with NODE_ENV=production: the demo accounts have a publicly known password ' +
-      'and owner@example.com is a global admin. Set SEED_ALLOW_PRODUCTION=true if you really mean it.',
+    'Refusing to seed with NODE_ENV=production: the demo accounts have a publicly known password. ' +
+      'Set SEED_ALLOW_PRODUCTION=true if you really mean it.',
   );
 }
 
@@ -44,87 +46,125 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter: new PrismaPg(pool) });
 
 const DEMO_PASSWORD = 'Password123!';
+const ORG_SLUG = 'northwind';
 
-async function seedDemoOrganization() {
+interface BiblePerson {
+  id: string;
+  name: string;
+  email: string;
+  slackId: string;
+  title: string;
+  department: string;
+  manager: string | null;
+  groups: string[];
+  expertise: string[];
+}
+
+interface Bible {
+  company: { name: string; domain: string; description?: string };
+  people: BiblePerson[];
+}
+
+/** People who can sign in, with their organization role. */
+const LOGIN_PERSONAS: { id: string; role: OrgRole; globalAdmin?: boolean; label: string }[] = [
+  { id: 'elena', role: OrgRole.OWNER, globalAdmin: true, label: 'CEO, sees #leadership' },
+  { id: 'jordan', role: OrgRole.ADMIN, label: 'engineering lead' },
+  { id: 'marco', role: OrgRole.MEMBER, label: 'support agent' },
+  { id: 'ollie', role: OrgRole.MEMBER, label: 'engineering intern' },
+];
+
+function loadBible(): Bible {
+  const dataDir = process.env.DEMO_DATA_DIR
+    ? path.resolve(process.env.DEMO_DATA_DIR)
+    : path.resolve(apiRoot, '..', '..', 'data', 'demo');
+  return JSON.parse(fs.readFileSync(path.join(dataDir, 'company.json'), 'utf8')) as Bible;
+}
+
+/** Removes the upstream app-starter demo (Acme) if an older seed created it. */
+async function removeStarterDemo() {
+  await prisma.organization.deleteMany({ where: { slug: 'acme' } });
+  try {
+    await prisma.user.deleteMany({ where: { email: { in: ['owner@example.com', 'member@example.com'] } } });
+  } catch (error) {
+    console.warn('Could not remove the old example.com demo users:', (error as Error).message);
+  }
+}
+
+async function seedNorthwind() {
+  const bible = loadBible();
+  const byId = new Map(bible.people.map((person) => [person.id, person]));
   const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 10);
 
-  const owner = await prisma.user.upsert({
-    where: { email: 'owner@example.com' },
-    update: {},
-    create: {
-      email: 'owner@example.com',
-      password: passwordHash,
-      name: 'Ada Owner',
-      username: 'ada',
-      emailVerifiedAt: new Date(),
-      isGlobalAdmin: true,
-    },
-  });
-
-  const member = await prisma.user.upsert({
-    where: { email: 'member@example.com' },
-    update: {},
-    create: {
-      email: 'member@example.com',
-      password: passwordHash,
-      name: 'Mo Member',
-      username: 'mo',
-      emailVerifiedAt: new Date(),
-    },
-  });
-
   const organization = await prisma.organization.upsert({
-    where: { slug: 'acme' },
-    update: {},
+    where: { slug: ORG_SLUG },
+    update: { name: bible.company.name },
     create: {
-      name: 'Acme Inc',
-      slug: 'acme',
-      description: 'Demo organization created by the seed script.',
-      timezone: 'UTC',
+      name: bible.company.name,
+      slug: ORG_SLUG,
+      description: bible.company.description?.slice(0, 500) ?? null,
+      website: `https://${bible.company.domain}`,
+      location: 'Oakland, CA',
+      timezone: 'America/Los_Angeles',
     },
   });
 
-  for (const [user, role] of [
-    [owner, OrgRole.OWNER],
-    [member, OrgRole.MEMBER],
-  ] as const) {
+  for (const person of bible.people) {
+    const data = {
+      personKey: person.id,
+      name: person.name,
+      title: person.title,
+      department: person.department,
+      managerEmail: person.manager ? (byId.get(person.manager)?.email ?? null) : null,
+      groups: person.groups,
+      slackUserId: person.slackId,
+      expertise: person.expertise ?? [],
+    };
+    await prisma.directoryPerson.upsert({
+      where: { organizationId_email: { organizationId: organization.id, email: person.email } },
+      update: data,
+      create: { ...data, organizationId: organization.id, email: person.email },
+    });
+  }
+
+  for (const persona of LOGIN_PERSONAS) {
+    const person = byId.get(persona.id);
+    if (!person) throw new Error(`Persona ${persona.id} is missing from company.json`);
+    const user = await prisma.user.upsert({
+      where: { email: person.email },
+      update: { name: person.name, emailVerifiedAt: new Date(), isGlobalAdmin: Boolean(persona.globalAdmin) },
+      create: {
+        email: person.email,
+        password: passwordHash,
+        name: person.name,
+        username: person.id,
+        emailVerifiedAt: new Date(),
+        isGlobalAdmin: Boolean(persona.globalAdmin),
+        timezone: 'America/Los_Angeles',
+      },
+    });
     await prisma.organizationMember.upsert({
       where: { userId_organizationId: { userId: user.id, organizationId: organization.id } },
-      update: { role },
-      create: { userId: user.id, organizationId: organization.id, role },
+      update: { role: persona.role },
+      create: { userId: user.id, organizationId: organization.id, role: persona.role },
     });
   }
 
-  const projects = [
-    {
-      slug: 'website-redesign',
-      name: 'Website redesign',
-      description: 'Visible to everyone in the organization.',
-      visibility: ProjectVisibility.ORGANIZATION,
-    },
-    {
-      slug: 'q3-planning',
-      name: 'Q3 planning',
-      description: "Private to its creator — won't appear for other members.",
-      visibility: ProjectVisibility.PRIVATE,
-    },
-  ];
+  await prisma.brainSpace.upsert({
+    where: { organizationId: organization.id },
+    update: {},
+    create: { organizationId: organization.id, hydraDatabase: `brain_${ORG_SLUG}`, collection: 'default' },
+  });
 
-  for (const project of projects) {
-    await prisma.project.upsert({
-      where: { organizationId_slug: { organizationId: organization.id, slug: project.slug } },
-      update: {},
-      create: { ...project, organizationId: organization.id, createdById: owner.id },
-    });
+  console.log(`Seeded "${organization.name}" (${bible.people.length} directory people) — sign in with:`);
+  for (const persona of LOGIN_PERSONAS) {
+    const person = byId.get(persona.id)!;
+    console.log(`  ${person.email.padEnd(24)} / ${DEMO_PASSWORD}  ${persona.role.padEnd(6)} ${persona.label}`);
   }
-
-  console.log(`Seeded organization "${organization.name}" with 2 users and 2 projects`);
-  console.log(`  owner@example.com / ${DEMO_PASSWORD}  (global admin)`);
-  console.log(`  member@example.com / ${DEMO_PASSWORD}`);
 }
 
 async function main() {
-  await seedDemoOrganization();
+  await removeStarterDemo();
+  await seedNorthwind();
 }
 
 main()

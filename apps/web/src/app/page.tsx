@@ -29,9 +29,9 @@ const CAPABILITIES = [
   },
   {
     icon: Building2,
-    title: 'A worked example',
+    title: 'A company brain',
     description:
-      'Projects show the full pattern — tenant scoping, role guards, visibility — in a form small enough to read and replace.',
+      'Ask questions across Slack, docs, tickets and meetings with cited, permission-aware answers powered by HydraDB.',
   },
 ];
 

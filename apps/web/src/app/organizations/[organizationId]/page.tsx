@@ -3,21 +3,20 @@
 import { use, useState } from 'react';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
-import { FolderOpen, Loader2, Plus, Settings, UserPlus } from 'lucide-react';
+import { Brain, Loader2, Settings, UserPlus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { EmptyState } from '@/components/ui/empty-state';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { InviteOrganizationMembersDialog } from '@/components/organizations/InviteOrganizationMembersDialog';
 import { organizationsApi } from '@/lib/organizations-api';
-import { projectsApi } from '@/lib/projects-api';
 
 interface PageProps {
   params: Promise<{ organizationId: string }>;
 }
 
+/** Brain Home (placeholder until the brain dashboard lands). */
 export default function OrganizationPage({ params }: PageProps) {
   const { organizationId } = use(params);
   const [inviteOpen, setInviteOpen] = useState(false);
@@ -32,13 +31,7 @@ export default function OrganizationPage({ params }: PageProps) {
     queryFn: () => organizationsApi.getUserRoleInOrganization(organizationId),
   });
 
-  const { data: projects } = useQuery({
-    queryKey: ['projects', organizationId],
-    queryFn: () => projectsApi.list(organizationId),
-  });
-
   const canManage = roleInfo?.role === 'OWNER' || roleInfo?.role === 'ADMIN';
-  const projectCount = projects?.total ?? 0;
 
   if (isLoading) {
     return (
@@ -80,66 +73,20 @@ export default function OrganizationPage({ params }: PageProps) {
           </div>
         </PageHeader>
 
-        <section className="space-y-4">
-          <div className="flex items-center justify-between gap-4">
-            <h2 className="text-lg font-medium">
-              Projects
-              <span className="ml-2 text-sm font-normal text-muted-foreground">{projectCount}</span>
-            </h2>
-
-            <Button asChild size="sm">
-              <Link href={`/organizations/${organizationId}/projects/create`}>
-                <Plus className="mr-2 h-4 w-4" />
-                New project
-              </Link>
+        <EmptyState
+          icon={Brain}
+          title="Company brain"
+          description="Ask questions across Slack, docs, tickets, issues and meetings — with cited, permission-aware answers."
+          action={
+            <Button asChild>
+              <Link href={`/organizations/${organizationId}/ask`}>Ask the brain</Link>
             </Button>
-          </div>
-
-          {projects && projects.items.length === 0 && (
-            <EmptyState
-              icon={FolderOpen}
-              title="No projects yet"
-              description="Projects are the example vertical in this boilerplate. Replace them with your own domain."
-              action={
-                <Button asChild>
-                  <Link href={`/organizations/${organizationId}/projects/create`}>
-                    Create a project
-                  </Link>
-                </Button>
-              }
-            />
-          )}
-
-          <div className="grid gap-3">
-            {projects?.items.map((project) => (
-              <Link
-                key={project.id}
-                href={`/organizations/${organizationId}/projects/${project.id}`}
-              >
-                <Card className="transition-colors hover:border-primary">
-                  <CardHeader className="py-4">
-                    <div className="flex items-center justify-between gap-2">
-                      <CardTitle className="text-base">{project.name}</CardTitle>
-                      <div className="flex items-center gap-2">
-                        {project.archivedAt && <Badge variant="outline">Archived</Badge>}
-                        <Badge variant="secondary">{project.visibility.toLowerCase()}</Badge>
-                      </div>
-                    </div>
-                    {project.description && (
-                      <CardDescription>{project.description}</CardDescription>
-                    )}
-                  </CardHeader>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
+          }
+        />
 
         {organization.location && (
           <Card>
-            <CardContent className="py-4 text-sm text-muted-foreground">
-              {organization.location}
-            </CardContent>
+            <CardContent className="py-4 text-sm text-muted-foreground">{organization.location}</CardContent>
           </Card>
         )}
       </div>

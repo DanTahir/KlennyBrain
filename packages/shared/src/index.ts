@@ -11,5 +11,8 @@ export * from './enums/org-role.enum';
 // Types
 export * from './types';
 
+// KlennyBrain contract
+export * from './brain';
+
 // Utilities
 export * from './utils/html-utils';

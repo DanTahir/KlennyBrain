@@ -13,7 +13,7 @@ export default function CreateOrganizationPage() {
       <div className="mx-auto max-w-2xl px-4 py-8">
         <PageHeader
           title="New organization"
-          description="An organization owns your projects and members."
+          description="An organization owns its company brain, sources and members."
         />
         <CreateOrganizationForm
           onSuccess={(organization) => router.push(`/organizations/${organization.id}`)}

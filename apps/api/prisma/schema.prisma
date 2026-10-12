@@ -1,15 +1,14 @@
 // ============================================================================
 // App Starter schema
 //
-// Fourteen models covering identity, multi-tenancy, custom domains,
-// notifications, and one example organization-scoped vertical (Project).
+// Identity, multi-tenancy, custom domains and notifications from app-starter,
+// plus the KlennyBrain "Company Brain" models at the bottom of the file.
 // There is no billing here on purpose — see
 // docs/adr/0008-no-billing-in-the-starter.md.
 //
 // `Organization` is the tenant. Every organization-scoped model carries an
 // `organizationId` and is indexed on it, and every query filters by it. See
-// docs/adr/0006-single-database-multi-tenancy.md, and `Project` below for the
-// shape to copy.
+// docs/adr/0006-single-database-multi-tenancy.md.
 //
 // Conventions: timestamps are `@db.Timestamptz(6)`, columns are snake_case via
 // `@map`, tables are pluralised via `@@map`.
@@ -57,7 +56,9 @@ model User {
   notifications           Notification[]
   notificationPreferences NotificationPreference[]
   inAppNotifications      InAppNotification[]
-  createdProjects         Project[]                @relation("ProjectCreator")
+  conversations           Conversation[]
+  requestedActions        AgentAction[]            @relation("ActionRequester")
+  approvedActions         AgentAction[]            @relation("ActionApprover")
 
   adminImpersonationAudits AdminImpersonationAudit[] @relation("AdminImpersonationTargetUser")
   quarantinedAudits        AdminQuarantineAudit[]    @relation("QuarantinedUser")
@@ -152,7 +153,14 @@ model Organization {
   domainMappings          DomainMapping[]
   notifications           Notification[]
   notificationPreferences NotificationPreference[]
-  projects                Project[]
+  brainSpace              BrainSpace?
+  sources                 Source[]
+  syncJobs                SyncJob[]
+  knowledgeItems          KnowledgeItem[]
+  directoryPeople         DirectoryPerson[]
+  conversations           Conversation[]
+  insights                Insight[]
+  agentActions            AgentAction[]
 
   @@map("organizations")
 }
@@ -385,37 +393,294 @@ model ShortLink {
 }
 
 // ============================================================================
-// Example vertical
+// Company Brain
 //
-// Deliberately minimal. Exists so the boilerplate demonstrates tenant scoping,
-// role guards, DTO validation, slug generation, soft delete, and the web query
-// hooks end to end. Delete or rename it when building a real product.
+// One BrainSpace per organization maps to one HydraDB database. Sources feed
+// KnowledgeItems (mirrors of what was ingested into HydraDB). Conversations
+// hold Ask history; Insights and AgentActions hold derived findings and
+// human-approved side effects.
 // ============================================================================
 
-enum ProjectVisibility {
-  PRIVATE // Creator only
-  ORGANIZATION // Any member of the owning organization
-  PUBLIC // Anyone with the link
+enum BrainSpaceStatus {
+  NOT_PROVISIONED
+  PROVISIONING
+  READY
+  ERROR
 }
 
-model Project {
-  id             String            @id @default(uuid())
-  organizationId String            @map("organization_id")
-  createdById    String            @map("created_by_id")
-  name           String
-  slug           String
-  description    String?
-  visibility     ProjectVisibility @default(ORGANIZATION)
-  archivedAt     DateTime?         @map("archived_at") @db.Timestamptz(6)
+model BrainSpace {
+  id             String           @id @default(uuid())
+  organizationId String           @unique @map("organization_id")
+  hydraDatabase  String           @map("hydra_database")
+  collection     String           @default("default")
+  status         BrainSpaceStatus @default(NOT_PROVISIONED)
+  error          String?
 
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @updatedAt @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  createdBy    User         @relation("ProjectCreator", fields: [createdById], references: [id])
 
-  @@unique([organizationId, slug])
-  @@index([organizationId, archivedAt])
-  @@index([createdById])
-  @@map("projects")
+  @@map("brain_spaces")
+}
+
+enum SourceType {
+  DEMO
+  SLACK
+  GITHUB
+}
+
+enum SourceStatus {
+  IDLE
+  SYNCING
+  READY
+  ERROR
+}
+
+model Source {
+  id             String       @id @default(uuid())
+  organizationId String       @map("organization_id")
+  type           SourceType
+  name           String
+  status         SourceStatus @default(IDLE)
+  /// Non-secret configuration only (e.g. data path, Slack team id).
+  config         Json?
+  itemCount      Int          @default(0) @map("item_count")
+  lastSyncedAt   DateTime?    @map("last_synced_at") @db.Timestamptz(6)
+  error          String?
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organization Organization    @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  syncJobs     SyncJob[]
+  items        KnowledgeItem[]
+
+  @@unique([organizationId, type, name])
+  @@index([organizationId])
+  @@map("sources")
+}
+
+enum SyncJobStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+}
+
+model SyncJob {
+  id             String        @id @default(uuid())
+  organizationId String        @map("organization_id")
+  sourceId       String        @map("source_id")
+  status         SyncJobStatus @default(QUEUED)
+  total          Int           @default(0)
+  processed      Int           @default(0)
+  failed         Int           @default(0)
+  indexed        Int           @default(0)
+  startedAt      DateTime?     @map("started_at") @db.Timestamptz(6)
+  finishedAt     DateTime?     @map("finished_at") @db.Timestamptz(6)
+  error          String?
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  source       Source       @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+  @@index([sourceId, createdAt])
+  @@map("sync_jobs")
+}
+
+model KnowledgeItem {
+  id             String    @id @default(uuid())
+  organizationId String    @map("organization_id")
+  sourceId       String    @map("source_id")
+  hydraId        String    @map("hydra_id")
+  kind           String
+  sourceSystem   String    @map("source_system")
+  provider       String
+  externalId     String    @map("external_id")
+  title          String
+  body           String    @db.Text
+  url            String?
+  authorEmail    String?   @map("author_email")
+  occurredAt     DateTime? @map("occurred_at") @db.Timestamptz(6)
+  /// null = visible to everyone in the org; otherwise HydraDB ACL strings.
+  acl            Json?
+  metadata       Json?
+  additional     Json?
+  indexingStatus String    @default("queued") @map("indexing_status")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  source       Source       @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, hydraId])
+  @@index([organizationId, kind])
+  @@index([sourceId])
+  @@map("knowledge_items")
+}
+
+model DirectoryPerson {
+  id             String   @id @default(uuid())
+  organizationId String   @map("organization_id")
+  personKey      String   @map("person_key")
+  email          String
+  name           String
+  title          String?
+  department     String?
+  managerEmail   String?  @map("manager_email")
+  groups         String[]
+  slackUserId    String?  @map("slack_user_id")
+  expertise      String[]
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, email])
+  @@index([organizationId, slackUserId])
+  @@map("directory_people")
+}
+
+model Conversation {
+  id             String    @id @default(uuid())
+  organizationId String    @map("organization_id")
+  userId         String    @map("user_id")
+  title          String
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages     ChatMessage[]
+
+  @@index([organizationId, userId, updatedAt])
+  @@map("conversations")
+}
+
+enum ChatRole {
+  USER
+  ASSISTANT
+}
+
+model ChatMessage {
+  id              String   @id @default(uuid())
+  conversationId  String   @map("conversation_id")
+  organizationId  String   @map("organization_id")
+  role            ChatRole
+  content         String   @db.Text
+  citations       Json?
+  toolTrace       Json?    @map("tool_trace")
+  graphPaths      Json?    @map("graph_paths")
+  hydraRequestId  String?  @map("hydra_request_id")
+  feedback        Int?
+  feedbackComment String?  @map("feedback_comment")
+  viewAsEmail     String?  @map("view_as_email")
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, createdAt])
+  @@index([organizationId])
+  @@map("chat_messages")
+}
+
+enum InsightType {
+  CONTRADICTION
+  STALE_DOC
+  DECISION
+  ACTION_ITEM
+}
+
+enum InsightStatus {
+  OPEN
+  RESOLVED
+  DISMISSED
+}
+
+enum InsightSeverity {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model Insight {
+  id             String          @id @default(uuid())
+  organizationId String          @map("organization_id")
+  type           InsightType
+  title          String
+  summary        String          @db.Text
+  severity       InsightSeverity @default(MEDIUM)
+  status         InsightStatus   @default(OPEN)
+  /// Citation[] supporting the insight.
+  evidence       Json?
+  entities       Json?
+  ownerEmail     String?         @map("owner_email")
+  dueAt          DateTime?       @map("due_at") @db.Timestamptz(6)
+  occurredAt     DateTime?       @map("occurred_at") @db.Timestamptz(6)
+  /// Stable key so re-running analysis upserts instead of duplicating.
+  fingerprint    String
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  actions      AgentAction[]
+
+  @@unique([organizationId, fingerprint])
+  @@index([organizationId, type, status])
+  @@map("insights")
+}
+
+enum AgentActionType {
+  CREATE_GITHUB_ISSUE
+  POST_SLACK_MESSAGE
+  UPDATE_KNOWLEDGE_DOC
+  SEND_EMAIL
+}
+
+enum AgentActionStatus {
+  PROPOSED
+  APPROVED
+  EXECUTED
+  FAILED
+  REJECTED
+}
+
+model AgentAction {
+  id             String            @id @default(uuid())
+  organizationId String            @map("organization_id")
+  type           AgentActionType
+  status         AgentActionStatus @default(PROPOSED)
+  title          String
+  summary        String            @db.Text
+  payload        Json
+  result         Json?
+  error          String?
+  conversationId String?           @map("conversation_id")
+  insightId      String?           @map("insight_id")
+  requestedById  String?           @map("requested_by_id")
+  approvedById   String?           @map("approved_by_id")
+  executedAt     DateTime?         @map("executed_at") @db.Timestamptz(6)
+
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  insight      Insight?     @relation(fields: [insightId], references: [id], onDelete: SetNull)
+  requestedBy  User?        @relation("ActionRequester", fields: [requestedById], references: [id], onDelete: SetNull)
+  approvedBy   User?        @relation("ActionApprover", fields: [approvedById], references: [id], onDelete: SetNull)
+
+  @@index([organizationId, status, createdAt])
+  @@index([insightId])
+  @@map("agent_actions")
 }

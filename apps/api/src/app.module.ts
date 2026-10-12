@@ -17,7 +17,7 @@ import { HttpsEnforcementMiddleware } from './common/middleware/https-enforcemen
 import { ShortLinksModule } from './features/short-links/short-links.module';
 import { AdminImpersonationModule } from './admin-impersonation/admin-impersonation.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
-import { ProjectsModule } from './projects/projects.module';
+import { BrainModule } from './brain/brain.module';
 
 @Module({
   imports: [
@@ -51,7 +51,7 @@ import { ProjectsModule } from './projects/projects.module';
     ShortLinksModule,
     AdminImpersonationModule,
     AdminDashboardModule,
-    ProjectsModule,
+    BrainModule,
   ],
   controllers: [AppController],
   providers: [
