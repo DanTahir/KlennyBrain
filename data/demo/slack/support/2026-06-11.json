@@ -1,0 +1,7 @@
+[
+{"id":"support-20260611-01","type":"message","user":"U11PRIYA","iso":"2026-06-11T16:30:00Z","text":"Our macros are a mess: 47 of them, 12 reference the old Console UI. I want to do a refresh in August. Volunteers to audit?","thread_id":null},
+{"id":"support-20260611-02","type":"message","user":"U12MARCO","iso":"2026-06-11T16:38:00Z","text":"I'll take the troubleshooting ones. The 'robot offline' macro still tells people to reboot the router, which is... bold.","thread_id":"support-20260611-01"},
+{"id":"support-20260611-03","type":"message","user":"U03ANA","iso":"2026-06-11T16:50:00Z","text":"+1. Let's also tag every macro with an owner so they don't rot again.","thread_id":"support-20260611-01"},
+{"id":"support-20260611-04","type":"message","user":"U11PRIYA","iso":"2026-06-11T16:55:00Z","text":"Adding it to the Support Macro Refresh project. Target: done by end of August.","thread_id":"support-20260611-01"},
+{"id":"support-20260611-05","type":"message","user":"U07DEVON","iso":"2026-06-11T20:10:00Z","text":"Heads up: password reset emails were delayed ~20 min this afternoon (email provider queue). Resolved now.","thread_id":null}
+]

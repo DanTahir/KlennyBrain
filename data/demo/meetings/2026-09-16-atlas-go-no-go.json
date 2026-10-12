@@ -1,0 +1,36 @@
+{
+  "id": "mtg-20260916-atlas-go-no-go",
+  "title": "Atlas launch go/no-go",
+  "date": "2026-09-16T17:00:00Z",
+  "duration_minutes": 45,
+  "attendees": ["sam@northwind.dev", "raj@northwind.dev", "elena@northwind.dev", "devon@northwind.dev", "jordan@northwind.dev", "kai@northwind.dev", "lena@northwind.dev", "omar@northwind.dev", "ana@northwind.dev"],
+  "project": "atlas",
+  "acl": null,
+  "transcript": [
+    { "speaker": "sam@northwind.dev", "t": "00:00", "text": "Okay, this is the go/no-go. Proposal on the table: Atlas GA on September 30. Let's go function by function." },
+    { "speaker": "jordan@northwind.dev", "t": "00:30", "text": "Engineering: fleet view, scheduling and staged OTA are done and in staging. 14 open bugs, none above medium. The one real risk is ATL-212." },
+    { "speaker": "devon@northwind.dev", "t": "01:00", "text": "SSO works, except KeyGate's metadata endpoint still serves a stale signing cert some of the time. Victor says their engineering team has reproduced it. No firm date yet." },
+    { "speaker": "elena@northwind.dev", "t": "01:35", "text": "Can we launch without SSO and add it later?" },
+    { "speaker": "omar@northwind.dev", "t": "01:50", "text": "For most customers, yes. For Globex, no. Dana's been explicit. No SSO, no rollout to their 120 robots. And their renewal is November 30." },
+    { "speaker": "lena@northwind.dev", "t": "02:15", "text": "Four eighty in ARR. I'd really not have Atlas be the reason that renewal gets awkward." },
+    { "speaker": "raj@northwind.dev", "t": "02:40", "text": "So launch is effectively gated on ATL-212. How long do we need between it closing and GA?" },
+    { "speaker": "devon@northwind.dev", "t": "02:55", "text": "Four days to regression test with real IdPs, Okta-style and Azure-style configs through KeyGate." },
+    { "speaker": "kai@northwind.dev", "t": "03:20", "text": "Design side, the SSO login UI is about 80 percent. Error states need work, especially the 'your admin hasn't set this up' screen." },
+    { "speaker": "ana@northwind.dev", "t": "03:45", "text": "Support is ready with Atlas macros. My bigger worry is firmware 2.8 Wi-Fi drops landing in the same week. Customers will blame Atlas for robots going offline." },
+    { "speaker": "raj@northwind.dev", "t": "04:10", "text": "Fair. 2.8.1 should be out before then. Different problem, but I hear you." },
+    { "speaker": "sam@northwind.dev", "t": "04:35", "text": "So proposal: GA on September 30, contingent on ATL-212 closing by September 26. If it doesn't close, we reconvene." },
+    { "speaker": "elena@northwind.dev", "t": "04:55", "text": "I'm a go on that, with the contingency. Devon, I want a real date from KeyGate, not 'soon'." },
+    { "speaker": "devon@northwind.dev", "t": "05:10", "text": "Understood. I'll push Victor for a committed date by Friday." },
+    { "speaker": "raj@northwind.dev", "t": "05:25", "text": "Go from me." },
+    { "speaker": "jordan@northwind.dev", "t": "05:30", "text": "Go." },
+    { "speaker": "lena@northwind.dev", "t": "05:40", "text": "Go, and I'll tell Globex the target but frame it as dependent on SSO." },
+    { "speaker": "sam@northwind.dev", "t": "05:55", "text": "Great, decision recorded. I'll update the launch plan doc tomorrow." }
+  ],
+  "summary": "Go/no-go for Atlas GA. Core features are ready; the only blocker is ATL-212 (SAML SSO via KeyGate), which fails intermittently due to KeyGate's metadata endpoint serving a stale signing cert. Globex will not roll out to 120 robots without SSO and renews on 2026-11-30 ($480k ARR). The group approved GA on 2026-09-30, contingent on ATL-212 closing by 2026-09-26, with 4 days for regression testing.",
+  "decisions": ["Atlas GA on 2026-09-30, contingent on ATL-212 closing by 2026-09-26."],
+  "action_items": [
+    { "owner": "devon@northwind.dev", "text": "Get a firm date from KeyGate for the SAML metadata fix", "due": "2026-09-19", "status": "done" },
+    { "owner": "kai@northwind.dev", "text": "Finalize SSO login UI", "due": "2026-10-06", "status": "done" },
+    { "owner": "sam@northwind.dev", "text": "Update the launch plan doc", "due": "2026-09-17", "status": "done" }
+  ]
+}

@@ -1,0 +1,7 @@
+[
+  { "id": "atlas-launch-20260910-01", "type": "message", "user": "U09SAM", "iso": "2026-09-10T17:00:00Z", "text": "Status check ahead of next week's go/no-go. Everything green except ATL-212. <@U07DEVON> where are we?", "thread_id": null },
+  { "id": "atlas-launch-20260910-02", "type": "message", "user": "U07DEVON", "iso": "2026-09-10T17:15:00Z", "text": "ACS and JIT provisioning work. But assertions intermittently fail signature validation: KeyGate's SAML metadata endpoint sometimes serves a signing cert that doesn't match what signed the response. Opened a case with Victor at KeyGate.", "thread_id": "atlas-launch-20260910-01", "reactions": [{ "name": "grimacing", "count": 2 }] },
+  { "id": "atlas-launch-20260910-03", "type": "message", "user": "U02RAJ", "iso": "2026-09-10T17:22:00Z", "text": "Can we pin the cert instead of refreshing from metadata?", "thread_id": "atlas-launch-20260910-01" },
+  { "id": "atlas-launch-20260910-04", "type": "message", "user": "U07DEVON", "iso": "2026-09-10T17:30:00Z", "text": "Tried. Breaks the moment KeyGate rotates, and Globex's security review explicitly rejects pinned certs. Need KeyGate to fix metadata.", "thread_id": "atlas-launch-20260910-01" },
+  { "id": "atlas-launch-20260910-05", "type": "message", "user": "U10KAI", "iso": "2026-09-10T20:05:00Z", "text": "Onboarding flow v3 is merged. Setup time for a new site in staging went from ~25 min to 9 min.", "thread_id": null, "reactions": [{ "name": "fire", "count": 5 }] }
+]

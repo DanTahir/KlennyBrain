@@ -1,0 +1,38 @@
+{
+  "id": "mtg-20260722-billing-proration-postmortem",
+  "title": "Postmortem: Stark Distribution proration overbilling",
+  "date": "2026-07-22T20:00:00Z",
+  "duration_minutes": 45,
+  "attendees": ["mei@northwind.dev", "jordan@northwind.dev", "omar@northwind.dev", "raj@northwind.dev"],
+  "project": "billing-v2",
+  "acl": null,
+  "transcript": [
+    { "speaker": "jordan@northwind.dev", "t": "00:00", "text": "Blameless postmortem, usual rules. Mei, walk us through it." },
+    { "speaker": "mei@northwind.dev", "t": "00:20", "text": "Stark Distribution added 8 leased robots on July 9. The legacy billing service prorated the add-on, but it also re-billed the full month for those units on the July 15 cycle. So they got charged twice for the partial period." },
+    { "speaker": "mei@northwind.dev", "t": "01:10", "text": "Root cause: the proration function used the contract anniversary date instead of the billing cycle date when a mid-cycle change crossed the 15th. Edge case that's been there since 2024 but only triggers on adds after the 1st and before the 15th." },
+    { "speaker": "omar@northwind.dev", "t": "01:50", "text": "From the customer side, their finance team caught it, opened a ticket, and their controller was not thrilled. The overcharge was a bit under eleven thousand dollars." },
+    { "speaker": "raj@northwind.dev", "t": "02:15", "text": "How fast did we fix it?" },
+    { "speaker": "mei@northwind.dev", "t": "02:25", "text": "Ticket came in the 17th, I had the fix in review the 18th, deployed the 19th. That's BIL-31. Credit memo went out the 20th." },
+    { "speaker": "jordan@northwind.dev", "t": "02:50", "text": "Did we check other customers?" },
+    { "speaker": "mei@northwind.dev", "t": "03:00", "text": "Yes. I ran a query across every invoice since January. Two other accounts hit it, but for under two hundred dollars each. Credits issued." },
+    { "speaker": "omar@northwind.dev", "t": "03:35", "text": "I'd like a short apology email to Stark that explains it in human terms. They appreciate transparency." },
+    { "speaker": "mei@northwind.dev", "t": "03:50", "text": "I'll draft the technical paragraph, you own the tone." },
+    { "speaker": "raj@northwind.dev", "t": "04:20", "text": "Bigger question. How many more of these are hiding in the legacy service?" },
+    { "speaker": "mei@northwind.dev", "t": "04:35", "text": "Honestly? Probably a few. The proration code is 900 lines with no tests on half of it. PayStream does proration natively. That's the strongest argument for the migration." },
+    { "speaker": "raj@northwind.dev", "t": "05:00", "text": "Then let's accelerate it. I'd rather you spend Q3 on PayStream than patching edge cases." },
+    { "speaker": "jordan@northwind.dev", "t": "05:20", "text": "Agreed. I'll move the PayStream work up and take the reconciliation dashboard off Mei's plate." },
+    { "speaker": "mei@northwind.dev", "t": "05:40", "text": "Meanwhile I'll add regression tests for every proration path I can enumerate, and an alert when an invoice line exceeds the contract rate." },
+    { "speaker": "jordan@northwind.dev", "t": "06:05", "text": "Good. Mei, write the ADR for the migration so we have the decision on record. Thanks all." }
+  ],
+  "summary": "Stark Distribution was overbilled (just under $11k) for 8 robots added mid-cycle on July 9 because the legacy billing service's proration used the contract anniversary date instead of the billing cycle date. Mei Chen fixed it in BIL-31 (deployed July 19), audited all 2026 invoices, found two minor additional cases, and credits were issued. Team decided to accelerate the PayStream migration.",
+  "decisions": [
+    "Accelerate the Billing v2 PayStream migration to Q3, prioritized above other billing work.",
+    "Add an invoice anomaly alert when a line exceeds the contracted rate."
+  ],
+  "action_items": [
+    { "owner": "mei@northwind.dev", "text": "Add regression tests for all proration paths in the legacy billing service", "due": "2026-07-29", "status": "done" },
+    { "owner": "mei@northwind.dev", "text": "Write ADR-007 for the PayStream migration", "due": "2026-07-31", "status": "done" },
+    { "owner": "omar@northwind.dev", "text": "Send Stark Distribution an apology and explanation email", "due": "2026-07-24", "status": "done" },
+    { "owner": "jordan@northwind.dev", "text": "Reprioritize Q3 roadmap to pull PayStream migration forward", "due": "2026-07-27", "status": "done" }
+  ]
+}

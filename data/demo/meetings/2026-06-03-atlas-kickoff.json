@@ -1,0 +1,38 @@
+{
+  "id": "mtg-20260603-atlas-kickoff",
+  "title": "Project Atlas kickoff",
+  "date": "2026-06-03T18:00:00Z",
+  "duration_minutes": 60,
+  "attendees": ["sam@northwind.dev", "raj@northwind.dev", "kai@northwind.dev", "devon@northwind.dev", "jordan@northwind.dev", "lena@northwind.dev", "omar@northwind.dev"],
+  "project": "atlas",
+  "acl": null,
+  "transcript": [
+    { "speaker": "sam@northwind.dev", "t": "00:00", "text": "Welcome to the Atlas kickoff. Goal for today: agree scope for GA, pick a design partner, and figure out what Enterprise actually means." },
+    { "speaker": "sam@northwind.dev", "t": "00:45", "text": "Atlas replaces the Cloud Console. Multi-site fleet view, scheduling, and over-the-air firmware rollout for R2 Pickers. Pricing is forty dollars per robot per month, Enterprise at fifty-five." },
+    { "speaker": "raj@northwind.dev", "t": "01:30", "text": "OTA rollout is the part I care about most. Staged rollouts, with a pause button. We are not pushing firmware to a whole fleet at once ever again." },
+    { "speaker": "lena@northwind.dev", "t": "02:10", "text": "On design partner, I'd push hard for Globex Logistics. 120 robots, they renew in November, and Dana Whitfield, their IT director, has basically been asking for this for a year." },
+    { "speaker": "omar@northwind.dev", "t": "02:40", "text": "Agree. They're our most engaged account. But Dana's first question will be SSO. Their security team won't approve any SaaS without SAML." },
+    { "speaker": "sam@northwind.dev", "t": "03:05", "text": "Which is why SSO is in the Enterprise tier. Devon, what's realistic?" },
+    { "speaker": "devon@northwind.dev", "t": "03:25", "text": "Plan is to broker through KeyGate Identity so we don't hand-roll SAML for every IdP. I've done a spike against their sandbox. Login works, metadata parsing works. Production hardening is maybe six weeks." },
+    { "speaker": "jordan@northwind.dev", "t": "04:00", "text": "Six weeks of Devon is a lot when he's also on call. I'll protect his time from August on." },
+    { "speaker": "kai@northwind.dev", "t": "04:30", "text": "Design-wise, I need the onboarding flow and the fleet overview first. SSO login screen is small but I want it in the design system, not a one-off." },
+    { "speaker": "raj@northwind.dev", "t": "05:10", "text": "Let's keep GA scope tight. Fleet view, scheduling, OTA, SSO for Enterprise. Analytics is post-GA." },
+    { "speaker": "lena@northwind.dev", "t": "05:35", "text": "Can I tell Globex we're targeting end of September?" },
+    { "speaker": "sam@northwind.dev", "t": "05:50", "text": "Say 'targeting late Q3', not a date. We'll set the real date at a go/no-go in September." },
+    { "speaker": "omar@northwind.dev", "t": "06:20", "text": "I'll set up a design partner call with Dana in the next two weeks." },
+    { "speaker": "jordan@northwind.dev", "t": "06:45", "text": "Tracking: I'll make ATL-200 the GA epic and Devon owns the SSO ticket under it." },
+    { "speaker": "devon@northwind.dev", "t": "07:00", "text": "Works. I'll also get a named contact at KeyGate, their partner SE." },
+    { "speaker": "sam@northwind.dev", "t": "07:20", "text": "Great. I'll write the PRD and launch plan this week. Thanks everyone." }
+  ],
+  "summary": "Kickoff for Atlas Fleet Manager. GA scope set to fleet view, scheduling, staged OTA firmware rollout, and SAML SSO for the Enterprise tier ($40/robot/month, Enterprise $55). Globex Logistics (120 robots) chosen as design partner; Omar flagged that Globex requires SAML SSO before rollout. SSO will be brokered via KeyGate Identity, owned by Devon. Launch target communicated externally as late Q3, with a firm date to be set at a September go/no-go.",
+  "decisions": [
+    "Globex Logistics is the Atlas design partner.",
+    "GA scope: fleet view, scheduling, staged OTA rollout, and SAML SSO via KeyGate for the Enterprise tier; analytics deferred post-GA."
+  ],
+  "action_items": [
+    { "owner": "sam@northwind.dev", "text": "Write the Atlas PRD and launch plan", "due": "2026-06-10", "status": "done" },
+    { "owner": "omar@northwind.dev", "text": "Schedule a design partner call with Dana Whitfield at Globex", "due": "2026-06-17", "status": "done" },
+    { "owner": "devon@northwind.dev", "text": "Establish a named technical contact at KeyGate", "due": "2026-06-12", "status": "done" },
+    { "owner": "jordan@northwind.dev", "text": "Create ATL-200 GA epic and SSO sub-issue", "due": "2026-06-05", "status": "done" }
+  ]
+}

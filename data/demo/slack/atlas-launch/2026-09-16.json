@@ -1,0 +1,7 @@
+[
+  { "id": "atlas-launch-20260916-01", "type": "message", "user": "U09SAM", "iso": "2026-09-16T18:05:00Z", "text": "*Go/no-go recap:* Decision is GO for Atlas GA on *2026-09-30*, provided ATL-212 (SSO) closes by *2026-09-26*. Notes: https://wiki.northwind.dev/product/atlas-go-no-go-0916", "thread_id": null, "reactions": [{ "name": "white_check_mark", "count": 7 }] },
+  { "id": "atlas-launch-20260916-02", "type": "message", "user": "U07DEVON", "iso": "2026-09-16T18:12:00Z", "text": "I'll get a firm date from KeyGate on the metadata fix by Friday.", "thread_id": "atlas-launch-20260916-01" },
+  { "id": "atlas-launch-20260916-03", "type": "message", "user": "U01ELENA", "iso": "2026-09-16T18:20:00Z", "text": "Thanks all. Let's not let SSO become a surprise: flag early if the 26th looks shaky.", "thread_id": "atlas-launch-20260916-01" },
+  { "id": "atlas-launch-20260916-04", "type": "message", "user": "U13OMAR", "iso": "2026-09-16T18:31:00Z", "text": "I'll give Globex a heads up that GA is targeted for Sep 30.", "thread_id": "atlas-launch-20260916-01" },
+  { "id": "atlas-launch-20260916-05", "type": "message", "user": "U06MEI", "iso": "2026-09-16T19:00:00Z", "text": "PayStream metering for Atlas is live in staging. Prices loaded: $40 standard, $55 Enterprise per robot/month.", "thread_id": null }
+]

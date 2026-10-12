@@ -1,0 +1,9 @@
+[
+{"id":"eng-20260624-01","type":"message","user":"U07DEVON","iso":"2026-06-24T16:30:00Z","text":"Deploying api v1.42 to prod at 17:00 UTC. Includes the rate-limit headers and the session TTL change.","thread_id":null},
+{"id":"eng-20260624-02","type":"message","user":"U07DEVON","iso":"2026-06-24T17:21:00Z","text":"Done, error rate flat. :ship:","thread_id":"eng-20260624-01"},
+{"id":"eng-20260624-03","type":"message","user":"U08OLLIE","iso":"2026-06-24T19:05:00Z","text":"Can someone review my PR #1188 (fleet map clustering)? It's my first one over 300 lines, sorry.","thread_id":null},
+{"id":"eng-20260624-04","type":"message","user":"U10KAI","iso":"2026-06-24T19:12:00Z","text":"I'll take the UI side. The cluster colors look great.","thread_id":"eng-20260624-03"},
+{"id":"eng-20260624-05","type":"message","user":"U05JORDAN","iso":"2026-06-24T21:40:00Z","text":"Who knows the PayStream webhook flow? Finance says two payments show as pending in our admin but settled in PayStream.","thread_id":null},
+{"id":"eng-20260624-06","type":"message","user":"U06MEI","iso":"2026-06-24T21:52:00Z","text":"That's me. Webhooks land on `/hooks/paystream`, get queued, and the reconciler marks invoices paid. We dropped two events during the 17:00 deploy window. I'll replay them from the PayStream dashboard; the handler is idempotent on `event_id` so replays are safe.","thread_id":"eng-20260624-05"},
+{"id":"eng-20260624-07","type":"message","user":"U06MEI","iso":"2026-06-24T22:10:00Z","text":"Replayed, both invoices now paid. Filed BIL-24 to add a nightly reconciliation sweep so we don't depend on webhooks alone.","thread_id":"eng-20260624-05","reactions":[{"name":"raised_hands","count":2}]}
+]

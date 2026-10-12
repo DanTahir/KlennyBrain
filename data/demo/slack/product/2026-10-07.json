@@ -1,0 +1,8 @@
+[
+{"id":"product-20261007-01","type":"message","user":"U09SAM","iso":"2026-10-07T17:00:00Z","text":"Post-launch roadmap draft: Nov = OTA updates GA + multi-site scheduling, Dec = custom alerts and Console migration tool. All assumes we ship GA Oct 14.","thread_id":null},
+{"id":"product-20261007-02","type":"message","user":"U02RAJ","iso":"2026-10-07T17:12:00Z","text":"Big risk to Oct 14: KeyGate's fix for ATL-212 is ETA Oct 9. That leaves almost no buffer for Devon to verify.","thread_id":"product-20261007-01"},
+{"id":"product-20261007-03","type":"message","user":"U09SAM","iso":"2026-10-07T17:20:00Z","text":"Agreed. If KeyGate slips, I'd rather ship Standard tier on Oct 14 and hold Enterprise than move the whole launch again.","thread_id":"product-20261007-01"},
+{"id":"product-20261007-04","type":"message","user":"U14LENA","iso":"2026-10-07T17:28:00Z","text":"Globex only cares about Enterprise, so for them a split launch is still a slip.","thread_id":"product-20261007-01"},
+{"id":"product-20261007-05","type":"message","user":"U10KAI","iso":"2026-10-07T17:40:00Z","text":"Design-wise both paths are ready. Launch comms will need two versions though.","thread_id":"product-20261007-01"},
+{"id":"product-20261007-06","type":"message","user":"U09SAM","iso":"2026-10-07T17:45:00Z","text":"Yep, I'll draft both for the launch comms due Oct 14.","thread_id":"product-20261007-01"}
+]

@@ -1,0 +1,8 @@
+[
+  { "id": "atlas-launch-20261008-01", "type": "message", "user": "U07DEVON", "iso": "2026-10-08T18:02:00Z", "text": "Bad news: KeyGate slipped the SAML metadata fix. Victor now says *\"Oct 13 at the earliest\"*. ATL-212 stays blocked.", "thread_id": null, "reactions": [{ "name": "disappointed", "count": 5 }] },
+  { "id": "atlas-launch-20261008-02", "type": "message", "user": "U09SAM", "iso": "2026-10-08T18:10:00Z", "text": "That puts Oct 14 GA at real risk. Even if they ship on the 13th we have <1 day to verify.", "thread_id": "atlas-launch-20261008-01" },
+  { "id": "atlas-launch-20261008-03", "type": "message", "user": "U02RAJ", "iso": "2026-10-08T18:18:00Z", "text": "Fallback idea: could we do OIDC-only for Globex? Their Okta supports OIDC and KeyGate's OIDC path doesn't use the broken metadata endpoint.", "thread_id": "atlas-launch-20261008-01" },
+  { "id": "atlas-launch-20261008-04", "type": "message", "user": "U07DEVON", "iso": "2026-10-08T18:26:00Z", "text": "Technically maybe 3-4 days of work. But Globex's security review signed off on SAML specifically, so they'd need to re-review.", "thread_id": "atlas-launch-20261008-01" },
+  { "id": "atlas-launch-20261008-05", "type": "message", "user": "U14LENA", "iso": "2026-10-08T18:35:00Z", "text": "I can ask Dana informally whether OIDC is even acceptable. Don't want to float it officially yet.", "thread_id": "atlas-launch-20261008-01" },
+  { "id": "atlas-launch-20261008-06", "type": "message", "user": "U01ELENA", "iso": "2026-10-08T18:44:00Z", "text": "No decision today. Lena, sound out Dana. Devon, scope OIDC. Let's revisit Friday.", "thread_id": "atlas-launch-20261008-01" }
+]

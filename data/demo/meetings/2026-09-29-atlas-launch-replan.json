@@ -1,0 +1,42 @@
+{
+  "id": "mtg-20260929-atlas-launch-replan",
+  "title": "Atlas launch replan",
+  "date": "2026-09-29T17:00:00Z",
+  "duration_minutes": 50,
+  "attendees": ["sam@northwind.dev", "raj@northwind.dev", "elena@northwind.dev", "devon@northwind.dev", "jordan@northwind.dev", "lena@northwind.dev", "omar@northwind.dev", "kai@northwind.dev"],
+  "project": "atlas",
+  "acl": null,
+  "transcript": [
+    { "speaker": "sam@northwind.dev", "t": "00:00", "text": "Recap first. On the 24th we moved GA from September 30 to October 14 in the atlas-launch thread, because ATL-212 didn't close. Today is to confirm that and plan for what happens if KeyGate slips again." },
+    { "speaker": "devon@northwind.dev", "t": "00:35", "text": "Latest from Victor: KeyGate says the signing-cert rotation fix ships October 9. That leaves us four days of testing before the 14th. Tight but doable." },
+    { "speaker": "elena@northwind.dev", "t": "01:00", "text": "Their last estimate also sounded confident. What's our leverage?" },
+    { "speaker": "devon@northwind.dev", "t": "01:15", "text": "Victor is great but he's a partner SE, he doesn't control their roadmap. We have an exec sponsor on their side from the partnership deal. I haven't used that yet." },
+    { "speaker": "raj@northwind.dev", "t": "01:35", "text": "Use it. This week. Devon, escalate to their exec sponsor, I'll join the call if it helps." },
+    { "speaker": "devon@northwind.dev", "t": "01:50", "text": "Okay. I'll get it done by Thursday." },
+    { "speaker": "omar@northwind.dev", "t": "02:10", "text": "Globex update. Dana emailed me on the 26th. Paraphrasing: they can't roll out to 120 robots without SSO, and the renewal conversation gets harder every week this slips." },
+    { "speaker": "lena@northwind.dev", "t": "02:35", "text": "She wants something in writing. A timeline with dates and what we're doing if KeyGate doesn't deliver. Verbal reassurance isn't cutting it with her security team." },
+    { "speaker": "elena@northwind.dev", "t": "02:55", "text": "Then send it. Lena, can you have it out by next Monday, the 5th?" },
+    { "speaker": "lena@northwind.dev", "t": "03:05", "text": "Yes, but I need Devon's input on the fallback before I commit to anything." },
+    { "speaker": "jordan@northwind.dev", "t": "03:25", "text": "On fallback: we could do OIDC directly against their IdP and skip KeyGate's SAML path. Not cheap. I'll put together an estimate by the 9th, same day KeyGate is supposed to ship." },
+    { "speaker": "kai@northwind.dev", "t": "03:55", "text": "If we go OIDC, the login UI mostly carries over. The admin config screen changes though." },
+    { "speaker": "raj@northwind.dev", "t": "04:15", "text": "Contingency question. If KeyGate misses the 9th, do we launch on the 14th without Enterprise SSO?" },
+    { "speaker": "sam@northwind.dev", "t": "04:35", "text": "My proposal: yes, launch Standard on the 14th, Enterprise SSO follows as soon as it's ready. Globex gets early access to SSO the moment it works." },
+    { "speaker": "elena@northwind.dev", "t": "05:00", "text": "Let's not decide that today. Revisit on the 9th when we know what KeyGate did." },
+    { "speaker": "sam@northwind.dev", "t": "05:20", "text": "Fine. I'll own launch comms for the 14th, blog post, customer email, in-app banner." },
+    { "speaker": "omar@northwind.dev", "t": "05:40", "text": "Quick one, is the launch plan doc on the wiki updated? Dana's team has a link to it." },
+    { "speaker": "sam@northwind.dev", "t": "05:50", "text": "Uh. It still says September 30. I'll fix it." },
+    { "speaker": "jordan@northwind.dev", "t": "06:00", "text": "Can we make that an action item?" },
+    { "speaker": "sam@northwind.dev", "t": "06:05", "text": "It's on my list with the comms, I'll bundle it. Moving on, we're over time." }
+  ],
+  "summary": "Confirmed the Atlas GA move from 2026-09-30 to 2026-10-14 (decided in #atlas-launch on 2026-09-24) because ATL-212 is still blocked on KeyGate's SAML metadata signing-cert rotation bug. KeyGate's current fix ETA is 2026-10-09. Globex (Dana Whitfield) escalated on 2026-09-26 and wants a written SSO timeline. Agreed to escalate to KeyGate's exec sponsor, estimate an OIDC fallback, and revisit launching Standard-only on 2026-10-09. Omar noted docs/atlas-launch-plan.md still says 2026-09-30; no separate action item was recorded and the doc was not updated.",
+  "decisions": [
+    "Atlas GA date confirmed as 2026-10-14.",
+    "Decision on launching without Enterprise SSO deferred to 2026-10-09."
+  ],
+  "action_items": [
+    { "owner": "devon@northwind.dev", "text": "Escalate to the KeyGate exec sponsor", "due": "2026-10-02", "status": "open" },
+    { "owner": "lena@northwind.dev", "text": "Send Globex a written SSO timeline", "due": "2026-10-05", "status": "open" },
+    { "owner": "sam@northwind.dev", "text": "Publish Atlas launch comms", "due": "2026-10-14", "status": "open" },
+    { "owner": "jordan@northwind.dev", "text": "Prepare an OIDC fallback estimate", "due": "2026-10-09", "status": "done" }
+  ]
+}

@@ -1,0 +1,8 @@
+[
+{"id":"support-20260902-01","type":"message","user":"U11PRIYA","iso":"2026-09-02T16:05:00Z","text":"Reminder: since the Aug 18 policy review our refund window is 30 days (not 14). The refund macro is updated. Policy doc update is on my list.","thread_id":null,"reactions":[{"name":"white_check_mark","count":4}]},
+{"id":"support-20260902-02","type":"message","user":"U12MARCO","iso":"2026-09-02T16:12:00Z","text":"Thanks! 30 days from delivery, same as before for the start date, right?","thread_id":"support-20260902-01"},
+{"id":"support-20260902-03","type":"message","user":"U11PRIYA","iso":"2026-09-02T16:15:00Z","text":"Yes, 30 calendar days from delivery. Use the new macro, it has the right wording.","thread_id":"support-20260902-01"},
+{"id":"support-20260902-04","type":"message","user":"U03ANA","iso":"2026-09-02T16:30:00Z","text":"Thanks Priya. Please get the policy doc fixed soon, people still link to it from the wiki.","thread_id":"support-20260902-01"},
+{"id":"support-20260902-05","type":"message","user":"U12MARCO","iso":"2026-09-02T20:40:00Z","text":"Any ETA on firmware 2.8.1? Customers keep asking.","thread_id":null},
+{"id":"support-20260902-06","type":"message","user":"U07DEVON","iso":"2026-09-02T20:48:00Z","text":"Raj said it's in lab soak tests. No public date yet, don't promise one.","thread_id":"support-20260902-05"}
+]

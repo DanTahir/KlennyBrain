@@ -1,0 +1,5 @@
+[
+  { "id": "general-20260901-01", "type": "message", "user": "U04TESS", "iso": "2026-09-01T17:00:00Z", "text": "Reminder: benefits open enrollment runs Sep 1 through Sep 15. New this year: a second dental plan option and an increased commuter benefit. Info session Thursday at 10am PT.", "thread_id": null, "reactions": [{ "name": "memo", "count": 5 }] },
+  { "id": "general-20260901-02", "type": "message", "user": "U06MEI", "iso": "2026-09-01T17:20:00Z", "text": "If we change nothing, do we roll over automatically?", "thread_id": "general-20260901-01" },
+  { "id": "general-20260901-03", "type": "message", "user": "U04TESS", "iso": "2026-09-01T17:25:00Z", "text": "Yes for medical and dental. FSA elections need to be renewed every year.", "thread_id": "general-20260901-01" }
+]

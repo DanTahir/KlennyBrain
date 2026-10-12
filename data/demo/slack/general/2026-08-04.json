@@ -1,0 +1,5 @@
+[
+  { "id": "general-20260804-01", "type": "message", "user": "U02RAJ", "iso": "2026-08-04T18:00:00Z", "text": "R2 firmware *2.8* is released! Highlights: 12% faster pick cycle, improved obstacle detection, and a new roaming algorithm for multi-AP warehouses. Rolling out to customer fleets over the next two weeks.", "thread_id": null, "reactions": [{ "name": "robot_face", "count": 10 }] },
+  { "id": "general-20260804-02", "type": "message", "user": "U12MARCO", "iso": "2026-08-04T18:15:00Z", "text": "Support is ready. Release notes are in the help center. Ping #support with anything weird.", "thread_id": "general-20260804-01" },
+  { "id": "general-20260804-03", "type": "message", "user": "U01ELENA", "iso": "2026-08-04T18:30:00Z", "text": "Great work firmware team!", "thread_id": "general-20260804-01" }
+]

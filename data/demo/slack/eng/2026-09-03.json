@@ -1,0 +1,8 @@
+[
+{"id":"eng-20260903-01","type":"message","user":"U07DEVON","iso":"2026-09-03T18:20:00Z","text":"SAML rant incoming. ATL-212: our SP validates fine against KeyGate's test tenant, but in the Globex-shaped tenant the metadata endpoint serves an expired signing cert after their key rotation. Signature validation fails, login dies.","thread_id":null},
+{"id":"eng-20260903-02","type":"message","user":"U05JORDAN","iso":"2026-09-03T18:27:00Z","text":"Can we pin the new cert manually as a workaround?","thread_id":"eng-20260903-01"},
+{"id":"eng-20260903-03","type":"message","user":"U07DEVON","iso":"2026-09-03T18:35:00Z","text":"For one tenant, yes, but every rotation would break it again and Globex security won't accept a manual pin. KeyGate has to fix the metadata endpoint. Opened a case with Victor at KeyGate.","thread_id":"eng-20260903-01"},
+{"id":"eng-20260903-04","type":"message","user":"U09SAM","iso":"2026-09-03T18:40:00Z","text":"Flagging this in the Atlas risk register. Go/no-go is Sep 16.","thread_id":"eng-20260903-01"},
+{"id":"eng-20260903-05","type":"message","user":"U08OLLIE","iso":"2026-09-03T21:00:00Z","text":"Where does the billing DB live? I need read access for the usage chart.","thread_id":null},
+{"id":"eng-20260903-06","type":"message","user":"U06MEI","iso":"2026-09-03T21:08:00Z","text":"Postgres `billing-prod`, but please use the read replica `billing-ro` via the analytics role. Request it in #eng-access and tag me. Usage rollups are in `usage_daily`, not the raw `robot_events` table, which is ~400M rows.","thread_id":"eng-20260903-05"}
+]

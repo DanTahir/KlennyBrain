@@ -1,0 +1,8 @@
+[
+{"id":"eng-20261006-01","type":"message","user":"U06MEI","iso":"2026-10-06T16:40:00Z","text":"Billing v2 cutover plan (PayStream): 1) Oct 20 shadow-invoice all customers in PayStream and diff against legacy, 2) Oct 27 freeze legacy price changes, 3) Nov 1 PayStream becomes system of record for November invoices. Rollback = flip `billing.provider` back to legacy. Details in ADR-007.","thread_id":null,"reactions":[{"name":"white_check_mark","count":4}]},
+{"id":"eng-20261006-02","type":"message","user":"U05JORDAN","iso":"2026-10-06T16:48:00Z","text":"What diff tolerance are we accepting in shadow mode?","thread_id":"eng-20261006-01"},
+{"id":"eng-20261006-03","type":"message","user":"U06MEI","iso":"2026-10-06T16:55:00Z","text":"Zero on totals, ±$0.01 per line for rounding. Any proration diffs get hand-reviewed; BIL-31 taught me not to trust swaps.","thread_id":"eng-20261006-01"},
+{"id":"eng-20261006-04","type":"message","user":"U02RAJ","iso":"2026-10-06T17:02:00Z","text":"Good. Loop in Rina at PayStream for the Nov 1 window so they have someone on call.","thread_id":"eng-20261006-01"},
+{"id":"eng-20261006-05","type":"message","user":"U07DEVON","iso":"2026-10-06T19:15:00Z","text":"ATL-212: still waiting on KeyGate's fix, ETA Oct 9. Contract test is still red as of this morning.","thread_id":null},
+{"id":"eng-20261006-06","type":"message","user":"U08OLLIE","iso":"2026-10-06T19:20:00Z","text":"I'll babysit the contract test dashboard Thursday and ping you the second it goes green.","thread_id":"eng-20261006-05"}
+]

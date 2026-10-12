@@ -1,0 +1,6 @@
+[
+  { "id": "general-20260415-01", "type": "message", "user": "U05JORDAN", "iso": "2026-04-15T16:00:00Z", "text": "Please welcome <@U08OLLIE>, our new Software Engineering Intern on Platform! Ollie will be working on frontend for our upcoming fleet product.", "thread_id": null, "reactions": [{ "name": "wave", "count": 11 }] },
+  { "id": "general-20260415-02", "type": "message", "user": "U08OLLIE", "iso": "2026-04-15T16:10:00Z", "text": "Thanks everyone! Excited to be here. Already got lost finding the robot lab twice.", "thread_id": "general-20260415-01" },
+  { "id": "general-20260415-03", "type": "message", "user": "U10KAI", "iso": "2026-04-15T16:14:00Z", "text": "Welcome Ollie! Follow the R2 that's always parked by the coffee machine.", "thread_id": "general-20260415-01" },
+  { "id": "general-20260415-04", "type": "message", "user": "U04TESS", "iso": "2026-04-15T20:30:00Z", "text": "Office note: snack restock is Thursdays now. And yes, we got the seaweed chips back.", "thread_id": null, "reactions": [{ "name": "tada", "count": 6 }] }
+]

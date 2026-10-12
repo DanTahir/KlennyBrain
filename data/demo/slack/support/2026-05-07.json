@@ -1,0 +1,6 @@
+[
+{"id":"support-20260507-01","type":"message","user":"U12MARCO","iso":"2026-05-07T17:15:00Z","text":"Customer asking if they can return a Console add-on they bought 10 days ago. Per the refund policy doc it's 14 days from delivery, so I told them yes. https://wiki.northwind.dev/support/refund-policy","thread_id":null},
+{"id":"support-20260507-02","type":"message","user":"U11PRIYA","iso":"2026-05-07T17:20:00Z","text":"Correct, 14 days. Make sure they get an RMA number from ShipFast before shipping anything back.","thread_id":"support-20260507-01"},
+{"id":"support-20260507-03","type":"message","user":"U12MARCO","iso":"2026-05-07T17:24:00Z","text":"Will do, sending the RMA form now.","thread_id":"support-20260507-01"},
+{"id":"support-20260507-04","type":"message","user":"U13OMAR","iso":"2026-05-07T21:30:00Z","text":"FYI Globex onboarding call went well. Expect a bunch of 'how do I add a site' questions next week.","thread_id":null,"reactions":[{"name":"thumbsup","count":2}]}
+]

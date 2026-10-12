@@ -1,0 +1,7 @@
+[
+  { "id": "atlas-launch-20260922-01", "type": "message", "user": "U07DEVON", "iso": "2026-09-22T19:05:00Z", "text": "Update on ATL-212: KeyGate (Victor Osei) confirmed it's a bug on their side, a *signing-cert rotation bug in their SAML metadata endpoint*. During rotation the endpoint publishes the new cert before the old one is retired. Nothing we can fix on our end; waiting on their patch.", "thread_id": null, "reactions": [{ "name": "eyes", "count": 5 }] },
+  { "id": "atlas-launch-20260922-02", "type": "message", "user": "U09SAM", "iso": "2026-09-22T19:12:00Z", "text": "Did they give an ETA? Our gate is the 26th.", "thread_id": "atlas-launch-20260922-01" },
+  { "id": "atlas-launch-20260922-03", "type": "message", "user": "U07DEVON", "iso": "2026-09-22T19:20:00Z", "text": "Not yet. Victor is chasing their eng team, expecting an answer in a day or two.", "thread_id": "atlas-launch-20260922-01" },
+  { "id": "atlas-launch-20260922-04", "type": "message", "user": "U05JORDAN", "iso": "2026-09-22T19:35:00Z", "text": "Realistically the 26th is unlikely. Sam, worth prepping a plan B date.", "thread_id": "atlas-launch-20260922-01" },
+  { "id": "atlas-launch-20260922-05", "type": "message", "user": "U09SAM", "iso": "2026-09-22T19:40:00Z", "text": "Agreed, will bring options to Elena and Raj.", "thread_id": "atlas-launch-20260922-01" }
+]

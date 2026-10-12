@@ -1,0 +1,16 @@
+[
+  { "id": "U01ELENA", "name": "elena", "real_name": "Elena Park", "profile": { "email": "elena@northwind.dev", "title": "CEO & Co-founder" } },
+  { "id": "U02RAJ", "name": "raj", "real_name": "Raj Mehta", "profile": { "email": "raj@northwind.dev", "title": "CTO & Co-founder" } },
+  { "id": "U03ANA", "name": "ana", "real_name": "Ana Gomez", "profile": { "email": "ana@northwind.dev", "title": "VP Customer Experience" } },
+  { "id": "U04TESS", "name": "tess", "real_name": "Tess Morgan", "profile": { "email": "tess@northwind.dev", "title": "Head of People" } },
+  { "id": "U05JORDAN", "name": "jordan", "real_name": "Jordan Blake", "profile": { "email": "jordan@northwind.dev", "title": "Engineering Manager, Platform" } },
+  { "id": "U06MEI", "name": "mei", "real_name": "Mei Chen", "profile": { "email": "mei@northwind.dev", "title": "Staff Engineer" } },
+  { "id": "U07DEVON", "name": "devon", "real_name": "Devon Lee", "profile": { "email": "devon@northwind.dev", "title": "Senior Engineer, Identity" } },
+  { "id": "U08OLLIE", "name": "ollie", "real_name": "Ollie Grant", "profile": { "email": "ollie@northwind.dev", "title": "Software Engineering Intern" } },
+  { "id": "U09SAM", "name": "sam", "real_name": "Sam Rivera", "profile": { "email": "sam@northwind.dev", "title": "Senior Product Manager, Atlas" } },
+  { "id": "U10KAI", "name": "kai", "real_name": "Kai Nakamura", "profile": { "email": "kai@northwind.dev", "title": "Product Designer" } },
+  { "id": "U11PRIYA", "name": "priya", "real_name": "Priya Shah", "profile": { "email": "priya@northwind.dev", "title": "Support Lead" } },
+  { "id": "U12MARCO", "name": "marco", "real_name": "Marco Rossi", "profile": { "email": "marco@northwind.dev", "title": "Support Engineer" } },
+  { "id": "U13OMAR", "name": "omar", "real_name": "Omar Haddad", "profile": { "email": "omar@northwind.dev", "title": "Customer Success Manager" } },
+  { "id": "U14LENA", "name": "lena", "real_name": "Lena Fischer", "profile": { "email": "lena@northwind.dev", "title": "Enterprise Account Executive" } }
+]

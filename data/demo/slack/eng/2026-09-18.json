@@ -1,0 +1,8 @@
+[
+{"id":"eng-20260918-01","type":"message","user":"U07DEVON","iso":"2026-09-18T17:10:00Z","text":"ATL-212 update: KeyGate confirmed the signing-cert rotation bug is on their side, but still no firm fix date from Victor. Everything on our side is done and tested. We're just blocked.","thread_id":null},
+{"id":"eng-20260918-02","type":"message","user":"U02RAJ","iso":"2026-09-18T17:16:00Z","text":"The Sep 30 GA from the go/no-go assumed ATL-212 closes by Sep 26. Keep pushing them for a date.","thread_id":"eng-20260918-01"},
+{"id":"eng-20260918-03","type":"message","user":"U07DEVON","iso":"2026-09-18T17:22:00Z","text":"Will do. I've also written a contract test that hits their metadata endpoint every hour so we know the moment the fix lands.","thread_id":"eng-20260918-01","reactions":[{"name":"robot_face","count":2}]},
+{"id":"eng-20260918-04","type":"message","user":"U05JORDAN","iso":"2026-09-18T20:30:00Z","text":"Quick billing q: Finance wants invoices to show Atlas Enterprise as a separate line at $55/robot/month. Is that a config change or code?","thread_id":null},
+{"id":"eng-20260918-05","type":"message","user":"U06MEI","iso":"2026-09-18T20:41:00Z","text":"Config in the legacy service (new SKU `ATLAS-ENT`), but I'd rather do it directly in PayStream as a price plan since we cut over in October. Tracking as BIL-38.","thread_id":"eng-20260918-04"},
+{"id":"eng-20260918-06","type":"message","user":"U08OLLIE","iso":"2026-09-18T22:05:00Z","text":"PSA: whoever left a pizza box on the 3D printer, it is now part of the print bed.","thread_id":null,"reactions":[{"name":"joy","count":5}]}
+]

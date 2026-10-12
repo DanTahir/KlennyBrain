@@ -1,0 +1,9 @@
+[
+{"id":"eng-20260721-01","type":"message","user":"U06MEI","iso":"2026-07-21T17:30:00Z","text":"Writeup on the Stark Distribution invoice discrepancy (BIL-31): when a robot was swapped mid-cycle (RMA + replacement), we prorated the removed unit by calendar days but the new unit by billing-period days. Stark's July invoice was overcharged $2,184.60 across 64 robots. Fix normalizes both to robot-days in the period. https://linear.northwind.dev/issue/BIL-31","thread_id":null,"reactions":[{"name":"eyes","count":4}]},
+{"id":"eng-20260721-02","type":"message","user":"U05JORDAN","iso":"2026-07-21T17:38:00Z","text":"Nice find. Did any other customers hit this?","thread_id":"eng-20260721-01"},
+{"id":"eng-20260721-03","type":"message","user":"U06MEI","iso":"2026-07-21T17:45:00Z","text":"Ran a query on the billing DB for every swap since January. Only Stark had swaps that straddled a cycle boundary. Credit memo goes out with their August invoice; support has the ticket.","thread_id":"eng-20260721-01"},
+{"id":"eng-20260721-04","type":"message","user":"U02RAJ","iso":"2026-07-21T17:51:00Z","text":"Another point for the PayStream migration. Let's make sure there's a regression test for swaps.","thread_id":"eng-20260721-01"},
+{"id":"eng-20260721-05","type":"message","user":"U06MEI","iso":"2026-07-21T17:55:00Z","text":"Added three: swap mid-cycle, swap on boundary, double swap. Deploying the fix at 19:00 UTC.","thread_id":"eng-20260721-01"},
+{"id":"eng-20260721-06","type":"message","user":"U08OLLIE","iso":"2026-07-21T20:02:00Z","text":"Is there a reason the API returns 204 vs 200 on robot heartbeat? Asking before I 'fix' it.","thread_id":null},
+{"id":"eng-20260721-07","type":"message","user":"U02RAJ","iso":"2026-07-21T20:06:00Z","text":"Yes, firmware 2.6 and older treat any body as a command payload. Please don't fix it :)","thread_id":"eng-20260721-06"}
+]

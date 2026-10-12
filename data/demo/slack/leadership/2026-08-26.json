@@ -1,0 +1,6 @@
+[
+  { "id": "leadership-20260826-01", "type": "message", "user": "U04TESS", "iso": "2026-08-26T18:00:00Z", "text": "Comp benchmarking is done. Summary: our engineering bands are ~5-7% below the 50th percentile for Series B robotics in the Bay Area. Other bands are within 2%. Full data in the confidential HR doc.", "thread_id": null },
+  { "id": "leadership-20260826-02", "type": "message", "user": "U02RAJ", "iso": "2026-08-26T18:12:00Z", "text": "Matches what I'm hearing in hiring loops. We lost two senior candidates on comp this quarter.", "thread_id": "leadership-20260826-01" },
+  { "id": "leadership-20260826-03", "type": "message", "user": "U01ELENA", "iso": "2026-08-26T18:20:00Z", "text": "Tess, can you model a few adjustment scenarios with budget impact? Let's decide by early October.", "thread_id": "leadership-20260826-01" },
+  { "id": "leadership-20260826-04", "type": "message", "user": "U04TESS", "iso": "2026-08-26T18:24:00Z", "text": "Will do: +4%, +6%, +8% scenarios.", "thread_id": "leadership-20260826-01" }
+]

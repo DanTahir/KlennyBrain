@@ -1,0 +1,8 @@
+[
+{"id":"eng-20260812-01","type":"message","user":"U02RAJ","iso":"2026-08-12T16:45:00Z","text":"Support is seeing R2s drop Wi-Fi every few hours since firmware 2.8 (released Aug 4). Hooli and Acme Foods so far. Opened FW-77. Smells like the roaming threshold change in the 2.8 wpa_supplicant config.","thread_id":null},
+{"id":"eng-20260812-02","type":"message","user":"U05JORDAN","iso":"2026-08-12T16:52:00Z","text":"Should we pull 2.8 from the auto-update channel?","thread_id":"eng-20260812-01"},
+{"id":"eng-20260812-03","type":"message","user":"U02RAJ","iso":"2026-08-12T17:05:00Z","text":"Pausing rollout now. Can't roll back units already on 2.8 without a site visit, so the real answer is a 2.8.1 hotfix. I'll own it.","thread_id":"eng-20260812-01"},
+{"id":"eng-20260812-04","type":"message","user":"U02RAJ","iso":"2026-08-12T22:30:00Z","text":"Repro'd in the lab with two APs on different channels: robot holds a weak AP until RSSI -82 then deauths. 2.7 roamed at -72. Workaround for sites: power-cycle the robot. Not great.","thread_id":"eng-20260812-01","reactions":[{"name":"face_with_rolling_eyes","count":2}]},
+{"id":"eng-20260812-05","type":"message","user":"U08OLLIE","iso":"2026-08-12T23:10:00Z","text":"Is the 'connection lost' banner in Atlas expected to flicker like that? I see it on the Hooli fleet in staging data.","thread_id":null},
+{"id":"eng-20260812-06","type":"message","user":"U10KAI","iso":"2026-08-12T23:14:00Z","text":"That's FW-77 showing up in the UI. Let's debounce the banner to 30s so it isn't a strobe light.","thread_id":"eng-20260812-05"}
+]

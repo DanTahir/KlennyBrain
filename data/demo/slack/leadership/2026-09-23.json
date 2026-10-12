@@ -1,0 +1,7 @@
+[
+  { "id": "leadership-20260923-01", "type": "message", "user": "U01ELENA", "iso": "2026-09-23T17:00:00Z", "text": "Decision: we'll merge Support and Customer Success into one Customer Experience org under <@U03ANA>, effective *2026-11-01*. Plan doc: https://wiki.northwind.dev/leadership/q4-reorg-plan", "thread_id": null },
+  { "id": "leadership-20260923-02", "type": "message", "user": "U03ANA", "iso": "2026-09-23T17:08:00Z", "text": "Thank you. To be clear for the plan: Priya and Omar keep their roles and both report to me. No role eliminations.", "thread_id": "leadership-20260923-01" },
+  { "id": "leadership-20260923-03", "type": "message", "user": "U04TESS", "iso": "2026-09-23T17:15:00Z", "text": "I'll draft manager talking points and the comms timeline. This stays confidential until we announce.", "thread_id": "leadership-20260923-01" },
+  { "id": "leadership-20260923-04", "type": "message", "user": "U02RAJ", "iso": "2026-09-23T17:22:00Z", "text": "Supportive. Can we make sure the eng escalation path (Mei for billing, Devon for auth) is documented in the new org?", "thread_id": "leadership-20260923-01" },
+  { "id": "leadership-20260923-05", "type": "message", "user": "U03ANA", "iso": "2026-09-23T17:26:00Z", "text": "Yes, adding it to the plan.", "thread_id": "leadership-20260923-01" }
+]

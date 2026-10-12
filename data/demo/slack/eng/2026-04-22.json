@@ -1,0 +1,8 @@
+[
+{"id":"eng-20260422-01","type":"message","user":"U05JORDAN","iso":"2026-04-22T16:10:00Z","text":"On-call handoff: <@U07DEVON> you're primary this week, I'm secondary. Quiet weekend except one PagerDuty blip on the Console API at 03:12, self-resolved.","thread_id":null},
+{"id":"eng-20260422-02","type":"message","user":"U07DEVON","iso":"2026-04-22T16:14:00Z","text":"Got it. I'll look at that blip, probably the connection pool again.","thread_id":"eng-20260422-01"},
+{"id":"eng-20260422-03","type":"message","user":"U08OLLIE","iso":"2026-04-22T18:30:00Z","text":"Dumb question: where do invoices actually get generated? I'm adding a 'download invoice' link in the Console and can't find the endpoint.","thread_id":null},
+{"id":"eng-20260422-04","type":"message","user":"U05JORDAN","iso":"2026-04-22T18:33:00Z","text":"Not dumb. Billing service owns that. <@U06MEI> is the person, she wrote the runbook.","thread_id":"eng-20260422-03"},
+{"id":"eng-20260422-05","type":"message","user":"U06MEI","iso":"2026-04-22T18:41:00Z","text":"Invoices are rendered by the billing service nightly job (`invoice-render`, 02:00 UTC) and stored as PDFs. Use `GET /v1/billing/invoices/:id/pdf`, it returns a signed link valid for 15 min. Don't hit the billing DB directly from the Console. See https://wiki.northwind.dev/eng/runbook-billing-service","thread_id":"eng-20260422-03","reactions":[{"name":"pray","count":2}]},
+{"id":"eng-20260422-06","type":"message","user":"U08OLLIE","iso":"2026-04-22T18:44:00Z","text":"Perfect, thank you!","thread_id":"eng-20260422-03"}
+]

@@ -1,0 +1,7 @@
+[
+{"id":"product-20260908-01","type":"message","user":"U10KAI","iso":"2026-09-08T17:15:00Z","text":"Enterprise SSO UX for review: admin pastes KeyGate metadata URL → we validate → 'test login' button → enforce SSO toggle. Fallback: owner keeps a break-glass password login.","thread_id":null},
+{"id":"product-20260908-02","type":"message","user":"U09SAM","iso":"2026-09-08T17:25:00Z","text":"Make the validation errors human. 'Signing cert invalid' should say what to do next.","thread_id":"product-20260908-01"},
+{"id":"product-20260908-03","type":"message","user":"U05JORDAN","iso":"2026-09-08T17:33:00Z","text":"Ironically that exact error is what ATL-212 is stuck on: KeyGate's metadata endpoint serves a stale cert after rotation. Devon's waiting on them.","thread_id":"product-20260908-01"},
+{"id":"product-20260908-04","type":"message","user":"U14LENA","iso":"2026-09-08T17:40:00Z","text":"Globex's IT team will be the first to use this flow, so it needs to be bulletproof.","thread_id":"product-20260908-01"},
+{"id":"product-20260908-05","type":"message","user":"U10KAI","iso":"2026-09-08T17:48:00Z","text":"Adding a 'retry metadata fetch' action and a copyable error id for support.","thread_id":"product-20260908-01"}
+]

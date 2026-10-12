@@ -1,0 +1,6 @@
+[
+{"id":"product-20260805-01","type":"message","user":"U09SAM","iso":"2026-08-05T16:45:00Z","text":"Atlas pricing page draft: Standard $40/robot/month, Enterprise $55/robot/month (adds SAML SSO, audit log, priority support).","thread_id":null},
+{"id":"product-20260805-02","type":"message","user":"U14LENA","iso":"2026-08-05T16:55:00Z","text":"Can we show an annual example? '120 robots on Enterprise = $79,200/yr' lands better with procurement.","thread_id":"product-20260805-01"},
+{"id":"product-20260805-03","type":"message","user":"U10KAI","iso":"2026-08-05T17:05:00Z","text":"I'll add a robot-count slider with a live total.","thread_id":"product-20260805-01"},
+{"id":"product-20260805-04","type":"message","user":"U02RAJ","iso":"2026-08-05T19:30:00Z","text":"Firmware 2.8 went out yesterday. Atlas now shows battery health per cell, thanks to the new telemetry fields.","thread_id":null,"reactions":[{"name":"battery","count":2}]}
+]

@@ -1,0 +1,7 @@
+[
+{"id":"sales-20260825-01","type":"message","user":"U14LENA","iso":"2026-08-25T17:20:00Z","text":"Hooli call was rough. The firmware 2.8 Wi-Fi drops (FW-77) are hitting their pickers during peak prep, and they're questioning the 2-year lock.","thread_id":null,"reactions":[{"name":"grimacing","count":3}]},
+{"id":"sales-20260825-02","type":"message","user":"U13OMAR","iso":"2026-08-25T17:28:00Z","text":"I'm doing weekly check-ins with Gavin's team. The power-cycle workaround buys time but they're tired of it.","thread_id":"sales-20260825-01"},
+{"id":"sales-20260825-03","type":"message","user":"U03ANA","iso":"2026-08-25T17:40:00Z","text":"Let's not discount yet. A firm 2.8.1 date from Raj will do more than a price cut.","thread_id":"sales-20260825-01"},
+{"id":"sales-20260825-04","type":"message","user":"U01ELENA","iso":"2026-08-25T17:45:00Z","text":"Agreed. I'll ask Raj for a date this week.","thread_id":"sales-20260825-01"},
+{"id":"sales-20260825-05","type":"message","user":"U09SAM","iso":"2026-08-25T20:00:00Z","text":"Pricing page for Atlas is ready for review: $40 standard, $55 Enterprise with SSO. Comments welcome.","thread_id":null}
+]

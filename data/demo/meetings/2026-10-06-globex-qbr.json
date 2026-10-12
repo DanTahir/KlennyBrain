@@ -1,0 +1,35 @@
+{
+  "id": "mtg-20261006-globex-qbr",
+  "title": "Globex Logistics QBR",
+  "date": "2026-10-06T18:00:00Z",
+  "duration_minutes": 60,
+  "attendees": ["omar@northwind.dev", "lena@northwind.dev", "sam@northwind.dev", "devon@northwind.dev", "dana.whitfield@globexlogistics.com"],
+  "project": "atlas",
+  "acl": null,
+  "transcript": [
+    { "speaker": "omar@northwind.dev", "t": "00:00", "text": "Thanks for joining, Dana. Agenda: fleet health, Atlas status, and renewal." },
+    { "speaker": "omar@northwind.dev", "t": "00:30", "text": "Fleet health first. 120 robots, 99.1 percent uptime last quarter. You were spared most of the firmware 2.8 Wi-Fi issue since you're still on 2.7 at two sites." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "01:05", "text": "Yes, and we'll stay on 2.7 until 2.8.1 is out. Our ops team noticed what happened at other sites." },
+    { "speaker": "sam@northwind.dev", "t": "01:30", "text": "On Atlas, GA is October 14. Fleet view, scheduling, staged OTA are all ready. Your team's feedback on the staged rollout UI was a big help." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "01:55", "text": "That's great, but I'll be direct. Without SAML SSO, our security team won't approve it. We can't roll it out to any of the 120 robots. Where is SSO?" },
+    { "speaker": "devon@northwind.dev", "t": "02:20", "text": "SSO is built and works. The remaining issue is on KeyGate's side. Their metadata endpoint sometimes serves an outdated signing cert during rotation, so logins fail intermittently. They've committed to a fix on October 9." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "02:55", "text": "That was going to be September before. I need to go to our CISO with something in writing. Dates, the dependency, and what happens if KeyGate misses." },
+    { "speaker": "lena@northwind.dev", "t": "03:20", "text": "Completely fair. That's on me, and it's late. I'll get it to you." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "03:35", "text": "I asked for it on the 26th. When?" },
+    { "speaker": "lena@northwind.dev", "t": "03:45", "text": "By end of this week. I want it to include our fallback option, which we're scoping right now." },
+    { "speaker": "devon@northwind.dev", "t": "04:05", "text": "Fallback would be direct OIDC with your IdP. Jordan, our eng manager, has an estimate due Friday." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "04:30", "text": "OIDC works for us in principle. Our IdP supports it. But I need to know it's real before I plan around it." },
+    { "speaker": "omar@northwind.dev", "t": "04:55", "text": "On renewal, your contract renews November 30. We'd like to start the paperwork mid-October." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "05:15", "text": "Procurement wants to see Atlas live with SSO before they sign a renewal that includes the Enterprise tier. I'm not threatening anything, I'm telling you what my procurement team will ask." },
+    { "speaker": "lena@northwind.dev", "t": "05:40", "text": "Understood. We could also separate the R2 lease renewal from the Atlas Enterprise add-on if that makes procurement easier." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "05:55", "text": "Possibly. Put that in the written document too." },
+    { "speaker": "omar@northwind.dev", "t": "06:20", "text": "Will do. Let's schedule a check-in for October 15, day after GA." },
+    { "speaker": "dana.whitfield@globexlogistics.com", "t": "06:30", "text": "Fine. Thanks, everyone. I do like the product, for what it's worth." }
+  ],
+  "summary": "Quarterly business review with Globex Logistics (Dana Whitfield). Fleet uptime 99.1% across 120 robots; Globex is holding on firmware 2.7 until 2.8.1. Sam confirmed Atlas GA 2026-10-14. Dana reiterated that Globex cannot roll out Atlas without SAML SSO and that procurement wants Atlas live with SSO before signing the 2026-11-30 renewal. Devon explained the KeyGate signing-cert dependency (fix ETA 2026-10-09). Dana again asked for the written SSO timeline she first requested on 2026-09-26; Lena committed to send it this week, including the OIDC fallback and an option to separate the lease renewal from the Atlas Enterprise add-on.",
+  "decisions": ["Hold a Globex follow-up check-in on 2026-10-15."],
+  "action_items": [
+    { "owner": "lena@northwind.dev", "text": "Send Globex the written SSO timeline including OIDC fallback and renewal structure options", "due": "2026-10-09", "status": "open" },
+    { "owner": "omar@northwind.dev", "text": "Schedule a Globex check-in for 2026-10-15", "due": "2026-10-07", "status": "done" }
+  ]
+}

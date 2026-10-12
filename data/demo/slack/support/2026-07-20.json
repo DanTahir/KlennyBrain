@@ -1,0 +1,7 @@
+[
+{"id":"support-20260720-01","type":"message","user":"U12MARCO","iso":"2026-07-20T17:05:00Z","text":"Escalation: Stark Distribution says their July invoice is ~$2.2k higher than expected. They swapped a few robots via RMA this month. Ticket ZD-1017. <@U06MEI> can you take a look?","thread_id":null},
+{"id":"support-20260720-02","type":"message","user":"U06MEI","iso":"2026-07-20T17:30:00Z","text":"On it. First look: the swapped units are prorated inconsistently, looks like a billing service bug, not a pricing error. Filing BIL-31.","thread_id":"support-20260720-01"},
+{"id":"support-20260720-03","type":"message","user":"U06MEI","iso":"2026-07-20T22:15:00Z","text":"Confirmed. Overcharge is $2,184.60. Fix ships tomorrow, and Stark gets a credit memo on the August invoice. You can tell them that now.","thread_id":"support-20260720-01","reactions":[{"name":"star-struck","count":3}]},
+{"id":"support-20260720-04","type":"message","user":"U13OMAR","iso":"2026-07-20T22:20:00Z","text":"Thanks Mei. I'll call their finance lead personally, they were pretty annoyed.","thread_id":"support-20260720-01"},
+{"id":"support-20260720-05","type":"message","user":"U03ANA","iso":"2026-07-20T22:31:00Z","text":"Great turnaround. Marco, please add a note in the ticket linking BIL-31.","thread_id":"support-20260720-01"}
+]

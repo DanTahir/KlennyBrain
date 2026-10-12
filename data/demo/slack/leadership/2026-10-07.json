@@ -1,0 +1,7 @@
+[
+  { "id": "leadership-20261007-01", "type": "message", "user": "U01ELENA", "iso": "2026-10-07T16:30:00Z", "text": "Offsite prep for later this month: agenda is 2027 plan, Atlas post-launch, and the CX org merge. Tess is booking the space.", "thread_id": null },
+  { "id": "leadership-20261007-02", "type": "message", "user": "U03ANA", "iso": "2026-10-07T16:40:00Z", "text": "Biggest risk going in: Globex. $480k renewal on Nov 30 and SSO still blocked on KeyGate.", "thread_id": "leadership-20261007-01" },
+  { "id": "leadership-20261007-03", "type": "message", "user": "U02RAJ", "iso": "2026-10-07T16:48:00Z", "text": "Devon hasn't heard back from KeyGate's exec sponsor yet. I'll reach out CTO-to-CTO this week.", "thread_id": "leadership-20261007-01" },
+  { "id": "leadership-20261007-04", "type": "message", "user": "U04TESS", "iso": "2026-10-07T16:55:00Z", "text": "Reminder: the reorg and comp changes stay confidential until the *Oct 20 all-hands*. Please don't mention them to managers before the briefing on the 19th.", "thread_id": null, "reactions": [{ "name": "lock", "count": 3 }] },
+  { "id": "leadership-20261007-05", "type": "message", "user": "U01ELENA", "iso": "2026-10-07T17:00:00Z", "text": "Agreed. I'll open the all-hands with it.", "thread_id": "leadership-20261007-04" }
+]

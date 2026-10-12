@@ -1,0 +1,40 @@
+{
+  "id": "mtg-20260818-support-finance-policy-review",
+  "title": "Support & Finance policy review",
+  "date": "2026-08-18T21:00:00Z",
+  "duration_minutes": 40,
+  "attendees": ["ana@northwind.dev", "priya@northwind.dev", "elena@northwind.dev", "marco@northwind.dev", "omar@northwind.dev"],
+  "project": null,
+  "acl": null,
+  "transcript": [
+    { "speaker": "ana@northwind.dev", "t": "00:00", "text": "Thanks for making time. Main agenda item is the refund window. Priya, set it up." },
+    { "speaker": "priya@northwind.dev", "t": "00:15", "text": "Current policy is 14 days from delivery for hardware refunds. In the last three months we had nine requests land between day 15 and day 30. Mostly because commissioning takes longer than two weeks at bigger sites." },
+    { "speaker": "marco@northwind.dev", "t": "00:55", "text": "Right, a lot of customers don't even power on the unit until the integrator shows up. By the time they find a problem, the window's closed and we end up making exceptions anyway." },
+    { "speaker": "omar@northwind.dev", "t": "01:20", "text": "Soylent asked me about this just last week. And Initech is going to ask, I can feel it. Fourteen days is out of line with the market." },
+    { "speaker": "elena@northwind.dev", "t": "01:45", "text": "What's the financial exposure if we go to 30?" },
+    { "speaker": "priya@northwind.dev", "t": "02:00", "text": "Based on the exceptions we already granted, maybe two to three extra refunds a quarter. Units come back refurbishable, so the real cost is shipping and the refurb, call it twenty-five hundred per unit." },
+    { "speaker": "elena@northwind.dev", "t": "02:30", "text": "That's cheap compared to an annoyed enterprise customer. I'm fine with 30." },
+    { "speaker": "ana@northwind.dev", "t": "02:45", "text": "Any objections? Okay. Extend the refund window from 14 to 30 days, effective immediately." },
+    { "speaker": "marco@northwind.dev", "t": "03:05", "text": "Does it apply to requests already in flight?" },
+    { "speaker": "ana@northwind.dev", "t": "03:15", "text": "Yes, anything open today gets the 30 days." },
+    { "speaker": "priya@northwind.dev", "t": "03:35", "text": "Then I need to change three things: the refund macro, the Refund Policy doc on the wiki, and brief the team." },
+    { "speaker": "priya@northwind.dev", "t": "03:55", "text": "Macro first since that's what customers actually see. I can do that by Friday. The policy doc by next Tuesday, the 25th." },
+    { "speaker": "marco@northwind.dev", "t": "04:10", "text": "I'll brief the team at Thursday standup. Actually, Wednesday, tomorrow's busy." },
+    { "speaker": "omar@northwind.dev", "t": "04:30", "text": "I'll let Soylent know proactively. Good news for once." },
+    { "speaker": "ana@northwind.dev", "t": "05:00", "text": "Second item, quick: RMA shipping through ShipFast. Marco, the delays?" },
+    { "speaker": "marco@northwind.dev", "t": "05:15", "text": "Average return pickup went from 3 days to 6 in July. I've asked them for a weekly report. Not a policy change, just flagging." },
+    { "speaker": "elena@northwind.dev", "t": "05:40", "text": "Keep an eye on it. If it hits 8 days, we look at alternatives." },
+    { "speaker": "ana@northwind.dev", "t": "06:00", "text": "Great. Thanks all, short and productive." }
+  ],
+  "summary": "Support and leadership reviewed the hardware refund policy. Nine refund requests in three months arrived between day 15 and 30, mostly due to long commissioning times. The group decided to extend the refund window from 14 to 30 days, effective immediately, including requests already open. Priya will update the refund macro and the Refund Policy doc; Marco will brief the support team. ShipFast RMA pickup delays (3 to 6 days) were flagged for monitoring.",
+  "decisions": [
+    "Extend the refund window from 14 to 30 days, effective immediately.",
+    "Open refund requests as of 2026-08-18 receive the 30-day window."
+  ],
+  "action_items": [
+    { "owner": "priya@northwind.dev", "text": "Update the Refund Policy doc to 30 days", "due": "2026-08-25", "status": "open" },
+    { "owner": "priya@northwind.dev", "text": "Update the refund macro", "due": "2026-08-22", "status": "done" },
+    { "owner": "marco@northwind.dev", "text": "Brief the support team", "due": "2026-08-20", "status": "done" },
+    { "owner": "omar@northwind.dev", "text": "Tell Soylent Grocers about the new 30-day refund window", "due": "2026-08-21", "status": "done" }
+  ]
+}

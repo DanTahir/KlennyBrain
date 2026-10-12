@@ -1,0 +1,5 @@
+[
+  { "id": "general-20260925-01", "type": "message", "user": "U09SAM", "iso": "2026-09-25T17:00:00Z", "text": ":mega: *Atlas GA moves to Oct 14.* We were planning Sep 30, but Enterprise SAML SSO (ATL-212) is blocked on a bug at our identity vendor KeyGate. Everything else is ready. Customers have been told. Questions to #atlas-launch.", "thread_id": null, "reactions": [{ "name": "eyes", "count": 8 }, { "name": "muscle", "count": 4 }] },
+  { "id": "general-20260925-02", "type": "message", "user": "U12MARCO", "iso": "2026-09-25T17:20:00Z", "text": "Does this change anything for Umbrella's beta?", "thread_id": "general-20260925-01" },
+  { "id": "general-20260925-03", "type": "message", "user": "U09SAM", "iso": "2026-09-25T17:26:00Z", "text": "Nope, beta keeps running as-is until GA.", "thread_id": "general-20260925-01" }
+]

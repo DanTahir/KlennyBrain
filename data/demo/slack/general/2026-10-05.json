@@ -1,0 +1,6 @@
+[
+  { "id": "general-20261005-01", "type": "message", "user": "U02RAJ", "iso": "2026-10-05T17:00:00Z", "text": "Firmware update: the *2.8.1 hotfix* for the Wi-Fi roaming drops (FW-77) is in beta on 6 robots in our lab and 10 at Hooli. Zero drops in 72 hours so far. Targeting wider rollout in ~2 weeks.", "thread_id": null, "reactions": [{ "name": "pray", "count": 7 }] },
+  { "id": "general-20261005-02", "type": "message", "user": "U12MARCO", "iso": "2026-10-05T17:12:00Z", "text": "Huge. Support has been fielding these from half the customer base.", "thread_id": "general-20261005-01" },
+  { "id": "general-20261005-03", "type": "message", "user": "U08OLLIE", "iso": "2026-10-05T21:00:00Z", "text": "Pumpkin carving contest Friday in the robot lab. R2-assisted carving is allowed but frowned upon.", "thread_id": null, "reactions": [{ "name": "jack_o_lantern", "count": 9 }] },
+  { "id": "general-20261005-04", "type": "message", "user": "U10KAI", "iso": "2026-10-05T21:08:00Z", "text": "Already sketching mine. It's a Figma file.", "thread_id": "general-20261005-03" }
+]

@@ -1,0 +1,6 @@
+[
+  { "id": "leadership-20260708-01", "type": "message", "user": "U03ANA", "iso": "2026-07-08T17:00:00Z", "text": "Something I want to raise: Support and Customer Success overlap a lot. Omar and Priya's team are both fielding the same customers, and handoffs on escalations are slow.", "thread_id": null },
+  { "id": "leadership-20260708-02", "type": "message", "user": "U01ELENA", "iso": "2026-07-08T17:10:00Z", "text": "Agreed. Stark's invoice issue bounced between them for 4 days. What are you thinking?", "thread_id": "leadership-20260708-01" },
+  { "id": "leadership-20260708-03", "type": "message", "user": "U03ANA", "iso": "2026-07-08T17:18:00Z", "text": "Not sure yet. Maybe one org with shared escalation paths. Let me sketch options over the next month.", "thread_id": "leadership-20260708-01" },
+  { "id": "leadership-20260708-04", "type": "message", "user": "U04TESS", "iso": "2026-07-08T17:25:00Z", "text": "Happy to help on the people side. Let's keep this here until there's a concrete plan.", "thread_id": "leadership-20260708-01" }
+]

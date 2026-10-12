@@ -1,0 +1,6 @@
+[
+{"id":"product-20260505-01","type":"message","user":"U09SAM","iso":"2026-05-05T17:00:00Z","text":"Atlas PRD v2 is up for review: https://wiki.northwind.dev/product/atlas-prd. Big changes: fleet scheduling moved to GA scope, OTA updates stay beta.","thread_id":null},
+{"id":"product-20260505-02","type":"message","user":"U02RAJ","iso":"2026-05-05T17:20:00Z","text":"OTA beta is the right call. I don't want customers pushing firmware fleet-wide without guardrails.","thread_id":"product-20260505-01"},
+{"id":"product-20260505-03","type":"message","user":"U10KAI","iso":"2026-05-05T17:35:00Z","text":"I'll have onboarding flow wireframes by Friday: connect site → claim robots → invite team.","thread_id":"product-20260505-01"},
+{"id":"product-20260505-04","type":"message","user":"U14LENA","iso":"2026-05-05T18:00:00Z","text":"From the field: every enterprise prospect asks about SSO in the first call. Please keep it in GA.","thread_id":"product-20260505-01"}
+]

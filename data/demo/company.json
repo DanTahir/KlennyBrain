@@ -1,0 +1,76 @@
+{
+  "company": {
+    "name": "Northwind Robotics",
+    "domain": "northwind.dev",
+    "description": "Series B robotics company (~60 people; 14 modeled here) selling warehouse picking robots (R2 Picker) and a new SaaS fleet-management product (Atlas Fleet Manager). HQ: Oakland, CA.",
+    "timeline": { "start": "2026-04-12", "end": "2026-10-12", "today": "2026-10-12" }
+  },
+  "people": [
+    { "id": "elena", "name": "Elena Park", "email": "elena@northwind.dev", "slackId": "U01ELENA", "title": "CEO & Co-founder", "department": "exec", "manager": null, "groups": ["group:slack:leadership", "group:dept:exec"], "expertise": ["strategy", "fundraising", "enterprise sales"], "persona": "ceo" },
+    { "id": "raj", "name": "Raj Mehta", "email": "raj@northwind.dev", "slackId": "U02RAJ", "title": "CTO & Co-founder", "department": "exec", "manager": "elena", "groups": ["group:slack:leadership", "group:dept:exec"], "expertise": ["robotics", "architecture", "R2 firmware"] },
+    { "id": "ana", "name": "Ana Gomez", "email": "ana@northwind.dev", "slackId": "U03ANA", "title": "VP Customer Experience", "department": "exec", "manager": "elena", "groups": ["group:slack:leadership", "group:dept:exec"], "expertise": ["customer success", "support operations"] },
+    { "id": "tess", "name": "Tess Morgan", "email": "tess@northwind.dev", "slackId": "U04TESS", "title": "Head of People", "department": "people", "manager": "elena", "groups": ["group:slack:leadership", "group:dept:people", "group:dept:exec"], "expertise": ["compensation", "hiring", "benefits"] },
+    { "id": "jordan", "name": "Jordan Blake", "email": "jordan@northwind.dev", "slackId": "U05JORDAN", "title": "Engineering Manager, Platform", "department": "engineering", "manager": "raj", "groups": ["group:dept:engineering"], "expertise": ["delivery", "on-call", "hiring"], "persona": "eng_lead" },
+    { "id": "mei", "name": "Mei Chen", "email": "mei@northwind.dev", "slackId": "U06MEI", "title": "Staff Engineer", "department": "engineering", "manager": "jordan", "groups": ["group:dept:engineering"], "expertise": ["billing service", "PayStream integration", "invoicing", "Postgres"] },
+    { "id": "devon", "name": "Devon Lee", "email": "devon@northwind.dev", "slackId": "U07DEVON", "title": "Senior Engineer, Identity", "department": "engineering", "manager": "jordan", "groups": ["group:dept:engineering"], "expertise": ["SSO", "SAML", "KeyGate integration", "auth"] },
+    { "id": "ollie", "name": "Ollie Grant", "email": "ollie@northwind.dev", "slackId": "U08OLLIE", "title": "Software Engineering Intern", "department": "engineering", "manager": "jordan", "groups": ["group:dept:engineering"], "expertise": ["frontend"], "persona": "intern" },
+    { "id": "sam", "name": "Sam Rivera", "email": "sam@northwind.dev", "slackId": "U09SAM", "title": "Senior Product Manager, Atlas", "department": "product", "manager": "raj", "groups": ["group:dept:product"], "expertise": ["Atlas Fleet Manager", "launch planning", "roadmap"] },
+    { "id": "kai", "name": "Kai Nakamura", "email": "kai@northwind.dev", "slackId": "U10KAI", "title": "Product Designer", "department": "product", "manager": "sam", "groups": ["group:dept:product"], "expertise": ["UX", "design system", "onboarding flows"] },
+    { "id": "priya", "name": "Priya Shah", "email": "priya@northwind.dev", "slackId": "U11PRIYA", "title": "Support Lead", "department": "support", "manager": "ana", "groups": ["group:dept:support"], "expertise": ["refund policy", "support macros", "escalations"] },
+    { "id": "marco", "name": "Marco Rossi", "email": "marco@northwind.dev", "slackId": "U12MARCO", "title": "Support Engineer", "department": "support", "manager": "priya", "groups": ["group:dept:support"], "expertise": ["R2 Picker troubleshooting", "Wi-Fi issues"], "persona": "support_agent" },
+    { "id": "omar", "name": "Omar Haddad", "email": "omar@northwind.dev", "slackId": "U13OMAR", "title": "Customer Success Manager", "department": "success", "manager": "ana", "groups": ["group:dept:success"], "expertise": ["Globex account", "renewals", "onboarding"] },
+    { "id": "lena", "name": "Lena Fischer", "email": "lena@northwind.dev", "slackId": "U14LENA", "title": "Enterprise Account Executive", "department": "sales", "manager": "elena", "groups": ["group:dept:sales"], "expertise": ["enterprise deals", "pricing", "Globex", "Hooli"] }
+  ],
+  "externalContacts": [
+    { "id": "globex-it", "name": "Dana Whitfield", "email": "dana.whitfield@globexlogistics.com", "org": "Globex Logistics", "title": "Director of IT" },
+    { "id": "keygate-se", "name": "Victor Osei", "email": "victor@keygate.io", "org": "KeyGate Identity", "title": "Partner Solutions Engineer" },
+    { "id": "paystream-am", "name": "Rina Kapoor", "email": "rina@paystream.com", "org": "PayStream", "title": "Account Manager" },
+    { "id": "hooli-ops", "name": "Gavin Belson Jr.", "email": "gbj@hooliretail.com", "org": "Hooli Retail", "title": "VP Operations" }
+  ],
+  "products": [
+    { "id": "atlas", "name": "Atlas Fleet Manager", "type": "SaaS", "status": "launching", "pricing": "$40 per robot per month; Enterprise tier with SSO at $55 per robot per month", "description": "Cloud dashboard to monitor, schedule and update fleets of R2 Pickers. Enterprise tier requires SAML SSO." },
+    { "id": "r2", "name": "R2 Picker", "type": "hardware", "status": "GA", "pricing": "$38,000 per unit or $1,450/month lease", "description": "Autonomous warehouse picking robot. Current firmware 2.8 (released 2026-08-04); 2.8.1 hotfix planned." },
+    { "id": "console", "name": "Northwind Cloud Console", "type": "SaaS", "status": "GA (legacy)", "pricing": "included with R2 lease", "description": "Legacy single-site monitoring console, to be replaced by Atlas." }
+  ],
+  "customers": [
+    { "id": "globex", "name": "Globex Logistics", "tier": "enterprise", "arr": 480000, "csm": "omar", "ae": "lena", "robots": 120, "renewalDate": "2026-11-30", "notes": "Atlas design partner. Rollout requires SAML SSO via KeyGate. Renewal at risk if SSO slips past October." },
+    { "id": "hooli", "name": "Hooli Retail", "tier": "enterprise", "arr": 310000, "csm": "omar", "ae": "lena", "robots": 80, "renewalDate": "2027-02-15", "notes": "Hit by the firmware 2.8 Wi-Fi drop issue." },
+    { "id": "initech", "name": "Initech Warehousing", "tier": "mid-market", "arr": 145000, "csm": "omar", "ae": "lena", "robots": 36, "renewalDate": "2027-01-10", "notes": "Requested a refund on 2 units in September." },
+    { "id": "umbrella", "name": "Umbrella Freight", "tier": "mid-market", "arr": 120000, "csm": "omar", "ae": "lena", "robots": 30, "renewalDate": "2026-12-20", "notes": "Atlas beta user." },
+    { "id": "stark", "name": "Stark Distribution", "tier": "enterprise", "arr": 260000, "csm": "omar", "ae": "lena", "robots": 64, "renewalDate": "2027-03-01", "notes": "Invoice discrepancy in July traced to billing service proration bug." },
+    { "id": "wayne", "name": "Wayne Supply Co", "tier": "mid-market", "arr": 98000, "csm": "omar", "ae": "lena", "robots": 24, "renewalDate": "2027-04-12", "notes": "" },
+    { "id": "acmefoods", "name": "Acme Foods", "tier": "smb", "arr": 52000, "csm": "omar", "ae": "lena", "robots": 12, "renewalDate": "2027-05-30", "notes": "Wi-Fi drop issue after firmware 2.8." },
+    { "id": "soylent", "name": "Soylent Grocers", "tier": "smb", "arr": 41000, "csm": "omar", "ae": "lena", "robots": 10, "renewalDate": "2027-06-15", "notes": "Asked about the refund window in August." }
+  ],
+  "projects": [
+    { "id": "atlas", "name": "Project Atlas", "owner": "sam", "status": "at risk", "summary": "Launch of Atlas Fleet Manager. Go/no-go on 2026-09-16 set launch for 2026-09-30; moved on 2026-09-24 to 2026-10-14 because ATL-212 (SAML SSO) is blocked on KeyGate." },
+    { "id": "sso", "name": "Enterprise SSO (Keystone)", "owner": "devon", "status": "blocked", "summary": "SAML SSO via KeyGate Identity for Atlas Enterprise tier. Tracked as ATL-212. Blocked on KeyGate fixing their SAML metadata endpoint (signing-cert rotation bug)." },
+    { "id": "billing-v2", "name": "Billing v2 (PayStream migration)", "owner": "mei", "status": "in progress", "summary": "Move invoicing from the legacy billing service to PayStream usage-based billing. Fixes July proration bug." },
+    { "id": "fw29", "name": "R2 Firmware 2.8.1 / 2.9", "owner": "raj", "status": "in progress", "summary": "Hotfix for Wi-Fi roaming drops introduced in firmware 2.8." },
+    { "id": "support-macros", "name": "Support Macro Refresh", "owner": "priya", "status": "done", "summary": "Rewrote support macros in August, including the refund macro (30-day window)." }
+  ],
+  "vendors": [
+    { "id": "keygate", "name": "KeyGate Identity", "service": "SAML/OIDC identity provider broker used for Atlas Enterprise SSO", "contact": "keygate-se" },
+    { "id": "paystream", "name": "PayStream", "service": "usage-based billing and payments", "contact": "paystream-am" },
+    { "id": "shipfast", "name": "ShipFast Logistics", "service": "robot shipping and RMA returns", "contact": null }
+  ],
+  "slackChannels": [
+    { "id": "C01GENERAL", "name": "general", "private": false, "purpose": "Company-wide announcements", "members": "all" },
+    { "id": "C02ENG", "name": "eng", "private": false, "purpose": "Engineering discussion", "members": ["raj", "jordan", "mei", "devon", "ollie", "sam", "kai"] },
+    { "id": "C03ATLAS", "name": "atlas-launch", "private": false, "purpose": "Project Atlas launch coordination", "members": ["elena", "raj", "sam", "kai", "devon", "jordan", "mei", "omar", "lena", "ana"] },
+    { "id": "C04SUPPORT", "name": "support", "private": false, "purpose": "Support team coordination and escalations", "members": ["ana", "priya", "marco", "omar", "mei", "devon"] },
+    { "id": "C05SALES", "name": "sales", "private": false, "purpose": "Deals, pipeline, customer asks", "members": ["elena", "lena", "omar", "ana", "sam"] },
+    { "id": "C06PRODUCT", "name": "product", "private": false, "purpose": "Product specs, design, roadmap", "members": ["sam", "kai", "raj", "jordan", "lena"] },
+    { "id": "G07LEADERSHIP", "name": "leadership", "private": true, "purpose": "Exec team only", "members": ["elena", "raj", "ana", "tess"] }
+  ],
+  "aclGroups": [
+    "group:slack:leadership",
+    "group:dept:exec",
+    "group:dept:people",
+    "group:dept:engineering",
+    "group:dept:product",
+    "group:dept:support",
+    "group:dept:success",
+    "group:dept:sales"
+  ]
+}

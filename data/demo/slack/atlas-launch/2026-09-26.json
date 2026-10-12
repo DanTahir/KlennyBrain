@@ -1,0 +1,8 @@
+[
+  { "id": "atlas-launch-20260926-01", "type": "message", "user": "U13OMAR", "iso": "2026-09-26T16:10:00Z", "text": "Escalation: Dana Whitfield (Globex IT) emailed this morning. Globex *cannot roll Atlas out to their 120 robots without SSO*, and she was clear the *$480k renewal on Nov 30* is at risk if SSO slips past October.", "thread_id": null, "reactions": [{ "name": "rotating_light", "count": 4 }] },
+  { "id": "atlas-launch-20260926-02", "type": "message", "user": "U01ELENA", "iso": "2026-09-26T16:20:00Z", "text": "This is our top account issue. What do they need from us right now?", "thread_id": "atlas-launch-20260926-01" },
+  { "id": "atlas-launch-20260926-03", "type": "message", "user": "U13OMAR", "iso": "2026-09-26T16:26:00Z", "text": "A written SSO timeline they can take to their CIO, plus a named contact for the KeyGate dependency.", "thread_id": "atlas-launch-20260926-01" },
+  { "id": "atlas-launch-20260926-04", "type": "message", "user": "U14LENA", "iso": "2026-09-26T16:35:00Z", "text": "I'll send Dana the written timeline. Devon, can you give me dates I can stand behind?", "thread_id": "atlas-launch-20260926-01" },
+  { "id": "atlas-launch-20260926-05", "type": "message", "user": "U07DEVON", "iso": "2026-09-26T16:44:00Z", "text": "Best current: KeyGate fix Oct 9, our verification 2 days, SSO enabled for Globex by Oct 14. I'd caveat the KeyGate part.", "thread_id": "atlas-launch-20260926-01" },
+  { "id": "atlas-launch-20260926-06", "type": "message", "user": "U01ELENA", "iso": "2026-09-26T16:50:00Z", "text": "Happy to get on a call with Dana's CIO if it helps. Keep me posted.", "thread_id": "atlas-launch-20260926-01" }
+]

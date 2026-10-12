@@ -1,0 +1,8 @@
+[
+  { "id": "atlas-launch-20260715-01", "type": "message", "user": "U09SAM", "iso": "2026-07-15T17:00:00Z", "text": "Weekly Atlas update: fleet dashboard and scheduling are feature-complete in staging. OTA update scheduling is ~70%. Umbrella Freight has been on the beta for 2 weeks with 30 robots.", "thread_id": null, "reactions": [{ "name": "tada", "count": 4 }] },
+  { "id": "atlas-launch-20260715-02", "type": "message", "user": "U13OMAR", "iso": "2026-07-15T17:12:00Z", "text": "Umbrella feedback from yesterday's call: they love the map view, but the alert feed is noisy (low-battery alerts every 5 min). They'd like alert grouping.", "thread_id": "atlas-launch-20260715-01" },
+  { "id": "atlas-launch-20260715-03", "type": "message", "user": "U10KAI", "iso": "2026-07-15T17:30:00Z", "text": "Alert grouping mock is ready, will share in #product. Debounce + group by site.", "thread_id": "atlas-launch-20260715-01" },
+  { "id": "atlas-launch-20260715-04", "type": "message", "user": "U05JORDAN", "iso": "2026-07-15T18:02:00Z", "text": "Platform side: dashboard p95 load is 1.4s for a 120-robot fleet. Target was 2s, so we're good. Load testing 500 robots next week.", "thread_id": null },
+  { "id": "atlas-launch-20260715-05", "type": "message", "user": "U06MEI", "iso": "2026-07-15T18:20:00Z", "text": "Billing note: Atlas per-robot metering will go through PayStream once Billing v2 lands. Until then legacy billing handles Umbrella's beta at $0.", "thread_id": null },
+  { "id": "atlas-launch-20260715-06", "type": "message", "user": "U09SAM", "iso": "2026-07-15T18:25:00Z", "text": "Thanks <@U06MEI>, that's exactly what finance asked.", "thread_id": "atlas-launch-20260715-05" }
+]

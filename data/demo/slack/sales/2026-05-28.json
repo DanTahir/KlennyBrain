@@ -1,0 +1,6 @@
+[
+{"id":"sales-20260528-01","type":"message","user":"U14LENA","iso":"2026-05-28T17:00:00Z","text":"Globex wants Atlas across all 120 robots, but only on Enterprise tier with SSO. At $55/robot/month that's $79,200/yr on top of the hardware ARR.","thread_id":null,"reactions":[{"name":"moneybag","count":3}]},
+{"id":"sales-20260528-02","type":"message","user":"U01ELENA","iso":"2026-05-28T17:08:00Z","text":"Great. Make sure Sam knows SSO is a hard requirement for them, not a nice-to-have.","thread_id":"sales-20260528-01"},
+{"id":"sales-20260528-03","type":"message","user":"U09SAM","iso":"2026-05-28T17:15:00Z","text":"Known. SSO via KeyGate is in the Enterprise scope for GA.","thread_id":"sales-20260528-01"},
+{"id":"sales-20260528-04","type":"message","user":"U13OMAR","iso":"2026-05-28T20:30:00Z","text":"Wayne Supply asked for a lease vs buy comparison. Using the standard $1,450/month vs $38,000 sheet unless anyone objects.","thread_id":null}
+]

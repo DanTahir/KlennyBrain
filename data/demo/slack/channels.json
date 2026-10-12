@@ -1,0 +1,9 @@
+[
+  { "id": "C01GENERAL", "name": "general", "is_private": false, "purpose": { "value": "Company-wide announcements" }, "members": ["U01ELENA", "U02RAJ", "U03ANA", "U04TESS", "U05JORDAN", "U06MEI", "U07DEVON", "U08OLLIE", "U09SAM", "U10KAI", "U11PRIYA", "U12MARCO", "U13OMAR", "U14LENA"] },
+  { "id": "C02ENG", "name": "eng", "is_private": false, "purpose": { "value": "Engineering discussion" }, "members": ["U02RAJ", "U05JORDAN", "U06MEI", "U07DEVON", "U08OLLIE", "U09SAM", "U10KAI"] },
+  { "id": "C03ATLAS", "name": "atlas-launch", "is_private": false, "purpose": { "value": "Project Atlas launch coordination" }, "members": ["U01ELENA", "U02RAJ", "U09SAM", "U10KAI", "U07DEVON", "U05JORDAN", "U06MEI", "U13OMAR", "U14LENA", "U03ANA"] },
+  { "id": "C04SUPPORT", "name": "support", "is_private": false, "purpose": { "value": "Support team coordination and escalations" }, "members": ["U03ANA", "U11PRIYA", "U12MARCO", "U13OMAR", "U06MEI", "U07DEVON"] },
+  { "id": "C05SALES", "name": "sales", "is_private": false, "purpose": { "value": "Deals, pipeline, customer asks" }, "members": ["U01ELENA", "U14LENA", "U13OMAR", "U03ANA", "U09SAM"] },
+  { "id": "C06PRODUCT", "name": "product", "is_private": false, "purpose": { "value": "Product specs, design, roadmap" }, "members": ["U09SAM", "U10KAI", "U02RAJ", "U05JORDAN", "U14LENA"] },
+  { "id": "G07LEADERSHIP", "name": "leadership", "is_private": true, "purpose": { "value": "Exec team only" }, "members": ["U01ELENA", "U02RAJ", "U03ANA", "U04TESS"] }
+]

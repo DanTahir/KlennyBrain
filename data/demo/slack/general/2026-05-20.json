@@ -1,0 +1,5 @@
+[
+  { "id": "general-20260520-01", "type": "message", "user": "U01ELENA", "iso": "2026-05-20T22:00:00Z", "text": "All-hands recap: our new fleet management product now has a name, *Atlas Fleet Manager*. It will replace Cloud Console over time. Q2 R2 shipments are at 92% of plan, and we're hiring 4 more engineers. Slides: https://wiki.northwind.dev/company/all-hands-2026-05", "thread_id": null, "reactions": [{ "name": "rocket", "count": 9 }] },
+  { "id": "general-20260520-02", "type": "message", "user": "U09SAM", "iso": "2026-05-20T22:10:00Z", "text": "Thanks for all the naming suggestions. \"Fleety McFleetface\" came a close second.", "thread_id": "general-20260520-01", "reactions": [{ "name": "joy", "count": 7 }] },
+  { "id": "general-20260520-03", "type": "message", "user": "U12MARCO", "iso": "2026-05-20T22:15:00Z", "text": "Robbed.", "thread_id": "general-20260520-01" }
+]

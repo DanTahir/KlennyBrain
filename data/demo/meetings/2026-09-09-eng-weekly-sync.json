@@ -1,0 +1,36 @@
+{
+  "id": "mtg-20260909-eng-weekly-sync",
+  "title": "Engineering weekly sync",
+  "date": "2026-09-09T17:30:00Z",
+  "duration_minutes": 35,
+  "attendees": ["jordan@northwind.dev", "mei@northwind.dev", "devon@northwind.dev", "ollie@northwind.dev", "raj@northwind.dev"],
+  "project": null,
+  "acl": null,
+  "transcript": [
+    { "speaker": "jordan@northwind.dev", "t": "00:00", "text": "Three big things today: Wi-Fi, SSO, billing. Raj, start with FW-77." },
+    { "speaker": "raj@northwind.dev", "t": "00:15", "text": "Firmware 2.8 changed the roaming threshold in the Wi-Fi driver. On sites with lots of access points the R2 roams too aggressively, fails the reassociation, and drops for 30 to 90 seconds. Support has tickets from Hooli, Acme Foods, Umbrella, Wayne, and more coming." },
+    { "speaker": "raj@northwind.dev", "t": "01:00", "text": "Hotfix is 2.8.1. Reverting the threshold and adding a backoff. I have it on 6 test units in the Oakland lab. I want a week of soak before we ship." },
+    { "speaker": "jordan@northwind.dev", "t": "01:25", "text": "Is there a workaround support can give in the meantime?" },
+    { "speaker": "raj@northwind.dev", "t": "01:35", "text": "Pinning the robot to a single band helps, roughly halves the drops. Marco already knows. But it's not documented anywhere customer-facing." },
+    { "speaker": "jordan@northwind.dev", "t": "01:55", "text": "Noted. Devon, ATL-212." },
+    { "speaker": "devon@northwind.dev", "t": "02:05", "text": "So, mixed. The SAML flow works end to end in staging. But KeyGate's metadata endpoint is intermittently serving an old signing cert. We validate the assertion against the metadata cert, it doesn't match, login fails. About one in five attempts." },
+    { "speaker": "ollie@northwind.dev", "t": "02:40", "text": "Can't we just cache the good cert?" },
+    { "speaker": "devon@northwind.dev", "t": "02:50", "text": "Tempting, but if they rotate legitimately and we cached the old one, we lock every customer out. It's a cert rotation bug on their side. I've emailed Victor Osei, their partner SE, with logs." },
+    { "speaker": "raj@northwind.dev", "t": "03:20", "text": "Does this threaten the go/no-go next week?" },
+    { "speaker": "devon@northwind.dev", "t": "03:30", "text": "If they fix it in the next two weeks, no. If not, yes. I'll have a better answer by Wednesday." },
+    { "speaker": "jordan@northwind.dev", "t": "03:55", "text": "Mei, billing v2." },
+    { "speaker": "mei@northwind.dev", "t": "04:05", "text": "PayStream sandbox integration is done for metered usage. Shadow billing ran for August, and PayStream's numbers matched the legacy service on 97 percent of invoices. The 3 percent mismatch is all the legacy proration being wrong, not PayStream." },
+    { "speaker": "raj@northwind.dev", "t": "04:40", "text": "Of course it is." },
+    { "speaker": "mei@northwind.dev", "t": "04:50", "text": "I'll run September shadow too, then propose a cutover for November invoices. Rina at PayStream is getting us a dedicated support channel." },
+    { "speaker": "ollie@northwind.dev", "t": "05:15", "text": "Small one, the Atlas robot detail page now shows firmware version, so you can filter fleets on 2.8." },
+    { "speaker": "raj@northwind.dev", "t": "05:30", "text": "Oh, that's actually useful for FW-77. Nice." },
+    { "speaker": "jordan@northwind.dev", "t": "05:45", "text": "Okay, good. Action items in the notes. Thanks." }
+  ],
+  "summary": "Raj reported FW-77: firmware 2.8 changed the Wi-Fi roaming threshold, causing 30-90s drops at multi-AP sites; hotfix 2.8.1 is soaking on lab units, with single-band pinning as an undocumented workaround. Devon reported ATL-212 SAML failures (~1 in 5 logins) caused by KeyGate's metadata endpoint serving a stale signing cert during rotation; escalated to Victor Osei at KeyGate. Mei reported PayStream shadow billing matched 97% of August invoices, with mismatches due to legacy proration, and plans a November cutover proposal.",
+  "decisions": ["Do not cache KeyGate signing certs as a workaround; wait for a KeyGate-side fix."],
+  "action_items": [
+    { "owner": "raj@northwind.dev", "text": "Complete one-week soak of firmware 2.8.1 on lab units", "due": "2026-09-16", "status": "done" },
+    { "owner": "devon@northwind.dev", "text": "Send KeyGate logs of the stale signing cert responses", "due": "2026-09-10", "status": "done" },
+    { "owner": "mei@northwind.dev", "text": "Run September PayStream shadow billing and compare", "due": "2026-10-05", "status": "done" }
+  ]
+}

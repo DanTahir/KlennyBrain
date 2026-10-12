@@ -1,0 +1,7 @@
+[
+  { "id": "leadership-20261001-01", "type": "message", "user": "U04TESS", "iso": "2026-10-01T18:00:00Z", "text": "Comp recommendation: *+6% for all engineering bands, effective 2027-01-01*. Annualized budget impact ~$214k across 9 eng roles incl. open reqs. Details in docs/hr-q4-comp-bands.", "thread_id": null },
+  { "id": "leadership-20261001-02", "type": "message", "user": "U01ELENA", "iso": "2026-10-01T18:10:00Z", "text": "Approved at +6%. It fits within the 2027 plan if Globex renews. Another reason that renewal matters.", "thread_id": "leadership-20261001-01" },
+  { "id": "leadership-20261001-03", "type": "message", "user": "U02RAJ", "iso": "2026-10-01T18:16:00Z", "text": "Thanks. This will help a lot with retention on the identity and billing work.", "thread_id": "leadership-20261001-01" },
+  { "id": "leadership-20261001-04", "type": "message", "user": "U03ANA", "iso": "2026-10-01T18:22:00Z", "text": "Can we look at support bands in the 2027 H2 cycle?", "thread_id": "leadership-20261001-01" },
+  { "id": "leadership-20261001-05", "type": "message", "user": "U04TESS", "iso": "2026-10-01T18:25:00Z", "text": "Yes, I'll put it on the H2 review list.", "thread_id": "leadership-20261001-01" }
+]

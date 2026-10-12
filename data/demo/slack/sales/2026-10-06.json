@@ -1,0 +1,6 @@
+[
+{"id":"sales-20261006-01","type":"message","user":"U01ELENA","iso":"2026-10-06T17:10:00Z","text":"<@U14LENA> did the written SSO timeline go to Globex? It was due Oct 5.","thread_id":"sales-20260929-01"},
+{"id":"sales-20261006-02","type":"message","user":"U14LENA","iso":"2026-10-06T17:18:00Z","text":"Not yet, sorry. Waiting on KeyGate to confirm the Oct 9 fix before I put a date in writing.","thread_id":"sales-20260929-01"},
+{"id":"sales-20261006-03","type":"message","user":"U13OMAR","iso":"2026-10-06T17:25:00Z","text":"Dana pinged me Friday asking about it. Even a 'here's what we know' note would help.","thread_id":"sales-20260929-01"},
+{"id":"sales-20261006-04","type":"message","user":"U14LENA","iso":"2026-10-06T21:00:00Z","text":"Umbrella renewal (Dec 20) looks solid, they want to move from beta to paid Atlas standard on all 30 robots.","thread_id":null,"reactions":[{"name":"tada","count":3}]}
+]

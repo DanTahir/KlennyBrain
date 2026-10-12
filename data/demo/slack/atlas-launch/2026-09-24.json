@@ -1,0 +1,8 @@
+[
+  { "id": "atlas-launch-20260924-01", "type": "message", "user": "U09SAM", "iso": "2026-09-24T17:05:00Z", "text": "Heads up: we're moving the Atlas GA launch from *Sep 30* to *Oct 14*. ATL-212 (SAML SSO) is blocked on KeyGate's metadata signing-cert rotation bug, and we can't ship Enterprise without SSO. ATL-200 stays blocked until ATL-212 closes.", "thread_id": null, "reactions": [{ "name": "eyes", "count": 6 }, { "name": "pensive", "count": 2 }] },
+  { "id": "atlas-launch-20260924-02", "type": "message", "user": "U07DEVON", "iso": "2026-09-24T17:12:00Z", "text": "Confirming. KeyGate says the SAML metadata fix lands Oct 9 at the earliest. That gives us a few days to regression test before the 14th.", "thread_id": "atlas-launch-20260924-01" },
+  { "id": "atlas-launch-20260924-03", "type": "message", "user": "U01ELENA", "iso": "2026-09-24T17:20:00Z", "text": "Approved. Please make sure Globex hears this from us directly today, not from a release note.", "thread_id": "atlas-launch-20260924-01" },
+  { "id": "atlas-launch-20260924-04", "type": "message", "user": "U14LENA", "iso": "2026-09-24T17:28:00Z", "text": "I'll call Dana Whitfield this afternoon with <@U13OMAR>. Their renewal is Nov 30 so the timing is sensitive.", "thread_id": "atlas-launch-20260924-01" },
+  { "id": "atlas-launch-20260924-05", "type": "message", "user": "U13OMAR", "iso": "2026-09-24T17:33:00Z", "text": "On it with Lena. Umbrella is fine with the move, they're on the standard tier anyway.", "thread_id": "atlas-launch-20260924-01" },
+  { "id": "atlas-launch-20260924-06", "type": "message", "user": "U09SAM", "iso": "2026-09-24T17:40:00Z", "text": "Updating ATL-200 and ATL-212 now. I'll post in #general tomorrow.", "thread_id": "atlas-launch-20260924-01" }
+]

@@ -1,0 +1,6 @@
+[
+{"id":"sales-20260929-01","type":"message","user":"U14LENA","iso":"2026-09-29T16:30:00Z","text":"Globex update: after Dana's escalation, they want a *written* SSO timeline before they'll talk renewal ($480k, Nov 30). I'll send it by Oct 5.","thread_id":null},
+{"id":"sales-20260929-02","type":"message","user":"U13OMAR","iso":"2026-09-29T16:36:00Z","text":"Good. Dana's main point: no SSO, no Atlas rollout to the 120 robots. Their security team won't budge.","thread_id":"sales-20260929-01"},
+{"id":"sales-20260929-03","type":"message","user":"U01ELENA","iso":"2026-09-29T16:45:00Z","text":"Get Devon's input on the KeyGate dates before you write anything. Don't commit to a date we can't hit.","thread_id":"sales-20260929-01"},
+{"id":"sales-20260929-04","type":"message","user":"U09SAM","iso":"2026-09-29T16:50:00Z","text":"Current plan of record is GA Oct 14, contingent on KeyGate's fix (ETA Oct 9).","thread_id":"sales-20260929-01"}
+]

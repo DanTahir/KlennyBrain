@@ -1,0 +1,6 @@
+[
+  { "id": "atlas-launch-20261009-01", "type": "message", "user": "U10KAI", "iso": "2026-10-09T17:20:00Z", "text": "SSO login UI is done and merged (ATL-215): domain discovery, \"Sign in with your company\", and a friendly error state for IdP failures. Ready whenever the backend is.", "thread_id": null, "reactions": [{ "name": "sparkles", "count": 4 }] },
+  { "id": "atlas-launch-20261009-02", "type": "message", "user": "U07DEVON", "iso": "2026-10-09T17:28:00Z", "text": "Looks great Kai. Wired it to staging against the KeyGate sandbox, UI side works end to end.", "thread_id": "atlas-launch-20261009-01" },
+  { "id": "atlas-launch-20261009-03", "type": "message", "user": "U09SAM", "iso": "2026-10-09T19:00:00Z", "text": "Drafting launch comms (blog post, customer email, release notes). Due Oct 14. I'll have two versions ready: with SSO and \"Enterprise SSO coming soon\".", "thread_id": null },
+  { "id": "atlas-launch-20261009-04", "type": "message", "user": "U03ANA", "iso": "2026-10-09T19:12:00Z", "text": "Please loop me in on the customer email so support can prep for questions.", "thread_id": "atlas-launch-20261009-03" }
+]

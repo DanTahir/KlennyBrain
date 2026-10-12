@@ -1,0 +1,7 @@
+[
+{"id":"support-20261002-01","type":"message","user":"U12MARCO","iso":"2026-10-02T16:15:00Z","text":"Customers are getting confused: the macro says 30 days but the refund policy page on the wiki still says 14. Had a Soylent buyer quote it back to me today.","thread_id":null},
+{"id":"support-20261002-02","type":"message","user":"U11PRIYA","iso":"2026-10-02T16:22:00Z","text":"Ugh, yes, the policy doc still says 14 days. That one's on me, it slipped past the Aug 25 due date. 30 days is correct.","thread_id":"support-20261002-01"},
+{"id":"support-20261002-03","type":"message","user":"U03ANA","iso":"2026-10-02T16:30:00Z","text":"Please prioritize it this week. Until then, always go with 30 days.","thread_id":"support-20261002-01"},
+{"id":"support-20261002-04","type":"message","user":"U06MEI","iso":"2026-10-02T18:00:00Z","text":"Initech RMA received, credit for the 2 units is issued in the billing service.","thread_id":"support-20260915-01"},
+{"id":"support-20261002-05","type":"message","user":"U13OMAR","iso":"2026-10-02T18:05:00Z","text":"Thanks Mei, I'll let them know.","thread_id":"support-20260915-01"}
+]

@@ -1,0 +1,446 @@
+[
+  {
+    "thread_id": "email-globex-sso-escalation",
+    "subject": "Atlas rollout blocked without SSO",
+    "labels": ["customer", "escalation"],
+    "messages": [
+      {
+        "id": "email-globex-sso-escalation-1",
+        "from": "dana.whitfield@globexlogistics.com",
+        "to": ["omar@northwind.dev"],
+        "cc": ["lena@northwind.dev"],
+        "date": "2026-09-26T15:20:00Z",
+        "body": "Hi Omar,\n\nI heard through our project team that Atlas GA has moved again and that SAML SSO is still not available. To be direct: Globex cannot roll out Atlas to our 120 robots without SAML SSO through KeyGate. Our security policy does not allow shared or local credentials on fleet tooling. With our renewal coming up on 2026-11-30, this puts the $480k renewal at risk. I need a firm date for SSO availability, in writing, so I can take it to our steering committee.\n\nThanks,\nDana Whitfield\nDirector of IT, Globex Logistics",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-globex-sso-escalation-2",
+        "from": "omar@northwind.dev",
+        "to": ["dana.whitfield@globexlogistics.com"],
+        "cc": ["lena@northwind.dev", "devon@northwind.dev", "sam@northwind.dev"],
+        "date": "2026-09-26T18:05:00Z",
+        "body": "Hi Dana,\n\nThank you for flagging this so clearly, and I understand the stakes. I'm looping in Devon Lee, who owns our SSO integration (ATL-212), and Sam Rivera, our Atlas product lead. Atlas GA is now planned for 2026-10-14. SSO is blocked on a signing-cert rotation bug in KeyGate's SAML metadata endpoint, and KeyGate's current fix ETA is Oct 9. Lena will follow up with a written SSO timeline you can share with your steering committee.\n\nBest,\nOmar Haddad\nCustomer Success Manager, Northwind Robotics",
+        "in_reply_to": "email-globex-sso-escalation-1"
+      },
+      {
+        "id": "email-globex-sso-escalation-3",
+        "from": "dana.whitfield@globexlogistics.com",
+        "to": ["omar@northwind.dev", "lena@northwind.dev"],
+        "cc": ["devon@northwind.dev", "sam@northwind.dev"],
+        "date": "2026-10-06T14:40:00Z",
+        "body": "Hi Omar, Lena,\n\nFollowing up: I still haven't received the written SSO timeline you mentioned on Sep 26. Our steering committee meets on Oct 15 and I need something concrete before then. If the date depends on KeyGate, please say so and tell me what the fallback is.\n\nThanks,\nDana Whitfield\nDirector of IT, Globex Logistics",
+        "in_reply_to": "email-globex-sso-escalation-2"
+      }
+    ],
+    "acl": null,
+    "customer": "globex",
+    "project": "atlas"
+  },
+  {
+    "thread_id": "email-keygate-saml-metadata",
+    "subject": "SAML metadata endpoint returning invalid signatures",
+    "labels": ["vendor", "sso", "blocker"],
+    "messages": [
+      {
+        "id": "email-keygate-saml-metadata-1",
+        "from": "devon@northwind.dev",
+        "to": ["victor@keygate.io"],
+        "cc": ["jordan@northwind.dev"],
+        "date": "2026-09-18T16:30:00Z",
+        "body": "Hi Victor,\n\nWe're seeing intermittent failures from the KeyGate SAML metadata endpoint for our Atlas tenant. Roughly 1 in 5 fetches returns metadata whose signature doesn't validate against the published signing cert, and it started right after your last cert rotation. This blocks our Enterprise SSO work (ATL-212) and our Atlas GA. Can you confirm whether this is on your side and share an ETA?\n\nThanks,\nDevon Lee\nSenior Engineer, Identity, Northwind Robotics",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-keygate-saml-metadata-2",
+        "from": "victor@keygate.io",
+        "to": ["devon@northwind.dev"],
+        "cc": ["jordan@northwind.dev"],
+        "date": "2026-09-22T20:10:00Z",
+        "body": "Hi Devon,\n\nConfirmed: this is a bug in our signing-cert rotation. During rotation some metadata replicas keep serving documents signed with the retired key. Engineering has a fix in progress and the current ETA is Oct 9. Pinning the old cert won't work reliably, so I'd advise against a workaround on your side.\n\nBest,\nVictor Osei\nPartner Solutions Engineer, KeyGate Identity",
+        "in_reply_to": "email-keygate-saml-metadata-1"
+      },
+      {
+        "id": "email-keygate-saml-metadata-3",
+        "from": "victor@keygate.io",
+        "to": ["devon@northwind.dev"],
+        "cc": ["jordan@northwind.dev"],
+        "date": "2026-10-08T17:45:00Z",
+        "body": "Hi Devon,\n\nApologies, the metadata fix has slipped. QA found a regression in multi-region failover, and the new ETA is Oct 13 at the earliest. I'll confirm as soon as the release is scheduled.\n\nBest,\nVictor Osei\nPartner Solutions Engineer, KeyGate Identity",
+        "in_reply_to": "email-keygate-saml-metadata-2"
+      },
+      {
+        "id": "email-keygate-saml-metadata-4",
+        "from": "devon@northwind.dev",
+        "to": ["victor@keygate.io"],
+        "cc": ["jordan@northwind.dev", "raj@northwind.dev"],
+        "date": "2026-10-08T18:20:00Z",
+        "body": "Hi Victor,\n\nThanks for the update. Our Atlas GA is set for Oct 14 and a major customer renewal depends on SSO, so \"Oct 13 at the earliest\" leaves us no margin. Could you share the contact for our executive sponsor at KeyGate so we can escalate? We'd also appreciate daily status until the fix ships.\n\nThanks,\nDevon Lee\nSenior Engineer, Identity, Northwind Robotics",
+        "in_reply_to": "email-keygate-saml-metadata-3"
+      }
+    ],
+    "acl": null,
+    "customer": null,
+    "project": "sso"
+  },
+  {
+    "thread_id": "email-paystream-migration",
+    "subject": "Billing v2 cutover: webhooks and proration",
+    "labels": ["vendor", "billing"],
+    "messages": [
+      {
+        "id": "email-paystream-migration-1",
+        "from": "mei@northwind.dev",
+        "to": ["rina@paystream.com"],
+        "cc": ["jordan@northwind.dev"],
+        "date": "2026-08-27T17:00:00Z",
+        "body": "Hi Rina,\n\nWe're planning the Billing v2 cutover from our legacy billing service to PayStream usage-based billing. Two questions: can you guarantee at-least-once delivery with idempotency keys on invoice.finalized and payment.failed webhooks, and does PayStream prorate mid-cycle seat changes by day or by second? Our July proration bug came from mixing the two, so I want to get this right.\n\nThanks,\nMei Chen\nStaff Engineer, Northwind Robotics",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-paystream-migration-2",
+        "from": "rina@paystream.com",
+        "to": ["mei@northwind.dev"],
+        "cc": ["jordan@northwind.dev"],
+        "date": "2026-08-28T15:30:00Z",
+        "body": "Hi Mei,\n\nYes, webhooks are at-least-once and every event carries an idempotency key, with retries for 72 hours. Proration is calculated by day in the subscription's billing timezone by default; per-second is available but we don't recommend it for invoiced accounts. I can set up a sandbox mirror of your production plans for cutover rehearsal.\n\nBest,\nRina Kapoor\nAccount Manager, PayStream",
+        "in_reply_to": "email-paystream-migration-1"
+      },
+      {
+        "id": "email-paystream-migration-3",
+        "from": "mei@northwind.dev",
+        "to": ["rina@paystream.com"],
+        "cc": ["jordan@northwind.dev"],
+        "date": "2026-08-28T19:10:00Z",
+        "body": "Hi Rina,\n\nPerfect, we'll use daily proration to match our contracts. Please set up the sandbox mirror; I'll run a dry-run cutover with a full month of replayed usage before we schedule production.\n\nThanks,\nMei Chen\nStaff Engineer, Northwind Robotics",
+        "in_reply_to": "email-paystream-migration-2"
+      }
+    ],
+    "acl": null,
+    "customer": null,
+    "project": "billing-v2"
+  },
+  {
+    "thread_id": "email-stark-invoice-july",
+    "subject": "Discrepancy on July invoice",
+    "labels": ["customer", "billing"],
+    "messages": [
+      {
+        "id": "email-stark-invoice-july-1",
+        "from": "ap@starkdistribution.com",
+        "to": ["omar@northwind.dev"],
+        "cc": [],
+        "date": "2026-07-08T16:00:00Z",
+        "body": "Hello,\n\nOur July invoice from Northwind is about $4,900 higher than expected. We added 4 leased R2 units mid-June, but it looks like we were charged a full month for them on top of the June proration. Please review and send a corrected invoice.\n\nRegards,\nAccounts Payable\nStark Distribution",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-stark-invoice-july-2",
+        "from": "omar@northwind.dev",
+        "to": ["ap@starkdistribution.com"],
+        "cc": ["mei@northwind.dev"],
+        "date": "2026-07-08T18:30:00Z",
+        "body": "Hello,\n\nThanks for catching this. I've looped in Mei Chen, our billing service expert, who is investigating now. We'll confirm the root cause and the corrected amount shortly.\n\nBest,\nOmar Haddad\nCustomer Success Manager, Northwind Robotics",
+        "in_reply_to": "email-stark-invoice-july-1"
+      },
+      {
+        "id": "email-stark-invoice-july-3",
+        "from": "mei@northwind.dev",
+        "to": ["ap@starkdistribution.com"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-07-10T21:15:00Z",
+        "body": "Hello,\n\nWe found the cause: a proration bug in our billing service double-counted mid-cycle unit additions (tracked internally as BIL-31). The fix is deployed and we've audited other accounts. We've issued a credit memo for $4,893.50, which will apply to your August invoice.\n\nBest,\nMei Chen\nStaff Engineer, Northwind Robotics",
+        "in_reply_to": "email-stark-invoice-july-2"
+      },
+      {
+        "id": "email-stark-invoice-july-4",
+        "from": "ap@starkdistribution.com",
+        "to": ["mei@northwind.dev"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-07-13T14:05:00Z",
+        "body": "Hello Mei,\n\nCredit memo received, thank you for the quick turnaround and the clear explanation.\n\nRegards,\nAccounts Payable\nStark Distribution",
+        "in_reply_to": "email-stark-invoice-july-3"
+      }
+    ],
+    "acl": null,
+    "customer": "stark",
+    "project": "billing-v2"
+  },
+  {
+    "thread_id": "email-hooli-wifi",
+    "subject": "R2 fleet dropping Wi-Fi since firmware 2.8",
+    "labels": ["customer", "escalation", "firmware"],
+    "messages": [
+      {
+        "id": "email-hooli-wifi-1",
+        "from": "gbj@hooliretail.com",
+        "to": ["omar@northwind.dev"],
+        "cc": [],
+        "date": "2026-08-19T15:00:00Z",
+        "body": "Omar,\n\nSince firmware 2.8 our R2 Pickers drop off Wi-Fi when they roam between access points, several times per shift across both DCs. Every drop stalls picking for minutes and my floor leads are restarting units by hand. This is not acceptable for 80 robots during peak prep. I need a fix date.\n\nGavin Belson Jr.\nVP Operations, Hooli Retail",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-hooli-wifi-2",
+        "from": "omar@northwind.dev",
+        "to": ["gbj@hooliretail.com"],
+        "cc": ["raj@northwind.dev", "marco@northwind.dev"],
+        "date": "2026-08-19T17:20:00Z",
+        "body": "Gavin,\n\nI'm sorry for the disruption. This is a known regression in firmware 2.8 Wi-Fi roaming, and our CTO Raj Mehta is copied for the fix timeline. Marco Rossi from support will help your team with interim settings to reduce drops.\n\nBest,\nOmar Haddad\nCustomer Success Manager, Northwind Robotics",
+        "in_reply_to": "email-hooli-wifi-1"
+      },
+      {
+        "id": "email-hooli-wifi-3",
+        "from": "raj@northwind.dev",
+        "to": ["gbj@hooliretail.com"],
+        "cc": ["omar@northwind.dev", "marco@northwind.dev"],
+        "date": "2026-08-20T16:45:00Z",
+        "body": "Gavin,\n\nWe've traced the drops to a change in the roaming scan logic in 2.8 (FW-77). The fix ships as hotfix firmware 2.8.1 (FW-80), which I own; we're validating it now and will offer Hooli early access before general rollout. Until then, Marco can lower the roaming threshold on your units, which cut drops by about half at other sites.\n\nRaj Mehta\nCTO, Northwind Robotics",
+        "in_reply_to": "email-hooli-wifi-2"
+      }
+    ],
+    "acl": null,
+    "customer": "hooli",
+    "project": "fw29"
+  },
+  {
+    "thread_id": "email-initech-refund",
+    "subject": "Refund request for 2 R2 units",
+    "labels": ["customer", "refund"],
+    "messages": [
+      {
+        "id": "email-initech-refund-1",
+        "from": "nora.quinn@initech.com",
+        "to": ["priya@northwind.dev"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-09-09T15:10:00Z",
+        "body": "Hi Priya,\n\nWe received 2 additional R2 units on Aug 20 for our Dayton site, but that expansion has been cancelled. We'd like to return both units for a refund. Please let me know if we're still within your refund window.\n\nThanks,\nNora Quinn\nOperations Manager, Initech Warehousing",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-initech-refund-2",
+        "from": "priya@northwind.dev",
+        "to": ["nora.quinn@initech.com"],
+        "cc": ["omar@northwind.dev", "marco@northwind.dev"],
+        "date": "2026-09-09T18:30:00Z",
+        "body": "Hi Nora,\n\nYes, you're within our 30-day refund window (delivery Aug 20), so the refund for both units is approved. Marco Rossi will schedule the RMA pickup with ShipFast, and the refund is issued once the units pass inspection, usually within 5 business days.\n\nBest,\nPriya Shah\nSupport Lead, Northwind Robotics",
+        "in_reply_to": "email-initech-refund-1"
+      },
+      {
+        "id": "email-initech-refund-3",
+        "from": "nora.quinn@initech.com",
+        "to": ["priya@northwind.dev"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-09-10T13:00:00Z",
+        "body": "Thanks Priya, that's great. Our dock is available any weekday morning for the pickup.\n\nNora Quinn\nOperations Manager, Initech Warehousing",
+        "in_reply_to": "email-initech-refund-2"
+      }
+    ],
+    "acl": null,
+    "customer": "initech",
+    "project": null
+  },
+  {
+    "thread_id": "email-soylent-refund-question",
+    "subject": "Question about your refund window",
+    "labels": ["customer", "refund"],
+    "messages": [
+      {
+        "id": "email-soylent-refund-question-1",
+        "from": "theo.marsh@soylentgrocers.com",
+        "to": ["priya@northwind.dev"],
+        "cc": [],
+        "date": "2026-08-25T16:00:00Z",
+        "body": "Hi,\n\nWe're considering adding 2 more R2 units. Your website policy page says refunds within 14 days, but a colleague told me it's longer now. Which is correct?\n\nThanks,\nTheo Marsh\nFacilities Lead, Soylent Grocers",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-soylent-refund-question-2",
+        "from": "priya@northwind.dev",
+        "to": ["theo.marsh@soylentgrocers.com"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-08-25T18:15:00Z",
+        "body": "Hi Theo,\n\nGreat question. Since our August policy review, the refund window is 30 days from delivery; the 14-day wording on the policy page is out of date and we're updating it. Units must be returned in working condition via our RMA process.\n\nBest,\nPriya Shah\nSupport Lead, Northwind Robotics",
+        "in_reply_to": "email-soylent-refund-question-1"
+      }
+    ],
+    "acl": null,
+    "customer": "soylent",
+    "project": null
+  },
+  {
+    "thread_id": "email-umbrella-atlas-beta",
+    "subject": "Atlas beta feedback from Umbrella",
+    "labels": ["customer", "beta", "feedback"],
+    "messages": [
+      {
+        "id": "email-umbrella-atlas-beta-1",
+        "from": "jill.ortega@umbrellafreight.com",
+        "to": ["sam@northwind.dev"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-08-14T17:30:00Z",
+        "body": "Hi Sam,\n\nTwo weeks into the Atlas beta across our 30 robots. The live fleet map and battery forecasting are excellent, and supervisors already prefer Atlas over the legacy console. Pain points: scheduling firmware updates per zone is clunky, and the alert feed gets noisy when robots reconnect after Wi-Fi drops. Happy to join a call.\n\nJill Ortega\nAutomation Manager, Umbrella Freight",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-umbrella-atlas-beta-2",
+        "from": "sam@northwind.dev",
+        "to": ["jill.ortega@umbrellafreight.com"],
+        "cc": ["omar@northwind.dev", "kai@northwind.dev"],
+        "date": "2026-08-15T15:00:00Z",
+        "body": "Hi Jill,\n\nThis is really useful, thank you. Kai Nakamura (copied) is redesigning zone-based update scheduling, and we're adding alert deduplication for reconnect events. Could you do 30 minutes next Tuesday to walk Kai through your update workflow?\n\nBest,\nSam Rivera\nSenior Product Manager, Atlas",
+        "in_reply_to": "email-umbrella-atlas-beta-1"
+      },
+      {
+        "id": "email-umbrella-atlas-beta-3",
+        "from": "jill.ortega@umbrellafreight.com",
+        "to": ["sam@northwind.dev"],
+        "cc": ["omar@northwind.dev", "kai@northwind.dev"],
+        "date": "2026-08-17T14:20:00Z",
+        "body": "Tuesday at 10am Pacific works. I'll bring our shift supervisor too.\n\nJill Ortega\nAutomation Manager, Umbrella Freight",
+        "in_reply_to": "email-umbrella-atlas-beta-2"
+      }
+    ],
+    "acl": null,
+    "customer": "umbrella",
+    "project": "atlas"
+  },
+  {
+    "thread_id": "email-shipfast-rma",
+    "subject": "RMA pickup: 2 R2 units from Initech Dayton",
+    "labels": ["vendor", "rma"],
+    "messages": [
+      {
+        "id": "email-shipfast-rma-1",
+        "from": "marco@northwind.dev",
+        "to": ["ops@shipfastlogistics.com"],
+        "cc": ["priya@northwind.dev"],
+        "date": "2026-09-10T16:00:00Z",
+        "body": "Hi ShipFast team,\n\nPlease schedule an RMA pickup of 2 R2 Picker units from Initech Warehousing in Dayton, OH, returning to our Oakland depot. The dock is available weekday mornings. Units are on their original pallets; contact on site is Nora Quinn.\n\nThanks,\nMarco Rossi\nSupport Engineer, Northwind Robotics",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-shipfast-rma-2",
+        "from": "ops@shipfastlogistics.com",
+        "to": ["marco@northwind.dev"],
+        "cc": ["priya@northwind.dev"],
+        "date": "2026-09-11T13:30:00Z",
+        "body": "Hi Marco,\n\nPickup is booked for Monday, Sep 14, 8-11am local, freight-class liftgate truck. Estimated arrival in Oakland is Sep 18. Tracking will be sent once the driver scans the pallets.\n\nShipFast Logistics Operations",
+        "in_reply_to": "email-shipfast-rma-1"
+      },
+      {
+        "id": "email-shipfast-rma-3",
+        "from": "marco@northwind.dev",
+        "to": ["ops@shipfastlogistics.com"],
+        "cc": ["priya@northwind.dev"],
+        "date": "2026-09-11T15:00:00Z",
+        "body": "Confirmed, thanks. I'll let the customer know.\n\nMarco Rossi\nSupport Engineer, Northwind Robotics",
+        "in_reply_to": "email-shipfast-rma-2"
+      }
+    ],
+    "acl": null,
+    "customer": "initech",
+    "project": null
+  },
+  {
+    "thread_id": "email-expense-approval",
+    "subject": "Approval: RoboOps Summit budget",
+    "labels": ["internal", "approval"],
+    "messages": [
+      {
+        "id": "email-expense-approval-1",
+        "from": "jordan@northwind.dev",
+        "to": ["elena@northwind.dev"],
+        "cc": ["raj@northwind.dev"],
+        "date": "2026-06-03T17:00:00Z",
+        "body": "Hi Elena,\n\nRequesting approval for $6,400 to send Mei and Devon to the RoboOps Summit in Austin, Jul 21-23 (passes, travel, hotel). Devon is giving a talk on enterprise SSO for fleet software, which doubles as a hiring and Atlas awareness opportunity. Raj has signed off.\n\nThanks,\nJordan Blake\nEngineering Manager, Platform",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-expense-approval-2",
+        "from": "elena@northwind.dev",
+        "to": ["jordan@northwind.dev"],
+        "cc": ["raj@northwind.dev"],
+        "date": "2026-06-04T02:10:00Z",
+        "body": "Approved. Please book economy and keep it within the $6,400. Ask Devon to share slides with Sam first so the Atlas messaging matches the roadmap.\n\nElena",
+        "in_reply_to": "email-expense-approval-1"
+      }
+    ],
+    "acl": null,
+    "customer": null,
+    "project": null
+  },
+  {
+    "thread_id": "email-intern-project-plan",
+    "subject": "Your internship project plan: Atlas onboarding wizard",
+    "labels": ["internal", "onboarding"],
+    "messages": [
+      {
+        "id": "email-intern-project-plan-1",
+        "from": "jordan@northwind.dev",
+        "to": ["ollie@northwind.dev"],
+        "cc": ["kai@northwind.dev", "sam@northwind.dev"],
+        "date": "2026-06-08T16:00:00Z",
+        "body": "Hi Ollie,\n\nWelcome aboard! Your internship project is the Atlas onboarding wizard (ATL-205): a guided flow that lets a new customer connect their first site and register R2 units. Weeks 1-2: set up the dev environment and pair with Kai on the designs. Weeks 3-8: build the wizard behind a feature flag. Weeks 9-10: test with beta customers and demo to the team. We'll do 1:1s every Thursday.\n\nJordan Blake\nEngineering Manager, Platform",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-intern-project-plan-2",
+        "from": "ollie@northwind.dev",
+        "to": ["jordan@northwind.dev"],
+        "cc": ["kai@northwind.dev", "sam@northwind.dev"],
+        "date": "2026-06-08T18:20:00Z",
+        "body": "Thanks Jordan, this sounds great! Quick question: should the wizard include the SSO setup step for Enterprise customers, or is that out of scope?\n\nOllie Grant\nSoftware Engineering Intern",
+        "in_reply_to": "email-intern-project-plan-1"
+      },
+      {
+        "id": "email-intern-project-plan-3",
+        "from": "jordan@northwind.dev",
+        "to": ["ollie@northwind.dev"],
+        "cc": ["kai@northwind.dev", "sam@northwind.dev", "devon@northwind.dev"],
+        "date": "2026-06-08T19:00:00Z",
+        "body": "Good question. SSO setup is out of scope; Devon owns that flow. Just leave a placeholder step that links to the SSO settings page.\n\nJordan Blake\nEngineering Manager, Platform",
+        "in_reply_to": "email-intern-project-plan-2"
+      }
+    ],
+    "acl": null,
+    "customer": null,
+    "project": "atlas"
+  },
+  {
+    "thread_id": "email-globex-security-questionnaire",
+    "subject": "Globex vendor security questionnaire for Atlas",
+    "labels": ["customer", "security", "sales"],
+    "messages": [
+      {
+        "id": "email-globex-security-questionnaire-1",
+        "from": "lena@northwind.dev",
+        "to": ["devon@northwind.dev"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-07-22T16:00:00Z",
+        "body": "Hi Devon,\n\nGlobex sent their vendor security questionnaire for Atlas (62 questions). I've filled in the commercial and data-residency sections; could you take the authentication, session management and encryption sections? Dana Whitfield wants it back by Jul 31.\n\nThanks,\nLena Fischer\nEnterprise Account Executive, Northwind Robotics",
+        "in_reply_to": null
+      },
+      {
+        "id": "email-globex-security-questionnaire-2",
+        "from": "devon@northwind.dev",
+        "to": ["lena@northwind.dev"],
+        "cc": ["omar@northwind.dev"],
+        "date": "2026-07-28T20:30:00Z",
+        "body": "Hi Lena,\n\nDone. I answered the auth sections assuming SAML SSO via KeyGate for the Enterprise tier, with SCIM provisioning on the roadmap, 12-hour session lifetime, and TLS 1.2+ in transit plus AES-256 at rest. I flagged one item: we don't support customer-managed encryption keys yet.\n\nDevon Lee\nSenior Engineer, Identity, Northwind Robotics",
+        "in_reply_to": "email-globex-security-questionnaire-1"
+      },
+      {
+        "id": "email-globex-security-questionnaire-3",
+        "from": "lena@northwind.dev",
+        "to": ["dana.whitfield@globexlogistics.com"],
+        "cc": ["devon@northwind.dev", "omar@northwind.dev"],
+        "date": "2026-07-30T17:15:00Z",
+        "body": "Hi Dana,\n\nAttached is our completed security questionnaire for Atlas Fleet Manager. Devon Lee from our identity team answered the authentication and encryption sections and is happy to join a call if your security team has follow-ups.\n\nBest,\nLena Fischer\nEnterprise Account Executive, Northwind Robotics",
+        "in_reply_to": "email-globex-security-questionnaire-2"
+      }
+    ],
+    "acl": null,
+    "customer": "globex",
+    "project": "atlas"
+  }
+]

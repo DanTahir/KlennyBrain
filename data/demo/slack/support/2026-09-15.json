@@ -1,0 +1,8 @@
+[
+{"id":"support-20260915-01","type":"message","user":"U12MARCO","iso":"2026-09-15T16:40:00Z","text":"Initech wants to refund 2 R2 units delivered Aug 22. That's 24 days, so within the 30-day window. Approving, ticket ZD-1081.","thread_id":null},
+{"id":"support-20260915-02","type":"message","user":"U11PRIYA","iso":"2026-09-15T16:46:00Z","text":"Approved. Make sure ShipFast issues the RMA labels and loop in Omar.","thread_id":"support-20260915-01"},
+{"id":"support-20260915-03","type":"message","user":"U13OMAR","iso":"2026-09-15T16:52:00Z","text":"Aware. They're keeping the other 34, the 2 were over-ordered for a site that got delayed.","thread_id":"support-20260915-01"},
+{"id":"support-20260915-04","type":"message","user":"U06MEI","iso":"2026-09-15T17:05:00Z","text":"For the refund I'll issue a credit in the billing service against the Aug invoice. Ping me when the RMA is received.","thread_id":"support-20260915-01"},
+{"id":"support-20260915-05","type":"message","user":"U12MARCO","iso":"2026-09-15T21:20:00Z","text":"FW-77 tally: Initech (ZD-1084) and Soylent Grocers (ZD-1086) now too. 6 customers total: Hooli, Acme Foods, Umbrella, Wayne, Initech, Soylent.","thread_id":null,"reactions":[{"name":"sob","count":2}]},
+{"id":"support-20260915-06","type":"message","user":"U03ANA","iso":"2026-09-15T21:28:00Z","text":"Sharing that count with Raj. We really need 2.8.1.","thread_id":"support-20260915-05"}
+]

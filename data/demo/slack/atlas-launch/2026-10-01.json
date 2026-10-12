@@ -1,0 +1,6 @@
+[
+  { "id": "atlas-launch-20261001-01", "type": "message", "user": "U05JORDAN", "iso": "2026-10-01T17:00:00Z", "text": "ATL-212 check-in: anything new from KeyGate?", "thread_id": null },
+  { "id": "atlas-launch-20261001-02", "type": "message", "user": "U07DEVON", "iso": "2026-10-01T17:09:00Z", "text": "Still waiting. Victor says Oct 9 holds but won't commit in writing. I'm going to escalate to our KeyGate exec sponsor by tomorrow to get a firm commitment.", "thread_id": "atlas-launch-20261001-01" },
+  { "id": "atlas-launch-20261001-03", "type": "message", "user": "U02RAJ", "iso": "2026-10-01T17:15:00Z", "text": "+1 to escalating. Happy to co-sign the note if a CTO name helps.", "thread_id": "atlas-launch-20261001-01" },
+  { "id": "atlas-launch-20261001-04", "type": "message", "user": "U09SAM", "iso": "2026-10-01T17:30:00Z", "text": "Meanwhile the rest of GA is code-complete. Release candidate rc3 is in staging.", "thread_id": null, "reactions": [{ "name": "muscle", "count": 3 }] }
+]

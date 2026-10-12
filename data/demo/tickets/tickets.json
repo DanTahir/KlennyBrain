@@ -1,0 +1,415 @@
+[
+  {
+    "id": "ZD-1001",
+    "subject": "R2 battery not holding a full shift",
+    "requester": { "name": "Carla Nunez", "email": "carla.nunez@waynesupply.com" },
+    "customer": "wayne",
+    "status": "solved",
+    "priority": "normal",
+    "tags": ["battery", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-04-21T15:10:00Z",
+    "updated_at": "2026-04-23T18:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "carla.nunez@waynesupply.com", "created_at": "2026-04-21T15:10:00Z", "body": "Two of our R2 units are dying around hour 6 of an 8-hour shift. They used to last the full shift.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-04-22T16:30:00Z", "body": "Both packs show over 900 charge cycles, so they are due for replacement. We're shipping two new packs under your lease at no charge.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1002",
+    "subject": "Refund request for unused R2 accessory kit",
+    "requester": { "name": "Ben Ostrowski", "email": "ben.ostrowski@acmefoods.com" },
+    "customer": "acmefoods",
+    "status": "solved",
+    "priority": "low",
+    "tags": ["refund", "billing"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-05-12T17:20:00Z",
+    "updated_at": "2026-05-14T15:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "ben.ostrowski@acmefoods.com", "created_at": "2026-05-12T17:20:00Z", "body": "We ordered a spare gripper kit 10 days ago and no longer need it. Can we return it for a refund?", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-05-13T14:05:00Z", "body": "Yes. Our refund policy allows returns within 14 days of delivery, so you're inside the window. I've sent a ShipFast return label.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1003",
+    "subject": "R2 unit arrived with cracked sensor housing",
+    "requester": { "name": "Ian Kowalski", "email": "ian.kowalski@umbrellafreight.com" },
+    "customer": "umbrella",
+    "status": "solved",
+    "priority": "high",
+    "tags": ["shipping", "shipfast", "damage", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-05-27T13:45:00Z",
+    "updated_at": "2026-06-03T16:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "ian.kowalski@umbrellafreight.com", "created_at": "2026-05-27T13:45:00Z", "body": "One of the three units delivered today has a cracked lidar housing. The crate was visibly crushed on one corner.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-05-27T16:10:00Z", "body": "Sorry about that. I've opened a damage claim with ShipFast Logistics and a replacement unit ships Monday; ShipFast will collect the damaged one.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1004",
+    "subject": "Can't log in to Cloud Console after password reset",
+    "requester": { "name": "Pat Lin", "email": "pat.lin@hooliretail.com" },
+    "customer": "hooli",
+    "status": "solved",
+    "priority": "normal",
+    "tags": ["cloud-console", "login"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-06-09T15:00:00Z",
+    "updated_at": "2026-06-09T19:20:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "pat.lin@hooliretail.com", "created_at": "2026-06-09T15:00:00Z", "body": "I reset my Cloud Console password and now get 'account locked' on every attempt.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-06-09T19:20:00Z", "body": "Too many attempts with the old password triggered a lockout. I've cleared it; please log in with the new password.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1005",
+    "subject": "Question about extending our R2 lease",
+    "requester": { "name": "Nora Feld", "email": "nora.feld@soylentgrocers.com" },
+    "customer": "soylent",
+    "status": "solved",
+    "priority": "low",
+    "tags": ["lease", "account"],
+    "assignee": "priya@northwind.dev",
+    "created_at": "2026-06-23T16:30:00Z",
+    "updated_at": "2026-06-25T17:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "nora.feld@soylentgrocers.com", "created_at": "2026-06-23T16:30:00Z", "body": "If we add 4 more robots on lease, do they co-term with our existing 10?", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-06-24T15:15:00Z", "body": "Yes, added units co-term at $1,450/month each, prorated for the first partial month. I've looped in your CSM Omar to send a quote.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1006",
+    "subject": "July invoice overcharged by roughly $9k",
+    "requester": { "name": "Helen Marsh", "email": "helen.marsh@starkdistribution.com" },
+    "customer": "stark",
+    "status": "solved",
+    "priority": "high",
+    "tags": ["billing", "invoice", "proration"],
+    "assignee": "mei@northwind.dev",
+    "created_at": "2026-07-15T14:20:00Z",
+    "updated_at": "2026-07-24T18:30:00Z",
+    "linked_issue_ids": ["BIL-31"],
+    "comments": [
+      { "author": "helen.marsh@starkdistribution.com", "created_at": "2026-07-15T14:20:00Z", "body": "Our July invoice bills all 64 robots for a full month, but 8 were added on July 18. We were overcharged for those units.", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-07-15T17:00:00Z", "body": "Escalating to Mei Chen, our billing service owner. Looks like a proration issue.", "public": false },
+      { "author": "mei@northwind.dev", "created_at": "2026-07-24T18:30:00Z", "body": "Confirmed a proration bug in the billing service for mid-cycle additions (BIL-31), now fixed. A corrected invoice and credit memo have been issued.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1007",
+    "subject": "Charging dock shows amber light, robot won't charge",
+    "requester": { "name": "Raymond Cho", "email": "raymond.cho@initech.com" },
+    "customer": "initech",
+    "status": "solved",
+    "priority": "normal",
+    "tags": ["battery", "dock", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-07-29T13:00:00Z",
+    "updated_at": "2026-07-30T15:40:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "raymond.cho@initech.com", "created_at": "2026-07-29T13:00:00Z", "body": "Dock 3 shows a steady amber light and the R2 docked there isn't charging.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-07-30T15:40:00Z", "body": "Amber means the contact plates are dirty or misaligned. Clean them with isopropyl and re-seat the dock; send a photo if it persists.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1008",
+    "subject": "R2 drops Wi-Fi every few hours after firmware 2.8",
+    "requester": { "name": "Pat Lin", "email": "pat.lin@hooliretail.com" },
+    "customer": "hooli",
+    "status": "open",
+    "priority": "high",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-08-10T14:00:00Z",
+    "updated_at": "2026-09-30T16:00:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "pat.lin@hooliretail.com", "created_at": "2026-08-10T14:00:00Z", "body": "Since updating to firmware 2.8 last week, robots lose Wi-Fi every few hours and stop mid-pick until rebooted.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-08-11T17:30:00Z", "body": "Try disabling band steering on your APs so robots stay on 5 GHz. Engineering is tracking this as FW-77.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-08-11T17:35:00Z", "body": "No KB article for this yet; workaround is ad hoc.", "public": false }
+    ]
+  },
+  {
+    "id": "ZD-1009",
+    "subject": "Robots disconnecting when moving between aisles",
+    "requester": { "name": "Ben Ostrowski", "email": "ben.ostrowski@acmefoods.com" },
+    "customer": "acmefoods",
+    "status": "pending",
+    "priority": "high",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-08-13T15:25:00Z",
+    "updated_at": "2026-09-02T14:00:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "ben.ostrowski@acmefoods.com", "created_at": "2026-08-13T15:25:00Z", "body": "Our R2s go offline whenever they cross from aisle 4 to aisle 5. Started after the 2.8 update.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-08-14T13:10:00Z", "body": "This is a known roaming issue in 2.8 (FW-77). As a workaround, pin those robots to the AP covering aisles 4-6 while we work on a hotfix.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1010",
+    "subject": "PayStream invoice PDF missing line items",
+    "requester": { "name": "Carla Nunez", "email": "carla.nunez@waynesupply.com" },
+    "customer": "wayne",
+    "status": "pending",
+    "priority": "normal",
+    "tags": ["billing", "paystream", "invoice"],
+    "assignee": "mei@northwind.dev",
+    "created_at": "2026-08-20T16:40:00Z",
+    "updated_at": "2026-09-04T17:00:00Z",
+    "linked_issue_ids": ["BIL-40"],
+    "comments": [
+      { "author": "carla.nunez@waynesupply.com", "created_at": "2026-08-20T16:40:00Z", "body": "Our new invoice PDF from PayStream only shows a total, no per-robot lines. Our AP team needs the breakdown.", "public": true },
+      { "author": "mei@northwind.dev", "created_at": "2026-08-21T18:00:00Z", "body": "This comes from the PayStream migration template; tracking the fix in BIL-40. I've attached an itemized export from our billing service in the meantime.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1011",
+    "subject": "Fleet losing network connectivity intermittently",
+    "requester": { "name": "Ian Kowalski", "email": "ian.kowalski@umbrellafreight.com" },
+    "customer": "umbrella",
+    "status": "open",
+    "priority": "normal",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-08-27T14:50:00Z",
+    "updated_at": "2026-09-10T15:00:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "ian.kowalski@umbrellafreight.com", "created_at": "2026-08-27T14:50:00Z", "body": "Several robots show 'offline' in Atlas for 1-2 minutes at a time, a few times per shift. Running firmware 2.8.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-08-28T16:20:00Z", "body": "Same pattern as FW-77. Disabling band steering has helped other sites; a 2.8.1 hotfix is in progress.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1012",
+    "subject": "R2 Wi-Fi roaming failures since update",
+    "requester": { "name": "Derek Holm", "email": "derek.holm@waynesupply.com" },
+    "customer": "wayne",
+    "status": "open",
+    "priority": "high",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-09-03T13:30:00Z",
+    "updated_at": "2026-09-05T16:45:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "derek.holm@waynesupply.com", "created_at": "2026-09-03T13:30:00Z", "body": "After 2.8, robots fail to roam between APs and sit idle until someone power-cycles them.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-09-04T15:00:00Z", "body": "Known 2.8 issue (FW-77). Please pin each robot's zone to a single AP for now; I'll update you when 2.8.1 ships.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-09-04T15:05:00Z", "body": "Fourth Wi-Fi ticket this month and still no FAQ/KB entry to link. Writing the workaround by hand each time.", "public": false }
+    ]
+  },
+  {
+    "id": "ZD-1013",
+    "subject": "Refund request for 2 R2 units",
+    "requester": { "name": "Raymond Cho", "email": "raymond.cho@initech.com" },
+    "customer": "initech",
+    "status": "solved",
+    "priority": "normal",
+    "tags": ["refund", "r2"],
+    "assignee": "priya@northwind.dev",
+    "created_at": "2026-09-08T15:10:00Z",
+    "updated_at": "2026-09-12T17:30:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "raymond.cho@initech.com", "created_at": "2026-09-08T15:10:00Z", "body": "We bought 2 extra R2 units 22 days ago for a project that got cancelled. Can we return them for a refund?", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-09-09T14:00:00Z", "body": "Yes. Our refund window is 30 days from delivery, so both units qualify. ShipFast will pick them up and the refund posts once they're inspected.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1014",
+    "subject": "Proration looks wrong for 8 robots added mid-cycle",
+    "requester": { "name": "Pat Lin", "email": "pat.lin@hooliretail.com" },
+    "customer": "hooli",
+    "status": "solved",
+    "priority": "normal",
+    "tags": ["billing", "proration", "paystream"],
+    "assignee": "mei@northwind.dev",
+    "created_at": "2026-09-11T16:00:00Z",
+    "updated_at": "2026-09-15T18:10:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "pat.lin@hooliretail.com", "created_at": "2026-09-11T16:00:00Z", "body": "We added 8 robots on Aug 20. The September invoice charge for them doesn't match our math.", "public": true },
+      { "author": "mei@northwind.dev", "created_at": "2026-09-15T18:10:00Z", "body": "I checked the billing service: the August charge covered Aug 20-31 (12 of 31 days) and September is a full month. Breakdown attached; no correction needed.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1015",
+    "subject": "How long do we have to return a robot?",
+    "requester": { "name": "Nora Feld", "email": "nora.feld@soylentgrocers.com" },
+    "customer": "soylent",
+    "status": "solved",
+    "priority": "low",
+    "tags": ["refund", "policy"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-09-15T14:30:00Z",
+    "updated_at": "2026-09-16T15:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "nora.feld@soylentgrocers.com", "created_at": "2026-09-15T14:30:00Z", "body": "Before we buy two more units, what's your refund window if they don't work out?", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-09-16T15:00:00Z", "body": "You can request a full refund within 30 days of delivery.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1016",
+    "subject": "Robots keep disconnecting from Wi-Fi (firmware 2.8)",
+    "requester": { "name": "Lydia Pratt", "email": "lydia.pratt@initech.com" },
+    "customer": "initech",
+    "status": "open",
+    "priority": "normal",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-09-18T13:15:00Z",
+    "updated_at": "2026-09-19T16:00:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "lydia.pratt@initech.com", "created_at": "2026-09-18T13:15:00Z", "body": "We see random Wi-Fi disconnects on about a third of our fleet since the 2.8 rollout.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-09-19T16:00:00Z", "body": "This is FW-77. Turn off band steering on your controller as a workaround; there's no KB article yet, sorry for the manual steps.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1017",
+    "subject": "Atlas beta feedback: scheduling view and alerts",
+    "requester": { "name": "Ian Kowalski", "email": "ian.kowalski@umbrellafreight.com" },
+    "customer": "umbrella",
+    "status": "pending",
+    "priority": "normal",
+    "tags": ["atlas", "beta", "feedback"],
+    "assignee": "priya@northwind.dev",
+    "created_at": "2026-09-22T15:40:00Z",
+    "updated_at": "2026-09-24T14:00:00Z",
+    "linked_issue_ids": ["ATL-204"],
+    "comments": [
+      { "author": "ian.kowalski@umbrellafreight.com", "created_at": "2026-09-22T15:40:00Z", "body": "Atlas beta is working well overall. The scheduling view is slow with 30 robots and offline alerts fire too often.", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-09-23T16:30:00Z", "body": "Thanks, Ian. I've passed this to the Atlas product team; it's tracked in ATL-204.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1018",
+    "subject": "SSO required for Atlas rollout",
+    "requester": { "name": "Dana Whitfield", "email": "dana.whitfield@globexlogistics.com" },
+    "customer": "globex",
+    "status": "open",
+    "priority": "urgent",
+    "tags": ["atlas", "sso", "saml", "enterprise"],
+    "assignee": "devon@northwind.dev",
+    "created_at": "2026-09-26T15:30:00Z",
+    "updated_at": "2026-10-08T19:00:00Z",
+    "linked_issue_ids": ["ATL-212"],
+    "comments": [
+      { "author": "dana.whitfield@globexlogistics.com", "created_at": "2026-09-26T15:30:00Z", "body": "Our security policy requires SAML SSO. We cannot roll Atlas out to our 120 robots until Enterprise SSO via KeyGate works.", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-09-26T17:00:00Z", "body": "Escalated to Devon Lee (Identity). Tied to ATL-212; Omar is handling the account side.", "public": false },
+      { "author": "devon@northwind.dev", "created_at": "2026-10-08T19:00:00Z", "body": "ATL-212 is still blocked on KeyGate's SAML metadata signing-cert rotation bug. KeyGate now says Oct 13 at the earliest; we'll confirm as soon as it lands.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1019",
+    "subject": "R2 stuck 'reconnecting' several times a day",
+    "requester": { "name": "Marcus Webb", "email": "marcus.webb@soylentgrocers.com" },
+    "customer": "soylent",
+    "status": "open",
+    "priority": "normal",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-09-29T14:10:00Z",
+    "updated_at": "2026-09-30T15:30:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "marcus.webb@soylentgrocers.com", "created_at": "2026-09-29T14:10:00Z", "body": "Our robots show 'reconnecting' on screen several times a day since the August update to 2.8.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-09-30T15:30:00Z", "body": "Known roaming bug in 2.8 (FW-77). Pinning each robot to its nearest AP should stabilize it until the 2.8.1 hotfix.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1020",
+    "subject": "ShipFast return pickup never arrived",
+    "requester": { "name": "Raymond Cho", "email": "raymond.cho@initech.com" },
+    "customer": "initech",
+    "status": "solved",
+    "priority": "normal",
+    "tags": ["shipping", "shipfast", "rma"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-10-01T13:50:00Z",
+    "updated_at": "2026-10-03T16:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "raymond.cho@initech.com", "created_at": "2026-10-01T13:50:00Z", "body": "ShipFast was supposed to collect the 2 returned units yesterday but no one showed up.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-10-02T15:20:00Z", "body": "ShipFast missed the window; pickup is rebooked for Oct 3 between 9am and noon. Your refund timing isn't affected.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1021",
+    "subject": "Lease buyout options at end of term",
+    "requester": { "name": "Derek Holm", "email": "derek.holm@waynesupply.com" },
+    "customer": "wayne",
+    "status": "pending",
+    "priority": "low",
+    "tags": ["lease", "account"],
+    "assignee": "priya@northwind.dev",
+    "created_at": "2026-10-05T16:20:00Z",
+    "updated_at": "2026-10-06T14:30:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "derek.holm@waynesupply.com", "created_at": "2026-10-05T16:20:00Z", "body": "Can we buy out our leased R2s at the end of the term, and what would that cost?", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-10-06T14:30:00Z", "body": "Buyouts are available at end of term; pricing depends on unit age. I've asked Omar to send you a quote.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1022",
+    "subject": "Your policy page says 14 days but your agent said 30",
+    "requester": { "name": "Ben Ostrowski", "email": "ben.ostrowski@acmefoods.com" },
+    "customer": "acmefoods",
+    "status": "open",
+    "priority": "normal",
+    "tags": ["refund", "policy"],
+    "assignee": "priya@northwind.dev",
+    "created_at": "2026-10-06T15:00:00Z",
+    "updated_at": "2026-10-07T16:10:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "ben.ostrowski@acmefoods.com", "created_at": "2026-10-06T15:00:00Z", "body": "Your policy page says 14 days but your agent said 30. We're at day 20 on a returned unit; which one applies?", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-10-07T16:00:00Z", "body": "Apologies for the confusion: the current window is 30 days, so your return qualifies. The policy page is out of date and we're correcting it.", "public": true },
+      { "author": "priya@northwind.dev", "created_at": "2026-10-07T16:10:00Z", "body": "Reminder to self: refund policy doc still says 14 days; update is overdue.", "public": false }
+    ]
+  },
+  {
+    "id": "ZD-1023",
+    "subject": "Wi-Fi drops on R2 fleet after 2.8 upgrade",
+    "requester": { "name": "Helen Marsh", "email": "helen.marsh@starkdistribution.com" },
+    "customer": "stark",
+    "status": "open",
+    "priority": "high",
+    "tags": ["wifi", "firmware-2.8", "r2"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-10-08T14:00:00Z",
+    "updated_at": "2026-10-09T15:00:00Z",
+    "linked_issue_ids": ["FW-77"],
+    "comments": [
+      { "author": "helen.marsh@starkdistribution.com", "created_at": "2026-10-08T14:00:00Z", "body": "We upgraded our 64 robots to 2.8 last week and now see Wi-Fi drops during handoff between APs.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-10-09T15:00:00Z", "body": "Same issue as FW-77. Disable band steering and pin high-traffic zones to one AP; the 2.8.1 hotfix is in progress. We still don't have a KB article, so I'm sending the steps directly.", "public": true }
+    ]
+  },
+  {
+    "id": "ZD-1024",
+    "subject": "Cloud Console 2FA reset for new site manager",
+    "requester": { "name": "Tom Reyes", "email": "tom.reyes@globexlogistics.com" },
+    "customer": "globex",
+    "status": "solved",
+    "priority": "low",
+    "tags": ["cloud-console", "login", "2fa"],
+    "assignee": "marco@northwind.dev",
+    "created_at": "2026-10-10T14:30:00Z",
+    "updated_at": "2026-10-10T18:00:00Z",
+    "linked_issue_ids": [],
+    "comments": [
+      { "author": "tom.reyes@globexlogistics.com", "created_at": "2026-10-10T14:30:00Z", "body": "Our new site manager inherited a Cloud Console account but the 2FA device belonged to her predecessor.", "public": true },
+      { "author": "marco@northwind.dev", "created_at": "2026-10-10T18:00:00Z", "body": "After verifying with your admin, I've reset 2FA on that account. She'll be prompted to enroll a new device at next login.", "public": true }
+    ]
+  }
+]

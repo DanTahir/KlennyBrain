@@ -1,0 +1,7 @@
+[
+  { "id": "atlas-launch-20260820-01", "type": "message", "user": "U09SAM", "iso": "2026-08-20T16:05:00Z", "text": "Opened ATL-212 (Enterprise SAML SSO via KeyGate): https://linear.northwind.dev/issue/ATL-212. It blocks the GA epic ATL-200. <@U07DEVON> can you own it?", "thread_id": null },
+  { "id": "atlas-launch-20260820-02", "type": "message", "user": "U07DEVON", "iso": "2026-08-20T16:20:00Z", "text": "Taking it. I've already got a KeyGate sandbox tenant. Plan: SP metadata, ACS endpoint, JIT provisioning, then test against Globex's Okta via KeyGate.", "thread_id": "atlas-launch-20260820-01", "reactions": [{ "name": "raised_hands", "count": 3 }] },
+  { "id": "atlas-launch-20260820-03", "type": "message", "user": "U10KAI", "iso": "2026-08-20T16:45:00Z", "text": "I'll do the login UI for SSO (ATL-215): \"Sign in with your company\" button + domain discovery.", "thread_id": "atlas-launch-20260820-01" },
+  { "id": "atlas-launch-20260820-04", "type": "message", "user": "U05JORDAN", "iso": "2026-08-20T17:10:00Z", "text": "Devon, I'll keep you off on-call through September so you can focus on this.", "thread_id": "atlas-launch-20260820-01" },
+  { "id": "atlas-launch-20260820-05", "type": "message", "user": "U14LENA", "iso": "2026-08-20T19:30:00Z", "text": "Globex asked again today if SSO is on track. I told them it's actively in development. Ping me if anything changes.", "thread_id": null }
+]

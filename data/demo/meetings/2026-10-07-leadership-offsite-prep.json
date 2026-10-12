@@ -1,0 +1,41 @@
+{
+  "id": "mtg-20261007-leadership-offsite-prep",
+  "title": "Leadership offsite prep (confidential)",
+  "date": "2026-10-07T22:00:00Z",
+  "duration_minutes": 55,
+  "attendees": ["elena@northwind.dev", "raj@northwind.dev", "ana@northwind.dev", "tess@northwind.dev"],
+  "project": null,
+  "acl": ["group:dept:exec"],
+  "transcript": [
+    { "speaker": "elena@northwind.dev", "t": "00:00", "text": "Reminder, this is confidential. Nothing here leaves the room until the all-hands on October 20. Three topics: the reorg, comp bands, and Globex." },
+    { "speaker": "ana@northwind.dev", "t": "00:30", "text": "Reorg. Support and Customer Success merge into one Customer Experience org under me, effective November 1. Priya keeps the support team, Omar keeps accounts, both report to me as today, but with one queue, one escalation path and shared metrics." },
+    { "speaker": "raj@northwind.dev", "t": "01:15", "text": "What changes day to day for them?" },
+    { "speaker": "ana@northwind.dev", "t": "01:25", "text": "Honestly, the Wi-Fi mess proved the point. Marco was fielding tickets that Omar's accounts were escalating separately. One org, one view of the customer." },
+    { "speaker": "tess@northwind.dev", "t": "01:55", "text": "From People: no title changes, no comp changes from the reorg itself. I'd like one-on-ones with Priya and Omar before the all-hands so it's not a surprise." },
+    { "speaker": "elena@northwind.dev", "t": "02:20", "text": "Agreed. Ana, you and Tess do those the week of the 13th." },
+    { "speaker": "tess@northwind.dev", "t": "02:45", "text": "Comp bands. Benchmark data came back. Our engineering bands are about 7 percent under market at senior and staff. Proposal is plus 6 percent on engineering bands, effective January 1, 2027." },
+    { "speaker": "raj@northwind.dev", "t": "03:20", "text": "Thank you. I've lost two candidates this quarter on cash. And I'd hate to lose Mei or Devon to a recruiter." },
+    { "speaker": "elena@northwind.dev", "t": "03:40", "text": "What's the cost?" },
+    { "speaker": "tess@northwind.dev", "t": "03:50", "text": "Roughly 410 thousand annualized for engineering at current headcount. Fits the plan if we hold two backfills to Q1." },
+    { "speaker": "elena@northwind.dev", "t": "04:15", "text": "Approved. Bands change in January, individual adjustments go through the normal cycle. Tess, finalize the doc." },
+    { "speaker": "elena@northwind.dev", "t": "04:45", "text": "Globex. Where are we really?" },
+    { "speaker": "ana@northwind.dev", "t": "05:00", "text": "Omar says yesterday's QBR was tense. Dana was polite but clear: procurement won't sign the November 30 renewal with Enterprise until SSO is live. And we still haven't sent her the written timeline." },
+    { "speaker": "raj@northwind.dev", "t": "05:30", "text": "KeyGate says the 9th. I don't believe it. Devon hasn't done the exec sponsor escalation yet either; I'll make sure that happens." },
+    { "speaker": "elena@northwind.dev", "t": "05:55", "text": "If needed I'll call their CEO myself. Four eighty in ARR is not something we lose to a cert bug." },
+    { "speaker": "ana@northwind.dev", "t": "06:20", "text": "Lena should offer splitting the lease renewal from Atlas Enterprise. That protects most of the ARR either way." },
+    { "speaker": "elena@northwind.dev", "t": "06:40", "text": "Good. For the all-hands: I'll announce the reorg, Tess covers comp at a band level, Raj does the Atlas and firmware update. Let's draft slides by the 16th." },
+    { "speaker": "tess@northwind.dev", "t": "07:00", "text": "I'll also prep an FAQ for managers so they can answer questions the same day." }
+  ],
+  "summary": "Confidential exec session. Approved merging Support and Customer Success into one Customer Experience org under Ana Gomez, effective 2026-11-01, with no title or comp changes. Approved +6% engineering comp bands effective 2027-01-01 (about $410k annualized). Discussed Globex renewal risk: procurement won't sign the 2026-11-30 Enterprise renewal until SSO is live, and the written timeline has not been sent. Planned announcements for the 2026-10-20 all-hands.",
+  "decisions": [
+    "Merge Support and Customer Success under Ana Gomez, effective 2026-11-01.",
+    "Increase engineering comp bands by 6%, effective 2027-01-01.",
+    "Announce the reorg and comp band changes at the 2026-10-20 all-hands."
+  ],
+  "action_items": [
+    { "owner": "ana@northwind.dev", "text": "Hold one-on-ones with Priya and Omar about the reorg before the all-hands", "due": "2026-10-16", "status": "open" },
+    { "owner": "tess@northwind.dev", "text": "Finalize the Q4 comp bands doc and manager FAQ", "due": "2026-10-16", "status": "open" },
+    { "owner": "elena@northwind.dev", "text": "Draft Oct 20 all-hands slides", "due": "2026-10-16", "status": "open" },
+    { "owner": "raj@northwind.dev", "text": "Ensure the KeyGate exec sponsor escalation happens; join the call", "due": "2026-10-09", "status": "open" }
+  ]
+}

@@ -1,0 +1,6 @@
+[
+{"id":"product-20260616-01","type":"message","user":"U10KAI","iso":"2026-06-16T17:30:00Z","text":"Onboarding usability test results (5 sessions): 4/5 got stuck on 'claim robots' because the serial number is on the underside of the R2. Adding a QR scan option.","thread_id":null,"reactions":[{"name":"bulb","count":3}]},
+{"id":"product-20260616-02","type":"message","user":"U05JORDAN","iso":"2026-06-16T17:42:00Z","text":"QR is doable. The serial is already encoded in the label QR, we just never used it.","thread_id":"product-20260616-01"},
+{"id":"product-20260616-03","type":"message","user":"U09SAM","iso":"2026-06-16T17:50:00Z","text":"Love it. Adding to the GA scope.","thread_id":"product-20260616-01"},
+{"id":"product-20260616-04","type":"message","user":"U02RAJ","iso":"2026-06-16T20:10:00Z","text":"Roadmap check: legacy Console sunset should not happen before Atlas has 90 days in GA.","thread_id":null}
+]

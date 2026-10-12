@@ -1,0 +1,7 @@
+[
+{"id":"support-20260813-01","type":"message","user":"U12MARCO","iso":"2026-08-13T16:20:00Z","text":"Wi-Fi drops after firmware 2.8: now 2 tickets, Hooli (ZD-1042) and Acme Foods. Robots fall off the network every few hours and need a power-cycle. Linked both to FW-77.","thread_id":null},
+{"id":"support-20260813-02","type":"message","user":"U07DEVON","iso":"2026-08-13T16:28:00Z","text":"Raj repro'd it yesterday, it's the roaming threshold in 2.8. Hotfix 2.8.1 is in progress.","thread_id":"support-20260813-01"},
+{"id":"support-20260813-03","type":"message","user":"U12MARCO","iso":"2026-08-13T16:33:00Z","text":"Thanks. Telling customers: power-cycle as workaround, auto-update to 2.8 paused, hotfix coming. I'll keep a tally of affected accounts here.","thread_id":"support-20260813-01"},
+{"id":"support-20260813-04","type":"message","user":"U13OMAR","iso":"2026-08-13T17:00:00Z","text":"Hooli is the loud one, 80 robots and peak season prep. I'll set up a weekly check-in with them until 2.8.1 ships.","thread_id":"support-20260813-01"},
+{"id":"support-20260813-05","type":"message","user":"U11PRIYA","iso":"2026-08-13T19:45:00Z","text":"Macro refresh is about 60% done. Refund macro draft is waiting on the policy review on the 18th.","thread_id":null}
+]
