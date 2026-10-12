@@ -41,7 +41,7 @@ describe('UnifiedHeader', () => {
     render(<UnifiedHeader />);
     const brand = screen.getByTestId('header-brand');
     expect(brand.getAttribute('data-logo')).toBe(LOGO_PATH);
-    expect(brand.getAttribute('data-brand')).toBe('app-starter');
+    expect(brand.getAttribute('data-brand')).toBe('KlennyBrain');
   });
 
   it('uses custom logo when customLogoUrl is provided', () => {
@@ -56,6 +56,6 @@ describe('UnifiedHeader', () => {
     render(<UnifiedHeader customLogoUrl={null} />);
     const brand = screen.getByTestId('header-brand');
     expect(brand.getAttribute('data-logo')).toBe(LOGO_PATH);
-    expect(brand.getAttribute('data-brand')).toBe('app-starter');
+    expect(brand.getAttribute('data-brand')).toBe('KlennyBrain');
   });
 });

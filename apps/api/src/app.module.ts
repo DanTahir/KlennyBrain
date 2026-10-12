@@ -18,6 +18,7 @@ import { ShortLinksModule } from './features/short-links/short-links.module';
 import { AdminImpersonationModule } from './admin-impersonation/admin-impersonation.module';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { BrainModule } from './brain/brain.module';
+import { AskModule } from './ask/ask.module';
 
 @Module({
   imports: [
@@ -52,6 +53,7 @@ import { BrainModule } from './brain/brain.module';
     AdminImpersonationModule,
     AdminDashboardModule,
     BrainModule,
+    AskModule,
   ],
   controllers: [AppController],
   providers: [

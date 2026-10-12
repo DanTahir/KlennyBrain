@@ -283,6 +283,7 @@ export class HydraService {
         kind: source?.appKind ?? null,
         depth: Number(source?.depth ?? 0),
         discoveredRelation: source?.discoveredRelation ?? null,
+        discoveredVia: source?.discoveredVia ?? null,
       }))
       .filter((source: { hydraId: string }) => source.hydraId);
     const triplets: any[] = [

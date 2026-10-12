@@ -47,8 +47,8 @@ export function UnifiedHeader({
             as={Link}
             href="/"
             logoSrc={customLogoUrl || LOGO_PATH}
-            logoAlt="App Starter"
-            brandName={customLogoUrl ? '' : 'app-starter'}
+            logoAlt="KlennyBrain"
+            brandName={customLogoUrl ? '' : 'KlennyBrain'}
             logoHeight={logoHeight}
             isCustomLogo={!!customLogoUrl}
             className={customLogoUrl && !logoHeight ? 'max-h-10 w-auto' : ''}

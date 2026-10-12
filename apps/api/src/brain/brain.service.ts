@@ -99,6 +99,11 @@ export class BrainService {
     return toSyncJobDto(await this.ingestion.startSync(organizationId, sourceId));
   }
 
+  async refreshMirror(userId: string, organizationId: string, sourceId: string): Promise<{ items: number }> {
+    await this.acl.requireRole(userId, organizationId, ADMIN_ROLES);
+    return { items: await this.ingestion.refreshMirror(organizationId, sourceId) };
+  }
+
   async listJobs(userId: string, organizationId: string, sourceId: string): Promise<SyncJobDto[]> {
     await this.acl.requireRole(userId, organizationId);
     const jobs = await this.prisma.syncJob.findMany({

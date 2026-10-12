@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 import { UniversalLayout } from '@/components/layout/UniversalLayout';
 
 export const metadata = {
-  title: 'App Starter',
+  title: 'KlennyBrain',
   description:
-    'A multi-tenant SaaS starter with authentication, organizations, custom domains, and notifications.',
+    'A company brain: cited, permission-aware answers and agentic actions across Slack, docs, tickets and meetings.',
 };
 
 const CAPABILITIES = [
@@ -45,11 +45,12 @@ export default function HomePage() {
       <main className="mx-auto max-w-5xl px-4 py-20">
         <section className="space-y-6 text-center">
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Ship the SaaS, not the scaffolding
+            Your company&apos;s brain, with receipts
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            A production-shaped starter: NestJS and Next.js in a Turborepo, with multi-tenancy,
-            custom domains, and notifications already wired together. Billing is left to you.
+            KlennyBrain connects Slack, email, docs, meetings, tickets and issues into a HydraDB
+            knowledge graph. Ask anything and get cited, permission-aware answers, spot
+            contradictions and stale docs, and let the agent fix them with your approval.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Button asChild size="lg">

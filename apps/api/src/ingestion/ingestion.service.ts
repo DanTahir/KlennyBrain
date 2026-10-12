@@ -5,7 +5,7 @@ import { HydraService, SEARCHABLE_STATUSES } from '../hydra/hydra.service';
 import { HydraAppKnowledgeItem } from '../hydra/hydra.types';
 import { DemoAdapter } from './adapters/demo.adapter';
 import { JobRunnerService } from './job-runner.service';
-import { toAppKnowledgeItem } from './mappers/app-knowledge.mapper';
+import { hydraIdFor, toAppKnowledgeItem } from './mappers/app-knowledge.mapper';
 import { NormalizedRecord } from './normalized-record';
 import { SourceAdapter } from './source-adapter.interface';
 
@@ -113,6 +113,7 @@ export class IngestionService {
 
       const pairs = records.map((record) => ({ record, item: toAppKnowledgeItem(record) }));
       await this.mirror(organizationId, source.id, pairs, 'queued');
+      // (relations are mirrored too so graph exploration works before HydraDB finishes its graph)
 
       let processed = 0;
       let failed = 0;
@@ -160,6 +161,23 @@ export class IngestionService {
     }
   }
 
+  /** Re-reads a source and refreshes only the Postgres mirror (no HydraDB re-ingest). */
+  async refreshMirror(organizationId: string, sourceId: string): Promise<number> {
+    const source = await this.prisma.source.findFirstOrThrow({ where: { id: sourceId, organizationId } });
+    const adapter = this.adapters[source.type];
+    if (!adapter) throw new Error(`No adapter for ${source.type}`);
+    const records = await adapter.fetch({
+      organizationId,
+      config: (source.config ?? {}) as Record<string, unknown>,
+    });
+    await this.mirror(
+      organizationId,
+      source.id,
+      records.map((record) => ({ record, item: toAppKnowledgeItem(record) })),
+    );
+    return records.length;
+  }
+
   /** Polls HydraDB until items are searchable/completed, recording progress on the job. */
   private async trackIndexing(jobId: string, organizationId: string, space: BrainSpace, ids: string[]) {
     const deadline = Date.now() + INDEX_TRACK_MS;
@@ -190,7 +208,7 @@ export class IngestionService {
     organizationId: string,
     sourceId: string,
     pairs: { record: NormalizedRecord; item: HydraAppKnowledgeItem }[],
-    indexingStatus: string,
+    indexingStatus?: string,
   ): Promise<void> {
     for (let offset = 0; offset < pairs.length; offset += 50) {
       const slice = pairs.slice(offset, offset + 50);
@@ -209,8 +227,14 @@ export class IngestionService {
             occurredAt: new Date(record.occurredAt),
             acl: item.acl ?? Prisma.DbNull,
             metadata: item.metadata as Prisma.InputJsonValue,
-            additional: (item.additional_metadata ?? {}) as Prisma.InputJsonValue,
-            indexingStatus,
+            additional: {
+              ...(item.additional_metadata ?? {}),
+              relations: (item.relations ?? []).map((relation) => ({
+                predicate: relation.predicate,
+                target: hydraIdFor(relation.target.provider, relation.target.external_id),
+              })),
+            } as Prisma.InputJsonValue,
+            ...(indexingStatus ? { indexingStatus } : {}),
           };
           return this.prisma.knowledgeItem.upsert({
             where: { organizationId_hydraId: { organizationId, hydraId: item.id } },

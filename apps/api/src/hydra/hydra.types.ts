@@ -63,6 +63,8 @@ export interface HydraSubgraphSource {
   kind: string | null;
   depth: number;
   discoveredRelation: string | null;
+  /** hydraId of the item this one was reached from. */
+  discoveredVia: string | null;
 }
 
 export interface HydraSubgraphResult {

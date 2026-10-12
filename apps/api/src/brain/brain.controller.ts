@@ -65,6 +65,15 @@ export class BrainController {
     return this.brainService.syncSource(req.user.sub, organizationId, sourceId);
   }
 
+  @Post('sources/:sourceId/refresh-mirror')
+  refreshMirror(
+    @Request() req: { user: TokenPayload },
+    @Param('organizationId', ParseUUIDPipe) organizationId: string,
+    @Param('sourceId', ParseUUIDPipe) sourceId: string,
+  ): Promise<{ items: number }> {
+    return this.brainService.refreshMirror(req.user.sub, organizationId, sourceId);
+  }
+
   @Get('sources/:sourceId/jobs')
   listJobs(
     @Request() req: { user: TokenPayload },
