@@ -12,6 +12,7 @@ const API = (process.env.SMOKE_API_URL || 'http://localhost:3001').replace(/\/$/
 const WEB = (process.env.WEB_URL || 'http://localhost:3000').replace(/\/$/, '');
 const PLAYWRIGHT = process.env.PLAYWRIGHT_PACKAGE || 'playwright@latest';
 const TOKEN_KEY = 'app_starter_access_token';
+const CONSENT_COOKIE = 'app_starter_consent';
 const OUT_DIR = path.resolve('docs/screenshots');
 
 const only = (() => {
@@ -47,6 +48,23 @@ async function main() {
     JSON.stringify({
       cookies: [
         { name: TOKEN_KEY, value: accessToken, domain: 'localhost', path: '/', expires: -1, httpOnly: false, secure: false, sameSite: 'Lax' },
+        // Pre-accept essential-only cookies so the consent banner doesn't cover the shots.
+        {
+          name: CONSENT_COOKIE,
+          value: encodeURIComponent(
+            JSON.stringify({
+              version: 1,
+              timestamp: new Date().toISOString(),
+              preferences: { essential: true, analytics: false, marketing: false },
+            }),
+          ),
+          domain: 'localhost',
+          path: '/',
+          expires: -1,
+          httpOnly: false,
+          secure: false,
+          sameSite: 'Lax',
+        },
       ],
       origins: [{ origin: WEB, localStorage: [{ name: TOKEN_KEY, value: accessToken }] }],
     }),
@@ -54,10 +72,11 @@ async function main() {
 
   const base = `${WEB}/organizations/${org.id}`;
   const shots = [
-    { name: 'home', url: base, waitMs: 8000, fullPage: true },
-    { name: 'ask', url: `${base}/ask?q=${encodeURIComponent('What is blocking the Atlas launch?')}`, waitMs: 75000, fullPage: true },
-    { name: 'insights', url: `${base}/insights`, waitMs: 8000, fullPage: false },
-    { name: 'actions', url: `${base}/actions`, waitMs: 8000, fullPage: false },
+    // Tall viewports instead of --full-page: full-page capture repaints the sticky header mid-image.
+    { name: 'home', url: base, waitMs: 8000, viewport: '1440,1300' },
+    { name: 'ask', url: `${base}/ask?q=${encodeURIComponent('What is blocking the Atlas launch?')}`, waitMs: 75000, viewport: '1440,1500' },
+    { name: 'insights', url: `${base}/insights`, waitMs: 8000, viewport: '1440,1100' },
+    { name: 'actions', url: `${base}/actions`, waitMs: 8000, viewport: '1440,1100' },
   ].filter((shot) => !only || only.has(shot.name));
 
   mkdirSync(OUT_DIR, { recursive: true });
@@ -73,9 +92,8 @@ async function main() {
           'screenshot',
           '--browser=chromium',
           `--load-storage=${statePath}`,
-          '--viewport-size=1440,900',
+          `--viewport-size=${shot.viewport}`,
           `--wait-for-timeout=${shot.waitMs}`,
-          ...(shot.fullPage ? ['--full-page'] : []),
           shot.url,
           out,
         ],

@@ -56,6 +56,9 @@ company is Northwind Robotics, a fictional warehouse robotics company. Its datas
   in-channel. Replies are Block Kit answers with numbered sources, an "Open in KlennyBrain" button,
   and a footer stating whose permissions applied. Unmapped Slack users get answers from public
   knowledge only.
+- **Live Slack ingestion.** The bot also listens. New human messages in its channels are upserted
+  into HydraDB as they happen, with thread links, author attribution and private-channel ACLs. A
+  fact said in Slack can be asked about in the brain about a minute later.
 - **Brain Home.** A dashboard with suggested questions, knowledge stats, open insights, recent agent
   actions and integration status.
 
@@ -184,8 +187,8 @@ JobRunner tracks SyncJob progress.
 
 ## What's next
 
-- Real Slack, Gmail, Drive and Notion adapters on the existing SourceAdapter interface
-- Live Slack ingestion, so the brain learns as conversations happen
+- Slack history backfill plus Gmail, Drive and Notion adapters on the existing SourceAdapter interface
+- Mirroring Slack edits and deletes into the live-ingested knowledge
 - A full graph explorer beyond the per-answer mini graph
 - BullMQ-backed jobs to replace the in-process JobRunner
 - An MCP server, so other agents can query the brain with the same ACLs

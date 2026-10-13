@@ -233,8 +233,9 @@ optional ones; the related features stay off.
 
 ## Slack bot setup
 
-1. Create a Slack app from `slack/manifest.json`. It configures Socket Mode, the `app_mention` and
-   `message.im` events, the `/brain` command, and scopes including `users:read.email`.
+1. Create a Slack app from `slack/manifest.json`. It configures Socket Mode, the `app_mention`,
+   `message.channels`, `message.groups` and `message.im` events, the `/brain` command, and scopes
+   including `users:read.email`.
 2. Create an app-level token with `connections:write` and set it as `SLACK_APP_TOKEN`.
 3. Install the app to your workspace and set the bot token as `SLACK_BOT_TOKEN`.
 4. Restart the API. Look for the log line `Slack bot connected over Socket Mode`.
@@ -248,6 +249,17 @@ Usage:
 
 Replies are Block Kit answers with numbered sources, an "Open in KlennyBrain" button and a footer
 stating whose permissions applied.
+
+**Live ingestion.** New human messages in any channel the bot is in are upserted into the brain as
+they happen: into HydraDB as `message` app_knowledge, and into the Postgres mirror under a "Slack (live)"
+source. Bot posts, edits and joins are skipped, and so are questions addressed to `@Brain`. Thread
+replies keep their `thread_id`/`reply_to_id`. Messages from private channels get a
+`group:slack:<channel>` ACL. Authors are matched to directory people where possible. A message is
+searchable once HydraDB reaches `graph_creation`, typically within a minute; it takes longer while a
+bulk sync is queued. Set `SLACK_LIVE_INGEST=false` to turn this off.
+`node scripts/slack-live-check.mjs --code 1234 --wait 60` checks it end to end. First post
+"Facilities update: the door code for the Oakland HQ demo room is now 1234" in a channel; the
+script then asks the brain for the code.
 
 Permission mapping, in order:
 
@@ -273,6 +285,8 @@ https://github.com/DanTahir/northwind-atlas-tracker/issues/1.
 | `node scripts/demo-reset.mjs` | Clears insights and actions, re-syncs demo data (restoring the stale refund doc) and re-runs analysis; run before each demo |
 | `node scripts/insights-check.mjs` | CLI for analyze, list, fix, actions, approve and reject |
 | `node scripts/slack-bot-check.mjs` | Checks the Slack bot and joins it to public channels |
+| `node scripts/slack-live-check.mjs` | End-to-end check that a new Slack message becomes searchable brain knowledge |
+| `node scripts/screenshots.mjs` | Regenerates the README screenshots in `docs/screenshots/` |
 | `node scripts/demo-data/validate.mjs` | Validates dataset referential integrity |
 | `scripts/spikes/*` | HydraDB and LLM spikes; findings in [docs/hydra-findings.md](docs/hydra-findings.md) |
 
@@ -292,12 +306,13 @@ questions are in [data/demo/GROUND_TRUTH.md](data/demo/GROUND_TRUTH.md).
 
 ## Limitations and next steps
 
-- The demo adapter is the only ingestion adapter. The SourceAdapter interface is ready for Slack
-  history, Gmail, Drive and Notion.
+- The demo adapter is the only bulk-sync adapter. Real Slack messages arrive live through the bot.
+  The SourceAdapter interface is ready for Slack history backfill, Gmail, Drive and Notion.
 - A Slack workspace maps to a single org via `SLACK_DEFAULT_ORG_SLUG`.
 - Jobs run on an in-process job runner; BullMQ on the existing Redis is next.
 - There is no full graph explorer page yet, only the per-answer "Why this answer" graph.
-- There is no live Slack message ingestion yet.
+- Live Slack ingestion covers new messages. Edits and deletes are not mirrored yet, and channel
+  history from before the bot joined is not backfilled.
 - Slack conversations from unmapped users are stored under the org owner.
 
 ## Credits and license

@@ -192,6 +192,11 @@ class EnvironmentVariables {
   @IsOptional()
   SLACK_BOT_ENABLED?: string;
 
+  /** "false" stops the bot from ingesting new channel messages into the brain. */
+  @IsString()
+  @IsOptional()
+  SLACK_LIVE_INGEST?: string;
+
   /** Slack user id to directory email, e.g. "U123=elena@northwind.dev,U456=ollie@northwind.dev". */
   @IsString()
   @IsOptional()

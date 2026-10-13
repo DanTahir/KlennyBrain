@@ -54,6 +54,7 @@ node scripts/demo-reset.mjs
 | Ask (after approval) | `What is our refund window?` |
 | Slack `#all-klennyspace` | `@brain What action items are overdue?` |
 | Slack (optional) | `/brain What is our refund window?` |
+| Slack, live ingestion (optional) | Post a normal message (no @brain), e.g. `Facilities update: the door code for the Oakland HQ demo room is now 7342, effective today.` About a minute later, ask in the web app: `What was the latest facilities update posted in Slack about the Oakland HQ demo room?` The answer cites the live Slack message. |
 
 ## Fallback tips
 
