@@ -16,9 +16,9 @@ jest.mock('@/lib/domain-mappings-api', () => ({
 
 describe('RootLayout generateMetadata', () => {
   const defaultMetadata = {
-    title: 'App Starter',
+    title: 'KlennyBrain',
     description:
-      'A multi-tenant SaaS starter with authentication, organizations, and invites already wired up.',
+      'A company brain: cited, permission-aware answers and agentic actions across Slack, docs, tickets and meetings, powered by HydraDB.',
     icons: {
       icon: '/images/favicon.png',
     },

@@ -43,7 +43,7 @@ export function toSlackMrkdwn(markdown: string): string {
   // Protect markdown links before escaping so their angle brackets survive.
   text = text.replace(/\[([^\]\n]+)\]\((https?:\/\/[^)\s]+)\)/g, (_match, label: string, url: string) => {
     links.push(`<${url}|${escapeSlack(label)}>`);
-    return `\u0000${links.length - 1}\u0000`;
+    return `\uE000${links.length - 1}\uE000`;
   });
 
   text = escapeSlack(text)
@@ -53,7 +53,7 @@ export function toSlackMrkdwn(markdown: string): string {
     .replace(/^(\s*)[-*+]\s+/gm, '$1• ')
     .replace(/^\s*-{3,}\s*$/gm, '');
 
-  return text.replace(/\u0000(\d+)\u0000/g, (_match, index: string) => links[Number(index)] ?? '');
+  return text.replace(/\uE000(\d+)\uE000/g, (_match, index: string) => links[Number(index)] ?? '');
 }
 
 /** Splits text into section-sized chunks, preferring paragraph boundaries. */

@@ -213,6 +213,21 @@ export default function AskPage({ params }: PageProps) {
     [busy, conversationId, viewAsEmail, organizationId, queryClient, updateMessage],
   );
 
+  // Brain Home links here with ?q=<question>: ask it once, then drop the param.
+  const autoAskedRef = useRef(false);
+  useEffect(() => {
+    if (autoAskedRef.current) return;
+    const question = new URLSearchParams(window.location.search).get('q')?.trim();
+    if (!question) return;
+    // Deferred so React's dev double-mount cannot abort the first stream.
+    const timer = window.setTimeout(() => {
+      autoAskedRef.current = true;
+      window.history.replaceState(null, '', window.location.pathname);
+      void send(question);
+    }, 50);
+    return () => window.clearTimeout(timer);
+  }, [send]);
+
   const stop = useCallback(() => {
     abortRef.current?.abort();
   }, []);
