@@ -187,6 +187,21 @@ class EnvironmentVariables {
   @IsOptional()
   SLACK_DEFAULT_ORG_SLUG?: string;
 
+  /** "false" keeps the Socket Mode bot offline even when tokens are set. */
+  @IsString()
+  @IsOptional()
+  SLACK_BOT_ENABLED?: string;
+
+  /** Slack user id to directory email, e.g. "U123=elena@northwind.dev,U456=ollie@northwind.dev". */
+  @IsString()
+  @IsOptional()
+  SLACK_USER_MAP?: string;
+
+  /** Persona used for Slack users that match no directory person. Unset = public knowledge only. */
+  @IsString()
+  @IsOptional()
+  SLACK_DEFAULT_PERSONA_EMAIL?: string;
+
   @IsString()
   @IsOptional()
   GITHUB_TOKEN?: string;

@@ -21,6 +21,7 @@ import { BrainModule } from './brain/brain.module';
 import { AskModule } from './ask/ask.module';
 import { AgentActionsModule } from './agent-actions/agent-actions.module';
 import { InsightsModule } from './insights/insights.module';
+import { SlackBotModule } from './slack-bot/slack-bot.module';
 
 @Module({
   imports: [
@@ -58,6 +59,7 @@ import { InsightsModule } from './insights/insights.module';
     AskModule,
     AgentActionsModule,
     InsightsModule,
+    SlackBotModule,
   ],
   controllers: [AppController],
   providers: [
