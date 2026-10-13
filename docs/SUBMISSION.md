@@ -59,6 +59,9 @@ company is Northwind Robotics, a fictional warehouse robotics company. Its datas
 - **Live Slack ingestion.** The bot also listens. New human messages in its channels are upserted
   into HydraDB as they happen, with thread links, author attribution and private-channel ACLs. A
   fact said in Slack can be asked about in the brain about a minute later.
+- **Sensitive-data redaction.** Before anything is indexed, credentials, card numbers, SSNs and
+  phone numbers are replaced with `[REDACTED ...]` markers. That covers demo data, live Slack and
+  agent doc fixes. A secret pasted into Slack never reaches HydraDB, Postgres or an answer.
 - **Brain Home.** A dashboard with suggested questions, knowledge stats, open insights, recent agent
   actions and integration status.
 
@@ -149,6 +152,9 @@ JobRunner tracks SyncJob progress.
 - **Enforcing ACLs everywhere.** ACLs are only enforced when a query sends one. We made the ACL a
   required parameter on every search, including the insight pipeline. Insights inherit the ACLs of
   their evidence, so derived knowledge can't leak what the source knowledge hides.
+- **Redaction without breaking facts.** A company brain is full of numbers: dates, ticket ids,
+  ARR figures, Slack timestamps. The redactor uses strict patterns plus a Luhn check, and its tests
+  pin both what must be redacted and what must survive.
 - **Streaming with auth.** Streaming SSE through Next.js to an authenticated NestJS API needed
   careful handling. We added a JSON fallback so the Ask page never breaks.
 - **Keeping actions safe.** An agent that can post to Slack and open GitHub issues needs guardrails.

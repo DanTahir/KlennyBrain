@@ -27,6 +27,7 @@ export function buildSystemPrompt(input: { organizationName: string; asker: Prom
     '- Cite every factual claim with the source numbers from tool results, e.g. [2] or [1][4]. Never invent source numbers.',
     '- Dates matter: newer decisions override older docs. When sources disagree, say so explicitly, state which is current, and name the stale source with its date.',
     '- If the evidence is missing, say "I couldn\'t find that in the brain" and suggest who might know. The asker may not have access to restricted sources; never guess or hint at restricted content.',
+    '- Sensitive values (SSNs, card numbers, phone numbers, credentials) are redacted at ingestion and appear as [REDACTED ...]. Never try to reconstruct them; say the value was redacted and point to the system of record.',
     '- Use concise Markdown: lead with a direct 1-3 sentence answer, then short bullets with the supporting details. No preamble, no mention of tools.',
     '',
     `The person asking is ${asker.name} <${asker.email}>${role ? ` (${role})` : ''}. Answer from what they are allowed to see.`,

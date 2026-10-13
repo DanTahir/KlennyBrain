@@ -63,6 +63,14 @@ corrects itself. It answers in the web app and in Slack, with the same permissio
 - **Mandatory ACL on every search.** HydraService refuses to search without an ACL and throws
   `MissingAclError`. In our spike, a query sent without an ACL returned restricted items, so
   unscoped queries are made impossible, including in the insights pipeline.
+- **Sensitive-data redaction before indexing.** ACLs decide who sees an item; redaction decides
+  what never gets stored. Every record passes through `apps/api/src/ingestion/redaction.ts` before
+  it reaches HydraDB or Postgres. That covers demo sync, live Slack messages and agent doc fixes.
+  It replaces credentials (Slack, GitHub, OpenAI/OpenRouter, AWS, Google keys, private key blocks),
+  Luhn-valid card numbers (last 4 kept), SSNs and phone numbers with `[REDACTED ...]` markers.
+  It records per-kind counts in `additional_metadata.redacted`, and the agent is told never to
+  reconstruct them. Patterns favour precision, so dates, ticket ids, amounts and Slack timestamps
+  are untouched. Email addresses are kept because they drive attribution and ACLs.
 - **Thinking-mode queries with graphContext.** The agent queries in thinking mode with graph
   context; the returned query paths, plus the subgraph around cited sources, drive the
   "Why this answer" graph.
@@ -254,7 +262,8 @@ stating whose permissions applied.
 they happen: into HydraDB as `message` app_knowledge, and into the Postgres mirror under a "Slack (live)"
 source. Bot posts, edits and joins are skipped, and so are questions addressed to `@Brain`. Thread
 replies keep their `thread_id`/`reply_to_id`. Messages from private channels get a
-`group:slack:<channel>` ACL. Authors are matched to directory people where possible. A message is
+`group:slack:<channel>` ACL. SSNs, card numbers, phone numbers and credentials are redacted before
+the message is stored. Authors are matched to directory people where possible. A message is
 searchable once HydraDB reaches `graph_creation`, typically within a minute; it takes longer while a
 bulk sync is queued. Set `SLACK_LIVE_INGEST=false` to turn this off.
 `node scripts/slack-live-check.mjs --code 1234 --wait 60` checks it end to end. First post
@@ -314,6 +323,8 @@ questions are in [data/demo/GROUND_TRUTH.md](data/demo/GROUND_TRUTH.md).
 - Live Slack ingestion covers new messages. Edits and deletes are not mirrored yet, and channel
   history from before the bot joined is not backfilled.
 - Slack conversations from unmapped users are stored under the org owner.
+- Redaction is pattern-based (no NER), so names and street addresses are not redacted, and
+  unusual phone formats can slip through.
 
 ## Credits and license
 

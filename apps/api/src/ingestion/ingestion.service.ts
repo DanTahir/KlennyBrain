@@ -7,6 +7,7 @@ import { DemoAdapter } from './adapters/demo.adapter';
 import { JobRunnerService } from './job-runner.service';
 import { hydraIdFor, toAppKnowledgeItem } from './mappers/app-knowledge.mapper';
 import { NormalizedRecord } from './normalized-record';
+import { describeRedactions, redactRecord } from './redaction';
 import { SourceAdapter } from './source-adapter.interface';
 
 const BATCH_SIZE = 20;
@@ -85,9 +86,9 @@ export class IngestionService {
   }
 
   /** Upserts one knowledge doc into HydraDB and its Postgres mirror (used by the doc-fix action). */
-  async upsertRecord(organizationId: string, sourceId: string, record: NormalizedRecord): Promise<string> {
+  async upsertRecord(organizationId: string, sourceId: string, inputRecord: NormalizedRecord): Promise<string> {
     const space = await this.ensureBrainSpace(organizationId);
-    const item = toAppKnowledgeItem(record);
+    const { record, item } = this.prepare(inputRecord);
     const result = await this.withRetry(() => this.hydra.ingest(space.hydraDatabase, space.collection, [item]));
     if (result.failed.length) throw new Error(`HydraDB rejected ${item.id}: ${result.failed[0].error}`);
     await this.mirror(organizationId, sourceId, [{ record, item }], 'queued');
@@ -111,7 +112,7 @@ export class IngestionService {
         data: { status: 'RUNNING', startedAt: new Date(), total: records.length },
       });
 
-      const pairs = records.map((record) => ({ record, item: toAppKnowledgeItem(record) }));
+      const pairs = records.map((record) => this.prepare(record));
       await this.mirror(organizationId, source.id, pairs, 'queued');
       // (relations are mirrored too so graph exploration works before HydraDB finishes its graph)
 
@@ -173,9 +174,22 @@ export class IngestionService {
     await this.mirror(
       organizationId,
       source.id,
-      records.map((record) => ({ record, item: toAppKnowledgeItem(record) })),
+      records.map((record) => this.prepare(record)),
     );
     return records.length;
+  }
+
+  /**
+   * Redacts sensitive values (secrets, card numbers, SSNs, phone numbers) and maps the
+   * record to a HydraDB item. Every write path goes through here, so neither HydraDB nor
+   * the Postgres mirror ever stores the raw values. Only counts are logged.
+   */
+  private prepare(inputRecord: NormalizedRecord): { record: NormalizedRecord; item: HydraAppKnowledgeItem } {
+    const { record, counts } = redactRecord(inputRecord);
+    if (record !== inputRecord) {
+      this.logger.log(`Redacted ${describeRedactions(counts)} from ${record.provider}:${record.externalId}`);
+    }
+    return { record, item: toAppKnowledgeItem(record) };
   }
 
   /** Polls HydraDB until items are searchable/completed, recording progress on the job. */
